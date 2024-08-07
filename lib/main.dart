@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'pages/meters.dart';
 import 'pages/transactions.dart';
 import 'pages/wallet.dart';
+import 'pages/logout.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -153,15 +154,16 @@ class _MyHomePageState extends State<MyHomePage> {
               const Divider(height: 1.0, thickness: 1.0),
               ListTile(
                 leading: const Icon(Icons.live_help_sharp, color: Colors.white),
-                title: const Text('App Info', style: TextStyle(color: Colors.white)),
+                title: const Text('Logout', style: TextStyle(color: Colors.white)),
                 onTap: () {
-                  Navigator.pop(context);
-                  // Navigate to App Info
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) =>Logout()),
+                  );
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.live_help_sharp, color: Colors.white),
-                title: const Text('try', style: TextStyle(color: Colors.white)),
+                title: const Text('Sign up', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) =>Signup()),
@@ -206,7 +208,6 @@ class HomeWidget extends StatefulWidget {
   @override
   State<HomeWidget> createState() => _HomeWidgetState();
 }
-
 class _HomeWidgetState extends State<HomeWidget> {
   final List<String> _items = ['QUICK ACCESS', ];
   final List<String> _items2 = ['RECENT TRANSACTIONS', ];
@@ -285,7 +286,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               child:   Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
                     child: Row(
                       children: [
                         SizedBox(
@@ -293,25 +294,33 @@ class _HomeWidgetState extends State<HomeWidget> {
                           height: 100,
                           child:  Image.asset('images/12.png'),
                         ),
-                        SizedBox(width: 2.0,),
-                         Column(
+                       const SizedBox(width: 2.0,),
+                       const  Column(
                           children: [
-
+                            SizedBox(height: 30.0,),
                             Text('Got problems with your Postpaid Bill?',style: TextStyle(fontSize: 10.0,color: Colors.white),),
                             Text('Fix The Bill, Pay The Bill.',style: TextStyle(color: Colors.white),),
                           ],
                         ),
-                      ],
+                       ],
                     ),
                   ),
                 ],
               ),
             ),
           ),
+          Center(
+            child: Container(
+              width: sized *0.9,
+              padding: EdgeInsets.symmetric(horizontal: sized* 0.05),
+              child: Image.asset(
+                'images/apps1.jpeg',
+                width: sized* 0.95,
+              ),
+            ),
+          ),
 
-
-
-          Padding(
+            Padding(
             padding: EdgeInsets.symmetric(horizontal: sized * 0.3),
             child: const Text("What will you like to do?", style: TextStyle(fontSize: 12.0)),
           ),
