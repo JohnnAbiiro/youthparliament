@@ -23,6 +23,61 @@ class Logout extends StatelessWidget {
                ],
              ),
            ),
+            SizedBox(height: screenWidth * 0.05,),
+            Container(
+              width: screenWidth * 0.8,
+              height: screenHeight * 0.1,
+              color: const Color(0xfff1f2f7),
+              child: const Row(
+                children: [
+                  Icon(Icons.arrow_back_ios_new),
+                ],
+              ),
+            ),
+            SizedBox(height: screenWidth * 0.05,),
+            Container(
+              width: screenWidth * 0.8,
+              height: screenHeight * 0.1,
+              color: const Color(0xfff1f2f7),
+              child: const Row(
+                children: [
+                  Icon(Icons.arrow_back_ios_new),
+                ],
+              ),
+            ),
+            SizedBox(height: screenWidth * 0.05,),
+            Container(
+              width: screenWidth * 0.8,
+              height: screenHeight * 0.1,
+              color: const Color(0xfff1f2f7),
+              child: const Row(
+                children: [
+                  Icon(Icons.arrow_back_ios_new),
+                ],
+              ),
+            ),
+            SizedBox(height: screenWidth * 0.05,),
+            Container(
+              width: screenWidth * 0.8,
+              height: screenHeight * 0.1,
+              color: const Color(0xfff1f2f7),
+              child: const Row(
+                children: [
+                  Icon(Icons.arrow_back_ios_new),
+                ],
+              ),
+            ),
+            SizedBox(height: screenWidth * 0.05,),
+            Container(
+              width: screenWidth * 0.8,
+              height: screenHeight * 0.1,
+              color: const Color(0xfff1f2f7),
+              child: const Row(
+                children: [
+                  Icon(Icons.arrow_back_ios_new),
+                ],
+              ),
+            ),
           ],
        ),
     );
