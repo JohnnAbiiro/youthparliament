@@ -1,11 +1,13 @@
-import 'package:flutter/cupertino.dart';
+import 'package:ecg/pages/constants.dart';
+import 'package:ecg/provider/controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 import 'pages/meters.dart';
 import 'pages/transactions.dart';
 import 'pages/wallet.dart';
 import 'pages/logout.dart';
+import 'pages/service.dart';
+import 'pages/Signup.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'E C G App',
+      title: Constants.appname,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -25,7 +27,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -34,9 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static  List<Widget> _screenOptions = <Widget>[
     HomeWidget(),
-    HelpWidget(),
-    SettingsWidget(),
-    Signup(),
+    Meter(),
+    Transactions(),
+    Wallet()
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -46,159 +47,162 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     double sized = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "YOUTH PARLIAMENT APP",
-          style: TextStyle(color: Colors.white, fontSize: 16.0),
-        ),
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        backgroundColor: const Color(0xff08328f),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.white),
-            onPressed: () {},
+    return ChangeNotifierProvider(
+      create: (BuildContext context)=>AppProvider(),
+      child: Scaffold(
+        appBar: AppBar(
+          title:  Text(Constants.title,
+            style: TextStyle(color: Colors.white, fontSize: 16.0),
           ),
-        ],
-      ),
-      drawer: Drawer(
-        child: Container(
-          color: const Color(0xff052364),
-          child: ListView(
-            children: [
-              DrawerHeader(
-                decoration: const BoxDecoration(
-                  color: Color(0xff052364),
-                ),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: IconButton(
-                        icon: const Icon(Icons.close, color: Colors.white),
-                        onPressed: () {
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          ),
+          backgroundColor: const Color(0xff08328f),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.notifications, color: Colors.white),
+              onPressed: () {},
+            ),
+          ],
+        ),
+        drawer: Drawer(
+          child: Container(
+            color: const Color(0xff052364),
+            child: ListView(
+              children: [
+                DrawerHeader(
+                  decoration: const BoxDecoration(
+                    color: Color(0xff052364),
+                  ),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: IconButton(
+                          icon: const Icon(Icons.close, color: Colors.white),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.home, color: Colors.white),
+                        title: const Text('Home', style: TextStyle(color: Colors.white)),
+                        onTap: () {
                           Navigator.pop(context);
                         },
                       ),
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.home, color: Colors.white),
-                      title: const Text('Home', style: TextStyle(color: Colors.white)),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.live_help_sharp, color: Colors.white),
-                title: const Text('Help', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                  // Navigate to Help
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.settings, color: Colors.white),
-                title: const Text('Setting', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                  // Navigate to Settings
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Add Account', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Pay Bill', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Transaction History', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Statement Reports', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('My Complaints', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Notifications', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              const Divider(height: 1.0, thickness: 1.0),
-              ListTile(
-                leading: const Icon(Icons.live_help_sharp, color: Colors.white),
-                title: const Text('Logout', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>Logout()),
-                  );
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.live_help_sharp, color: Colors.white),
-                title: const Text('Sign up', style: TextStyle(color: Colors.white)),
-                onTap: () {
-                  Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>Signup()),
-                  );
-                  // Navigate to App Info
-                },
-              ),
-            ],
+                ListTile(
+                  leading: const Icon(Icons.live_help_sharp, color: Colors.white),
+                  title: const Text('Help', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.pop(context);
+                    // Navigate to Help
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.settings, color: Colors.white),
+                  title: const Text('Setting', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.pop(context);
+                    // Navigate to Settings
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.home, color: Colors.white),
+                  title: const Text('Add Account', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.home, color: Colors.white),
+                  title: const Text('Pay Bill', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.home, color: Colors.white),
+                  title: const Text('Transaction History', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.home, color: Colors.white),
+                  title: const Text('Statement Reports', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.home, color: Colors.white),
+                  title: const Text('My Complaints', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.home, color: Colors.white),
+                  title: const Text('Notifications', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Service())
+                    );
+                  },
+                ),
+                const Divider(height: 1.0, thickness: 1.0),
+                ListTile(
+                  leading: const Icon(Icons.live_help_sharp, color: Colors.white),
+                  title: const Text('Logout', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) =>Logout()),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(Icons.live_help_sharp, color: Colors.white),
+                  title: const Text('Sign up', style: TextStyle(color: Colors.white)),
+                  onTap: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) =>Signup()),
+                    );
+                    // Navigate to App Info
+                  },
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-      body: _screenOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.help),
-            label: 'meters',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Transactions',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Wallets',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
+        body: _screenOptions.elementAt(_selectedIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.help),
+              label: 'meters',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Transactions',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              label: 'Wallets',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.amber[800],
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }
@@ -234,7 +238,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   child: Container(
                    width: sized * 0.1,
                    color: Colors.transparent,
-                   child: Image.asset("images/youth.jpeg")),
+                   child: Image.asset("images/youth.jpeg"),),
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
@@ -319,8 +323,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
             ),
           ),
-
-            Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: sized * 0.3),
             child: const Text("What will you like to do?", style: TextStyle(fontSize: 12.0)),
           ),
