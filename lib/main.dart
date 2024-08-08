@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'pages/meters.dart';
 import 'pages/transactions.dart';
 import 'pages/wallet.dart';
 import 'pages/logout.dart';
+import 'pages/service.dart';
+import 'pages/Signup.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -34,9 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static  List<Widget> _screenOptions = <Widget>[
     HomeWidget(),
-    HelpWidget(),
-    SettingsWidget(),
-    Signup(),
+    Meter(),
+    Transactions(),
+    Wallet()
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -148,7 +147,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 leading: const Icon(Icons.home, color: Colors.white),
                 title: const Text('Notifications', style: TextStyle(color: Colors.white)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Service())
+                  );
                 },
               ),
               const Divider(height: 1.0, thickness: 1.0),
@@ -319,8 +319,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
             ),
           ),
-
-            Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: sized * 0.3),
             child: const Text("What will you like to do?", style: TextStyle(fontSize: 12.0)),
           ),
