@@ -62,12 +62,89 @@ class Wallet extends StatelessWidget {
           Center(
             child: Container(
               width: 350,
-              height: 180,
-              decoration: const BoxDecoration(
+              height: 200,
+              decoration:  BoxDecoration(
+                color: const Color(0xFF21ABB6).withOpacity(0.96),
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF1EB7B5), Color(0xFF2A80B3), Color(0xFF1EB7B5)],
+                  stops: [0.0, 0.5, 1.0],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
                 image:   DecorationImage(
                   image: AssetImage('images/down.png'),
                   fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                    Color(0xFF21ABB6).withOpacity(0.9),
+                    BlendMode.srcATop,
+                  ),
                 ),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: const Stack(
+                children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 10.0,),
+                     Padding(
+                     padding: EdgeInsets.symmetric(horizontal: 30.0,),
+                     child: Text("My PowerApp Balance",style: TextStyle(color: Colors.white),),
+                      ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30.0, ),
+                        child:  Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "GHs ",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: "0.00",
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 60.0,),
+                        Image(
+                          image: AssetImage("images/metal.png"),
+                          width: 80.0,
+                          height: 50.0,
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(2.0),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          "This is not the balance for any of your meters. This account is "
+                              "for your refunds ONLY. You may use your refunds to buy credit or "
+                              "withdraw to your mobile money or bank account.",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12.0,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                ],
               ),
             ),
           ),

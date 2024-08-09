@@ -309,6 +309,49 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
             ),
           ),
+          Row(
+            children: [
+                Image.asset("images/youth.jpeg",
+                  width: 50,
+                  height: 50,
+                ),
+               const SizedBox(width: 20.0,),
+              const  Text("Youth Parliament App"),
+            ],
+             ),
+         const Padding(
+           padding:  EdgeInsets.symmetric(horizontal: 38.0),
+           child:  Text("Aug 4, 2024 2:17 PM"),
+         ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: RichText(
+              text:  const TextSpan(
+                text: '',
+                children: [
+                  TextSpan(
+                    text: 'HAPPY \n',
+                    style: TextStyle(color: Colors.red, fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                   TextSpan(
+                    text: 'FOUNDERS\'\n',
+                    style: TextStyle(
+                      color: Colors.yellow,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                      letterSpacing: 3.0,
+                      decorationStyle: TextDecorationStyle.double,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'DAY',
+                    style: TextStyle(color: Color(0xff014c00), fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
           Center(
             child: Container(
               width: sized *0.9,
