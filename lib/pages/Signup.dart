@@ -52,7 +52,7 @@ class Signup extends StatelessWidget {
                 color: const Color(0xff2e388f),
                 borderRadius: BorderRadius.circular(5.0*wb),
               ),
-              child: const Text("Login"),
+              child: const Center(child:  Text("Login",style: TextStyle(color: Colors.white),)),
             ),
           ),
           SizedBox(height: 10.0*hb,),
@@ -64,7 +64,7 @@ class Signup extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: 'By signing up you agree to our ',
-                    style: TextStyle(color: Colors.black), // Default color
+                    style: TextStyle(color: Colors.black),
                   ),
                   TextSpan(
                     text: 'Terms of Use',
@@ -80,7 +80,7 @@ class Signup extends StatelessWidget {
                   ),
                   TextSpan(
                     text: '.',
-                    style: TextStyle(color: Colors.black), // Default color
+                    style: TextStyle(color: Colors.black),
                   ),
                 ],
               ),

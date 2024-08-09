@@ -1,290 +1,235 @@
 import 'package:flutter/material.dart';
-class Meter extends StatelessWidget {
+class Meter extends StatefulWidget {
+  @override
+  State<Meter> createState() => _MeterState();
+}
+class _MeterState extends State<Meter> {
+  bool _showDetails = false;
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     double baseScreenWidth = 375.0;
     double baseScreenHeight = 812.0;
+    double hb = screenHeight / baseScreenHeight;
+    double wb = screenWidth / baseScreenWidth;
 
-    double hb =  (screenHeight / baseScreenHeight);
-    double wb =  (screenWidth / baseScreenWidth);
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          Positioned.fill(
-            child: Container(
-              color: const Color(0xff030c43),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back),
-                    color: Colors.white,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
+                child: Container(
+                  width: screenWidth * 0.1,
+                  color: Colors.transparent,
+                  child: Image.asset("images/youth.jpeg"),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 6.0),
+                child: Text("Meter"),
+              ),
+              SizedBox(width: screenWidth * 0.30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+                child: Container(
+                  width: screenWidth * 0.345,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffe8f1fc),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
-                  const SizedBox(height: 5.0,),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0,),
-                    child:  Text(
-                      'JOHN AKANPALE ABIIRO',
-                      style: TextStyle(color: Colors.white,  fontWeight: FontWeight.bold),
+                  child: const Row(
+                  children: [
+                      Padding(
+                        padding:  EdgeInsets.all(5.0),
+                        child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
+                      ),
+                      Padding(
+                        padding:  EdgeInsets.all(5.0),
+                        child: Text("Service\nRequest"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SingleChildScrollView(
+           scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                InkWell(
+                  onTap:(){
+                    setState(() {
+                      _showDetails = !_showDetails;
+                    });
+                  },
+                  child: Container(
+                    width: screenWidth * 0.76,
+                    height: screenHeight * 0.28,
+                    margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFFB2B6F6),Color(0xFFDBA0E8),Color(0xFFF7A7B0)],
+                        stops:[ 0.20, 0.50, 0.75],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 5.0),
-                  const Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 15.0),
-                    child:  Row(
+                    child: Stack(
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Ghana Card Number',
-                              style: TextStyle(color: Colors.white,),
+                            const Padding(
+                              padding:  EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
+                              child:  Text("Add prepaid meter",style: TextStyle(color: Color(0xFF2D3A8A)),),
                             ),
-                            Text("Gha*******04-9",style: TextStyle(color: Colors.white),),
-                          ],
-                        ),
-                        SizedBox(width: 10.0),
-                        Column(
-                          children: [
-                            Text(
-                              'Phone Number',
-                              style: TextStyle(color: Colors.white,),
+                            const SizedBox(height: 15.0,),
+                            Image.asset("images/metal.png",
+                              height: 50,
+                              fit: BoxFit.contain,
                             ),
-                            Text(
-                              '233240134604',
-                              style: TextStyle(color: Colors.white,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: FloatingActionButton(
+                                    onPressed: () {},
+                                    mini: true,
+                                    backgroundColor: const Color(0xFF2D3A8A),
+                                    child: const Icon(
+                                      Icons.add,
+                                      color: Color(0xFFFFFFFF),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 5.0),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                    child: GestureDetector(
-                      onTap: () {
-                      },
-                      child: const Text(
-                        'Update Details',
-                        style: TextStyle(color: Colors.yellow,),
+                ),
+                InkWell(
+                  onTap: (){},
+                  child: Container(
+                    width: screenWidth * 0.76,
+                    height: screenHeight * 0.28,
+                    margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFFB2B6F6),Color(0xFFDBA0E8),Color(0xFFF7A7B0)],
+                        stops:[ 0.20, 0.50, 0.75],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10.0),
-                  Expanded(
-                    child: Container(
-                      width: screenWidth,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30.0),
-                          topRight: Radius.circular(30.0),
-                        ),
-                        boxShadow:  [BoxShadow(color: Colors.black26, blurRadius: 4.0)],
-                      ),
-                      child:   Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: screenHeight *0.015,),
-                          const Padding(
-                              padding:  EdgeInsets.symmetric(horizontal: 18.0,),
-                              child: Text("Meter Request")
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 18.0),
-                            child: Text('Request and view new connection Meters',style: TextStyle(fontSize: 12.0),),
-                          ),
-                          SizedBox(height: screenHeight *0.01,),
-                          const Divider(height: 1.0,thickness: 1, indent: 1,endIndent: 1,color: Colors.black12,),
-                          SizedBox(height: screenHeight *0.01,),
-                          InkWell(
-                            onTap: (){},
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: screenWidth * 1.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 1,
-                                    ),
-                                  ],
-                                  border: Border.all(
-                                    color: Colors.white70,
-                                    width: 1.0,
-                                  ),
-                                ),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Container(
-                                        width: 30.0,
-                                        height: 25.0,
-                                        color: Colors.amber,
-                                        child: const Icon(Icons.add_chart_sharp),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 5.0,),
-                                    const Column(
-                                      children: [
-                                        Text("New Meter Connection"),
-                                        Text("Request and/or view progress",style: TextStyle(fontSize: 12.0),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                    child: Stack(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding:  EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
+                              child:  Text("Add post paid meter",style: TextStyle(color: Colors.red),),
                             ),
-                          ),
-                          const Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            const SizedBox(height: 15.0,),
+                            Image.asset("images/metal.png",
+                              height: 50,
+                              fit: BoxFit.contain,
+                            ),
+                            SizedBox(height: screenHeight *0.01,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                SizedBox(height: 5.0,),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 25.0),
-                                  child: Text("Report and issue",style: TextStyle(fontWeight: FontWeight.bold),),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 20.0),
-                                  child: Text("Send us reports to help improve your experience",style: TextStyle(fontSize: 12.0),),
-                                ),
-                              ]
-                          ),
-                          SizedBox(height: screenHeight *0.01,),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: InkWell(
-                              onTap: (){},
-                              child: Container(
-                                width: screenWidth * 1.0,
-                                height: 60.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  border: Border.all(
-                                    color: const Color(0xff8c90bb),
-                                    width: 1.0,
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: FloatingActionButton(
+                                    onPressed: () {},
+                                    mini: true,
+                                    backgroundColor: const Color(0xFFDB132A),
+                                    child: const Icon(
+                                      Icons.add,
+                                      color: Color(0xFFFFFFFF),
+                                    ),
                                   ),
                                 ),
-                                child:
-                                const Center(
-                                  child:Text("View Reported Issues",style: TextStyle(color: Color(0xff3b3e78)),
-                                  ),
-                                ),
-                              ),
+                              ],
                             ),
-                          ),
-                          SizedBox(height: screenHeight *0.01,),
-                          InkWell(
-                            onTap: (){},
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: screenWidth * 1.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 1,
-                                    ),
-                                  ],
-                                  border: Border.all(
-                                    color: Colors.white70,
-                                    width: 1.0,
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(15.0),
-                                      child: Container(
-                                        width: 30.0,
-                                        height: 25.0,
-                                        color: Colors.amber,
-                                        child: const Icon(Icons.add_chart_sharp),
-                                      ),
-                                    ),
-                                    const SizedBox(width: 5.0,),
-                                  const Column(
-                                     crossAxisAlignment: CrossAxisAlignment.start,
-                                     children: [
-                                       Text("Change of account details",style: TextStyle(fontWeight: FontWeight.bold),),
-                                       Text("change the details associated  with your \n bill or meter",style: TextStyle(fontSize: 12.0),),
-                                     ],
-                                   ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: screenHeight *0.01,),
-                          InkWell(
-                            onTap: (){},
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: screenWidth * 1.0,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 1,
-                                    ),
-                                  ],
-                                  border: Border.all(
-                                    color: Colors.white70,
-                                    width: 1.0,
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(15.0),
-                                      child: Container(
-                                        width: 30.0,
-                                        height: 30.0,
-                                        color: Colors.amber,
-                                        child: const Icon(Icons.add_chart_sharp),
-                                      ),
-                                    ),
-                                    SizedBox(width: 5.0 * wb,),
-                                    const Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.all(2.0),
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text("Report faulty meter",style: TextStyle(fontWeight: FontWeight.bold),),
-                                              Text("Report any issues relating to your meter",style: TextStyle(fontSize: 12.0),),
-                                            ],
-                                          ),
-                                        )
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+                InkWell(
+                  onTap: (){},
+                  child: Container(
+                    width: screenWidth * 0.76,
+                    height: screenHeight * 0.28,
+                    margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: const Color(0xFFF1E4DE),
+                    ),
+                    child: Stack(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding:  EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
+                              child:  Text("Add In-Store Third Party\n Vendor Account",style: TextStyle(color: Color(0xFFD07101)),),
+                            ),
+                            const SizedBox(height: 3.0,),
+                            Image.asset("images/metal.png",
+                              height: 50,
+                              fit: BoxFit.contain,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: FloatingActionButton(
+                                    onPressed: () {},
+                                    mini: true,
+                                    backgroundColor: const Color(0xFFD07101),
+                                    child: const Icon(
+                                      Icons.add,
+                                      color: Color(0xFFFFFFFF),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
+          if (_showDetails)
+           const  Column(
+              children:  [
+                Icon(Icons.add, color: Color(0xFFD07101)),
+                SizedBox(width: 8.0),
+                Text(
+                  " Meter details and See Details",
+                  style: TextStyle(color: Color(0xFFD07101)),
+                ),
+              ],
+            ),
         ],
       ),
     );

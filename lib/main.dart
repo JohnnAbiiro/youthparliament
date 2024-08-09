@@ -5,6 +5,7 @@ import 'pages/wallet.dart';
 import 'pages/logout.dart';
 import 'pages/service.dart';
 import 'pages/Signup.dart';
+import 'pages/serviceRequest.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -117,9 +118,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Pay Bill', style: TextStyle(color: Colors.white)),
+                title: const Text('Service Request', style: TextStyle(color: Colors.white)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>Request()));
                 },
               ),
               ListTile(
@@ -204,11 +205,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class HomeWidget extends StatefulWidget {
+ class HomeWidget extends StatefulWidget {
   @override
   State<HomeWidget> createState() => _HomeWidgetState();
 }
-class _HomeWidgetState extends State<HomeWidget> {
+ class _HomeWidgetState extends State<HomeWidget> {
   final List<String> _items = ['QUICK ACCESS', ];
   final List<String> _items2 = ['RECENT TRANSACTIONS', ];
   String? _selectedItem;
@@ -225,54 +226,46 @@ class _HomeWidgetState extends State<HomeWidget> {
         runSpacing: 10.0,
         direction: Axis.vertical,
         children: [
-          Container(
-            color: Colors.transparent,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
+                child: Container(
+                 width: sized * 0.1,
+                 color: Colors.transparent,
+                 child: Image.asset("images/youth.jpeg")),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
+                child: Text("Home"),
+              ),
+               SizedBox(width: sized * 0.27),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: InkWell(
+                  onTap: (){},
                   child: Container(
-                   width: sized * 0.1,
-                   color: Colors.transparent,
-                   child: Image.asset("images/youth.jpeg")),
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
-                  child: Text("Home"),
-                ),
-                 SizedBox(width: sized * 0.17),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      width: sized * 0.35,
-                      decoration:  BoxDecoration(
-                        color: const Color(0xffe8f1fc),
-                        borderRadius: BorderRadius.circular(10.0)
-                      ),
-                      child: const  Wrap(
-                        spacing: 10.0,
-                        direction: Axis.horizontal,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
-                          ),
-                          Column(
-                           children: [
-                             Text("Service"),
-                             Text("Request"),
-                           ],
-                          ),
-
-                        ],
-                      ),
+                    width: sized * 0.33,
+                    decoration:  BoxDecoration(
+                      color: const Color(0xffe8f1fc),
+                      borderRadius: BorderRadius.circular(10.0)
+                    ),
+                    child: const  Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: Text("Service \n Request"),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:10.0),
@@ -311,9 +304,12 @@ class _HomeWidgetState extends State<HomeWidget> {
           ),
           Row(
             children: [
-                Image.asset("images/youth.jpeg",
-                  width: 50,
-                  height: 50,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Image.asset("images/youth.jpeg",
+                    width: 50,
+                    height: 50,
+                  ),
                 ),
                const SizedBox(width: 20.0,),
               const  Text("Youth Parliament App"),
@@ -352,14 +348,12 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
             ),
           ),
-          Center(
-            child: Container(
-              width: sized *0.9,
-              padding: EdgeInsets.symmetric(horizontal: sized* 0.05),
-              child: Image.asset(
-                'images/apps1.jpeg',
-                width: sized* 0.95,
-              ),
+          Container(
+            width: sized,
+            padding: EdgeInsets.symmetric(horizontal: sized* 0.05),
+            child: Image.asset(
+              'images/apps1.jpeg',
+              width: sized* 0.95,
             ),
           ),
           Padding(
