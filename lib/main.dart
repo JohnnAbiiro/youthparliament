@@ -5,7 +5,6 @@ import 'pages/wallet.dart';
 import 'pages/logout.dart';
 import 'pages/service.dart';
 import 'pages/Signup.dart';
-import 'pages/serviceRequest.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -118,9 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Service Request', style: TextStyle(color: Colors.white)),
+                title: const Text('Pay Bill', style: TextStyle(color: Colors.white)),
                 onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>Request()));
+                  Navigator.pop(context);
                 },
               ),
               ListTile(
@@ -205,11 +204,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
- class HomeWidget extends StatefulWidget {
+class HomeWidget extends StatefulWidget {
   @override
   State<HomeWidget> createState() => _HomeWidgetState();
 }
- class _HomeWidgetState extends State<HomeWidget> {
+class _HomeWidgetState extends State<HomeWidget> {
   final List<String> _items = ['QUICK ACCESS', ];
   final List<String> _items2 = ['RECENT TRANSACTIONS', ];
   String? _selectedItem;
@@ -226,46 +225,54 @@ class _MyHomePageState extends State<MyHomePage> {
         runSpacing: 10.0,
         direction: Axis.vertical,
         children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
-                child: Container(
-                 width: sized * 0.1,
-                 color: Colors.transparent,
-                 child: Image.asset("images/youth.jpeg")),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
-                child: Text("Home"),
-              ),
-               SizedBox(width: sized * 0.27),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  onTap: (){},
+          Container(
+            color: Colors.transparent,
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
                   child: Container(
-                    width: sized * 0.33,
-                    decoration:  BoxDecoration(
-                      color: const Color(0xffe8f1fc),
-                      borderRadius: BorderRadius.circular(10.0)
-                    ),
-                    child: const  Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: Text("Service \n Request"),
-                        ),
-                      ],
+                   width: sized * 0.1,
+                   color: Colors.transparent,
+                   child: Image.asset("images/youth.jpeg")),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
+                  child: Text("Home"),
+                ),
+                 SizedBox(width: sized * 0.17),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: sized * 0.35,
+                      decoration:  BoxDecoration(
+                        color: const Color(0xffe8f1fc),
+                        borderRadius: BorderRadius.circular(10.0)
+                      ),
+                      child: const  Wrap(
+                        spacing: 10.0,
+                        direction: Axis.horizontal,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
+                          ),
+                          Column(
+                           children: [
+                             Text("Service"),
+                             Text("Request"),
+                           ],
+                          ),
+
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:10.0),
@@ -302,58 +309,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          Row(
-            children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Image.asset("images/youth.jpeg",
-                    width: 50,
-                    height: 50,
-                  ),
-                ),
-               const SizedBox(width: 20.0,),
-              const  Text("Youth Parliament App"),
-            ],
-             ),
-         const Padding(
-           padding:  EdgeInsets.symmetric(horizontal: 38.0),
-           child:  Text("Aug 4, 2024 2:17 PM"),
-         ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
-            child: RichText(
-              text:  const TextSpan(
-                text: '',
-                children: [
-                  TextSpan(
-                    text: 'HAPPY \n',
-                    style: TextStyle(color: Colors.red, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                   TextSpan(
-                    text: 'FOUNDERS\'\n',
-                    style: TextStyle(
-                      color: Colors.yellow,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.italic,
-                      letterSpacing: 3.0,
-                      decorationStyle: TextDecorationStyle.double,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'DAY',
-                    style: TextStyle(color: Color(0xff014c00), fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
+          Center(
+            child: Container(
+              width: sized *0.9,
+              padding: EdgeInsets.symmetric(horizontal: sized* 0.05),
+              child: Image.asset(
+                'images/apps1.jpeg',
+                width: sized* 0.95,
               ),
-            ),
-          ),
-          Container(
-            width: sized,
-            padding: EdgeInsets.symmetric(horizontal: sized* 0.05),
-            child: Image.asset(
-              'images/apps1.jpeg',
-              width: sized* 0.95,
             ),
           ),
           Padding(
