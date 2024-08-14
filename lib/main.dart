@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'pages/meters.dart';
 import 'pages/transactions.dart';
@@ -37,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Transactions(),
     Wallet()
   ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -175,7 +177,19 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      body: _screenOptions.elementAt(_selectedIndex),
+      body: Center(
+        child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 800),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration:  BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.white
+            ),
+              child: _screenOptions.elementAt(_selectedIndex)),
+        )),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
