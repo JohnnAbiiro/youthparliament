@@ -5,9 +5,8 @@ import 'pages/wallet.dart';
 import 'pages/logout.dart';
 import 'pages/service.dart';
 import 'pages/Signup.dart';
-import 'pages/serviceRequest.dart';
-import 'pages/header.dart';
 void main() => runApp(MyApp());
+
 class MyApp extends StatelessWidget {
 
   @override
@@ -45,11 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   @override
   Widget build(BuildContext context) {
+    double sized = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
           "YOUTH PARLIAMENT APP",
-          style: TextStyle(color: Colors.white, fontSize: 12.0),
+          style: TextStyle(color: Colors.white, fontSize: 16.0),
         ),
         iconTheme: const IconThemeData(
           color: Colors.white,
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     ListTile(
                       leading: const Icon(Icons.home, color: Colors.white),
-                      title: const Text('Home', style: TextStyle(color: Colors.white,fontSize: 12,)),
+                      title: const Text('Home', style: TextStyle(color: Colors.white)),
                       onTap: () {
                         Navigator.pop(context);
                       },
@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.live_help_sharp, color: Colors.white),
-                title: const Text('Help', style: TextStyle(color: Colors.white,fontSize: 12,)),
+                title: const Text('Help', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.pop(context);
                   // Navigate to Help
@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.settings, color: Colors.white),
-                title: const Text('Setting', style: TextStyle(color: Colors.white,fontSize: 12)),
+                title: const Text('Setting', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.pop(context);
                   // Navigate to Settings
@@ -110,42 +110,42 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Add Account', style: TextStyle(color: Colors.white,fontSize: 12.0)),
+                title: const Text('Add Account', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Service Request', style: TextStyle(color: Colors.white,fontSize: 12.0)),
-                onTap: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const Request()));
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Transaction History', style: TextStyle(color: Colors.white,fontSize: 12.0),),
+                title: const Text('Pay Bill', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Statement Reports', style: TextStyle(color: Colors.white,fontSize: 12),),
+                title: const Text('Transaction History', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('My Complaints', style: TextStyle(color: Colors.white,fontSize: 12.0),),
+                title: const Text('Statement Reports', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
                 leading: const Icon(Icons.home, color: Colors.white),
-                title: const Text('Notifications', style: TextStyle(color: Colors.white,fontSize: 12.0),),
+                title: const Text('My Complaints', style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.home, color: Colors.white),
+                title: const Text('Notifications', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => Service())
                   );
@@ -154,7 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const Divider(height: 1.0, thickness: 1.0),
               ListTile(
                 leading: const Icon(Icons.live_help_sharp, color: Colors.white),
-                title: const Text('Logout', style: TextStyle(color: Colors.white,fontSize: 12.0)),
+                title: const Text('Logout', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.push(context,
                     MaterialPageRoute(builder: (context) =>Logout()),
@@ -163,10 +163,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ListTile(
                 leading: const Icon(Icons.live_help_sharp, color: Colors.white),
-                title: const Text('Sign up', style: TextStyle(color: Colors.white,fontSize: 12)),
+                title: const Text('Sign up', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>const Signup()),
+                    MaterialPageRoute(builder: (context) =>Signup()),
                   );
                   // Navigate to App Info
                 },
@@ -204,13 +204,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
- class HomeWidget extends StatefulWidget {
+class HomeWidget extends StatefulWidget {
   @override
   State<HomeWidget> createState() => _HomeWidgetState();
 }
- class _HomeWidgetState extends State<HomeWidget> {
-  final List<String> _items = ['QUICK ACCESS' ];
-  final List<String> _items2 = ['RECENT TRANSACTIONS' ];
+class _HomeWidgetState extends State<HomeWidget> {
+  final List<String> _items = ['QUICK ACCESS', ];
+  final List<String> _items2 = ['RECENT TRANSACTIONS', ];
   String? _selectedItem;
   String? _selectedItem2;
   bool _showContainers = false;
@@ -218,18 +218,66 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     double sized = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-      child: Column(
+      child: Wrap(
+        spacing: 10.0,
+        runSpacing: 10.0,
+        direction: Axis.vertical,
         children: [
-          SizedBox(height: sized * 0.01,),
-          headerMenu(sized, screenHeight,"Home","Service \n Request",context),
-          SizedBox(height: sized * 0.01,),
+          Container(
+            color: Colors.transparent,
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
+                  child: Container(
+                   width: sized * 0.1,
+                   color: Colors.transparent,
+                   child: Image.asset("images/youth.jpeg")),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
+                  child: Text("Home"),
+                ),
+                 SizedBox(width: sized * 0.17),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: sized * 0.35,
+                      decoration:  BoxDecoration(
+                        color: const Color(0xffe8f1fc),
+                        borderRadius: BorderRadius.circular(10.0)
+                      ),
+                      child: const  Wrap(
+                        spacing: 10.0,
+                        direction: Axis.horizontal,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
+                          ),
+                          Column(
+                           children: [
+                             Text("Service"),
+                             Text("Request"),
+                           ],
+                          ),
+
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Padding(
-            padding:  EdgeInsets.only(left: sized* 0.04,right: sized* 0.04),
+            padding: const EdgeInsets.symmetric(horizontal:10.0),
             child: Container(
-              width: sized,
+              width: sized *0.92,
               height: 120.0,
               decoration:  BoxDecoration(
                 color:  const Color(0xff2e388f),
@@ -251,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [
                             SizedBox(height: 30.0,),
                             Text('Got problems with your Postpaid Bill?',style: TextStyle(fontSize: 10.0,color: Colors.white),),
-                            Text('Fix The Bill, Pay The Bill.',style: TextStyle(color: Colors.white,fontSize: 12.0),),
+                            Text('Fix The Bill, Pay The Bill.',style: TextStyle(color: Colors.white),),
                           ],
                         ),
                        ],
@@ -261,59 +309,14 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 5.0,),
-                child: Image.asset("images/youth.jpeg",
-                  width: 50,
-                  height: 50,
-                ),
+          Center(
+            child: Container(
+              width: sized *0.9,
+              padding: EdgeInsets.symmetric(horizontal: sized* 0.05),
+              child: Image.asset(
+                'images/apps1.jpeg',
+                width: sized* 0.95,
               ),
-              const SizedBox(width: 20.0,),
-              const  Text("Youth Parliament App",
-                style: TextStyle(fontSize: 12.0),),
-            ],
-          ),
-          const Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 35.0),
-            child:  Text("Aug 4, 2024 2:17 PM"),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: RichText(
-              text:  const TextSpan(
-                text: '',
-                children: [
-                  TextSpan(
-                    text: 'HAPPY \n',
-                    style: TextStyle(color: Colors.red, fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  TextSpan(
-                    text: 'FOUNDERS\'\n',
-                    style: TextStyle(
-                      color: Colors.yellow,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.italic,
-                      letterSpacing: 3.0,
-                      decorationStyle: TextDecorationStyle.double,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'DAY',
-                    style: TextStyle(color: Color(0xff014c00), fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: sized,
-            padding: EdgeInsets.symmetric(horizontal: sized* 0.05),
-            child: Image.asset(
-              'images/apps1.jpeg',
-              width: sized* 0.95,
             ),
           ),
           Padding(
@@ -692,7 +695,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-      ],
+        ],
       ),
     );
   }
