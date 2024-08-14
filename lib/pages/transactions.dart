@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'header.dart';
 class Transactions extends StatefulWidget {
+  const Transactions({super.key});
+
   @override
   State<Transactions> createState() => _TransactionsState();
 }
@@ -18,47 +21,14 @@ class _TransactionsState extends State<Transactions> {
     double screenHeight = MediaQuery.of(context).size.height;
     double baseScreenWidth = 375.0;
     double baseScreenHeight = 812.0;
-
+    String menuText ="Transactions";
+    String serviceRequest ="Request\n Service";
     double hb =  (screenHeight / baseScreenHeight);
     double wb =  (screenWidth / baseScreenWidth);
     return Scaffold(
         body:  Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Container(
-                    width: screenWidth*0.15,
-                    height: screenHeight*0.07,
-                    color: Colors.transparent,
-                    child: Image.asset("images/youth.jpeg"),
-                  ),
-                  SizedBox(width: screenWidth * 0.02,),
-                  const Text("Transactions"),
-                  SizedBox(width: screenWidth * 0.15),
-                  Container(
-                    width: 128.0,
-                    decoration:  BoxDecoration(
-                     color: const Color(0xffe8f1fc),
-                     borderRadius: BorderRadius.circular(10.0)
-                    ),
-                    child:  const Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: Text("Service \n Request"),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            headerMenu(screenWidth, screenHeight,menuText,serviceRequest,context),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
