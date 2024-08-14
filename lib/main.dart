@@ -5,6 +5,7 @@ import 'pages/wallet.dart';
 import 'pages/logout.dart';
 import 'pages/service.dart';
 import 'pages/Signup.dart';
+import 'pages/constants.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'E C G App',
+      title: Constants.appname,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -47,9 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
     double sized = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "YOUTH PARLIAMENT APP",
-          style: TextStyle(color: Colors.white, fontSize: 16.0),
+        title:  Text(
+            Constants.title,
+          style: const TextStyle(color: Colors.white, fontSize: 16.0),
         ),
         iconTheme: const IconThemeData(
           color: Colors.white,
@@ -209,12 +210,13 @@ class HomeWidget extends StatefulWidget {
   State<HomeWidget> createState() => _HomeWidgetState();
 }
 class _HomeWidgetState extends State<HomeWidget> {
-  final List<String> _items = ['QUICK ACCESS', ];
-  final List<String> _items2 = ['RECENT TRANSACTIONS', ];
+  final List<String> _items = [Constants.quickAccess];
+  final List<String> _items2 = [Constants.recentTransactions];
   String? _selectedItem;
   String? _selectedItem2;
   bool _showContainers = false;
   bool _showContainers2 = false;
+
   @override
   Widget build(BuildContext context) {
     double sized = MediaQuery.of(context).size.width;
@@ -230,28 +232,29 @@ class _HomeWidgetState extends State<HomeWidget> {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
                   child: Container(
-                   width: sized * 0.1,
-                   color: Colors.transparent,
-                   child: Image.asset("images/youth.jpeg")),
+                    width: sized * 0.1,
+                    color: Colors.transparent,
+                    child: Image.asset(Constants.youthImage),
+                  ),
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
-                  child: Text("Home"),
+                  child: Text(Constants.home),
                 ),
-                 SizedBox(width: sized * 0.17),
+                SizedBox(width: sized * 0.17),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: sized * 0.35,
-                      decoration:  BoxDecoration(
-                        color: const Color(0xffe8f1fc),
-                        borderRadius: BorderRadius.circular(10.0)
+                      decoration: BoxDecoration(
+                        color: Constants.serviceRequestBackgroundColor,
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
-                      child: const  Wrap(
+                      child: const Wrap(
                         spacing: 10.0,
                         direction: Axis.horizontal,
                         children: [
@@ -260,12 +263,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                             child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
                           ),
                           Column(
-                           children: [
-                             Text("Service"),
-                             Text("Request"),
-                           ],
+                            children: [
+                              Text(Constants.service),
+                              Text(Constants.request),
+                            ],
                           ),
-
                         ],
                       ),
                     ),
@@ -275,15 +277,15 @@ class _HomeWidgetState extends State<HomeWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal:10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Container(
-              width: sized *0.92,
+              width: sized * 0.92,
               height: 120.0,
-              decoration:  BoxDecoration(
-                color:  const Color(0xff2e388f),
-                borderRadius: BorderRadius.circular(10.0)
+              decoration: BoxDecoration(
+               color: Constants.postpaidBillBackgroundColor,
+                borderRadius: BorderRadius.circular(10.0),
               ),
-              child:   Row(
+              child: Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5.0),
@@ -292,17 +294,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                         SizedBox(
                           width: 80,
                           height: 100,
-                          child:  Image.asset('images/12.png'),
+                          child: Image.asset(Constants.postpaidBillImage),
                         ),
-                       const SizedBox(width: 2.0,),
-                       const  Column(
+                        const SizedBox(width: 2.0),
+                        const Column(
                           children: [
-                            SizedBox(height: 30.0,),
-                            Text('Got problems with your Postpaid Bill?',style: TextStyle(fontSize: 10.0,color: Colors.white),),
-                            Text('Fix The Bill, Pay The Bill.',style: TextStyle(color: Colors.white),),
+                            SizedBox(height: 30.0),
+                            Text(Constants.postpaidBillTitle, style: TextStyle(fontSize: 10.0, color: Colors.white)),
+                            Text(Constants.postpaidBillSubtitle, style: TextStyle(color: Colors.white)),
                           ],
                         ),
-                       ],
+                      ],
                     ),
                   ),
                 ],
@@ -311,28 +313,28 @@ class _HomeWidgetState extends State<HomeWidget> {
           ),
           Center(
             child: Container(
-              width: sized *0.9,
-              padding: EdgeInsets.symmetric(horizontal: sized* 0.05),
+              width: sized * 0.9,
+              padding: EdgeInsets.symmetric(horizontal: sized * 0.05),
               child: Image.asset(
-                'images/apps1.jpeg',
-                width: sized* 0.95,
+                Constants.appsImage,
+                width: sized * 0.95,
               ),
             ),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: sized * 0.3),
-            child: const Text("What will you like to do?", style: TextStyle(fontSize: 12.0)),
+            child: const Text(Constants.whatToDo, style: TextStyle(fontSize: 12.0)),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: sized * 0.05),
             child: Container(
               height: 40.0,
               width: sized * 0.9,
-              color: const Color(0xffe2ecff),
+              color: Constants.dropdownColor,
               child: const Center(
                 child: Text(
-                  "MY CUSTOMER ACCOUNTS",
-                  style: TextStyle(color: Color(0xff08328b)),
+                  Constants.myCustomerAccounts,
+                  style: TextStyle(color: Constants.homeTitleColor),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -346,7 +348,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 height: 140.0,
                 width: sized * 0.9,
                 decoration: const BoxDecoration(
-                  color: Color(0xffe2ecff),
+                  color: Constants.dropdownColor,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(20.0), // Adjust the radius as needed
                   ),
@@ -358,7 +360,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       onTap: () {},
                       child: const CircleAvatar(
                         radius: 30.0,
-                        backgroundColor: Color(0xff043085),
+                        backgroundColor: Constants.addAccountIconBackgroundColor,
                         child: Icon(
                           Icons.add,
                           color: Colors.white,
@@ -366,7 +368,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         ),
                       ),
                     ),
-                    const Text("Add your water company account", textAlign: TextAlign.center),
+                    const Text(Constants.addWaterAccount, textAlign: TextAlign.center),
                   ],
                 ),
               ),
@@ -379,11 +381,11 @@ class _HomeWidgetState extends State<HomeWidget> {
               height: 40.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(3.0),
-                color: const Color(0xff0a318e),
+                color: Constants.waterBillButtonColor,
               ),
               child: const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Text("Pay Water Bill", style: TextStyle(color: Colors.white), textAlign: TextAlign.center),
+                child: Text(Constants.payWaterBill, style: TextStyle(color: Colors.white), textAlign: TextAlign.center),
               ),
             ),
           ),
@@ -396,7 +398,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   child: Container(
                     width: sized * 0.9,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFE2ECFF),
+                      color: Constants.dropdownColor,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: DropdownButtonHideUnderline(
@@ -421,8 +423,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                             }
                           });
                         },
-                        dropdownColor: const Color(0xFFE2ECFF),
-                        iconEnabledColor: const Color(0xffd4996a),
+                        dropdownColor: Constants.dropdownColor,
+                        iconEnabledColor: Constants.iconColor,
                         icon: _showContainers
                             ? const Icon(Icons.arrow_drop_up)
                             : const Icon(Icons.arrow_drop_down),
@@ -440,7 +442,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           width: (sized * 0.88) / 2,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            color: const Color(0xffe4e6f2),
+                            color: Constants.containerBackgroundColor,
                           ),
                           child: const Column(
                             children: [
@@ -448,22 +450,24 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: Column(
                                   children: [
                                     SizedBox(height: 20.0),
-                                    Icon(Icons.account_circle_outlined),
+                                    Icon(Icons.account_circle_outlined, size: 30.0),
+                                    Text(Constants.myAccount,style: TextStyle(fontSize: 12.0),),
+                                    Text(Constants.editPersonalDetails,
+                                     style: TextStyle(fontSize: 10.0),
+                                    ),
                                     SizedBox(height: 20.0),
-                                    Text("Add Account"),
-                                    SizedBox(height: 10.0),
                                   ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(width: sized * 0.02),
+                       const  SizedBox(width: 8.0),
                         Container(
                           width: (sized * 0.88) / 2,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            color: const Color(0xffe4e6f2),
+                            color: Constants.containerBackgroundColor,
                           ),
                           child: const Column(
                             children: [
@@ -471,10 +475,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: Column(
                                   children: [
                                     SizedBox(height: 20.0),
-                                    Icon(Icons.account_circle_outlined),
+                                    Icon(Icons.list_alt_outlined, size: 30.0),
+                                    Text(Constants.eBill,style: TextStyle(fontSize: 12.0),),
+                                    Text(
+                                      Constants.yourElectronicBill,
+                                      style: TextStyle(fontSize: 10.0),
+                                    ),
                                     SizedBox(height: 20.0),
-                                    Text("Add Account"),
-                                    SizedBox(height: 10.0),
                                   ],
                                 ),
                               ),
@@ -493,7 +500,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           width: (sized * 0.88) / 2,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            color: const Color(0xffe4e6f2),
+                            color: Constants.containerBackgroundColor,
                           ),
                           child: const Column(
                             children: [
@@ -501,22 +508,25 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: Column(
                                   children: [
                                     SizedBox(height: 20.0),
-                                    Icon(Icons.account_circle_outlined),
+                                    Icon(Icons.payments_outlined, size: 30.0),
+                                    Text(Constants.payments,style: TextStyle(fontSize: 12.0),),
+                                    Text(
+                                      Constants.checkYourPayments,
+                                      style: TextStyle(fontSize: 10.0),
+                                    ),
                                     SizedBox(height: 20.0),
-                                    Text("Add Account"),
-                                    SizedBox(height: 10.0),
                                   ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(width: sized * 0.02),
+                        const SizedBox(width: 8.0),
                         Container(
                           width: (sized * 0.88) / 2,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            color: const Color(0xffe4e6f2),
+                            color: Constants.containerBackgroundColor,
                           ),
                           child: const Column(
                             children: [
@@ -524,10 +534,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: Column(
                                   children: [
                                     SizedBox(height: 20.0),
-                                    Icon(Icons.account_circle_outlined),
+                                    Icon(Icons.headset_mic_outlined, size: 30.0),
+                                    Text(Constants.helpSupport,style: TextStyle(fontSize: 12.0),),
+                                    Text(
+                                      Constants.WeAreHereToHelp,
+                                      style: TextStyle(fontSize: 10.0),
+                                    ),
                                     SizedBox(height: 20.0),
-                                    Text("Add Account"),
-                                    SizedBox(height: 10.0),
                                   ],
                                 ),
                               ),
@@ -550,7 +563,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   child: Container(
                     width: sized * 0.9,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFE2ECFF),
+                      color: Constants.dropdownColor,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: DropdownButtonHideUnderline(
@@ -575,8 +588,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                             }
                           });
                         },
-                        dropdownColor: const Color(0xFFE2ECFF),
-                        iconEnabledColor: const Color(0xffd4996a),
+                        dropdownColor: Constants.dropdownColor,
+                        iconEnabledColor: Constants.iconColor,
                         icon: _showContainers2
                             ? const Icon(Icons.arrow_drop_up)
                             : const Icon(Icons.arrow_drop_down),
@@ -594,7 +607,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           width: (sized * 0.88) / 2,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            color: const Color(0xffe4e6f2),
+                            color: Constants.containerBackgroundColor,
                           ),
                           child: const Column(
                             children: [
@@ -602,22 +615,25 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: Column(
                                   children: [
                                     SizedBox(height: 20.0),
-                                    Icon(Icons.account_circle_outlined),
+                                    Icon(Icons.add_shopping_cart_outlined, size: 30.0),
+                                    Text(Constants.shop),
+                                    Text(
+                                      Constants.viewandmanagepurchases,
+                                      style: TextStyle(fontSize: 10.0),
+                                    ),
                                     SizedBox(height: 20.0),
-                                    Text("Add Account"),
-                                    SizedBox(height: 10.0),
                                   ],
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(width: sized * 0.02),
+                       const SizedBox(width: 8.0),
                         Container(
                           width: (sized * 0.88) / 2,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            color: const Color(0xffe4e6f2),
+                            color: Constants.containerBackgroundColor,
                           ),
                           child: const Column(
                             children: [
@@ -625,63 +641,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 child: Column(
                                   children: [
                                     SizedBox(height: 20.0),
-                                    Icon(Icons.account_circle_outlined),
+                                    Icon(Icons.recent_actors_outlined, size: 30.0),
+                                    Text(Constants.recentActivity,
+                                      style: TextStyle(fontSize: 12.0),),
+                                    Text(
+                                      Constants.viewRecentTransactions,
+                                      style: TextStyle(fontSize: 10.0),
+                                    ),
                                     SizedBox(height: 20.0),
-                                    Text("Add Account"),
-                                    SizedBox(height: 10.0),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: sized * 0.02),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: sized * 0.05),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: (sized * 0.88) / 2,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: const Color(0xffe4e6f2),
-                          ),
-                          child: const Column(
-                            children: [
-                              InkWell(
-                                child: Column(
-                                  children: [
-                                    SizedBox(height: 20.0),
-                                    Icon(Icons.account_circle_outlined),
-                                    SizedBox(height: 20.0),
-                                    Text("Add Account"),
-                                    SizedBox(height: 10.0),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: sized * 0.02),
-                        Container(
-                          width: (sized * 0.88) / 2,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: const Color(0xffe4e6f2),
-                          ),
-                          child: const Column(
-                            children: [
-                              InkWell(
-                                child: Column(
-                                  children: [
-                                    SizedBox(height: 20.0),
-                                    Icon(Icons.account_circle_outlined),
-                                    SizedBox(height: 20.0),
-                                    Text("Add Account"),
-                                    SizedBox(height: 10.0),
                                   ],
                                 ),
                               ),

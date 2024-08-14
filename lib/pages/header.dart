@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
 import 'serviceRequest.dart';
-Padding headerMenu(double screenWidth, double screenHeight,String menuText ,String serviceRequestText,BuildContext context) {
+class Constants {
+  // Text Constants
+  static const String menuText = "Your Menu Text Here";
+  static const String serviceRequestText = "Service Request";
+
+  // Image Constants
+  static const String youthImage = "images/youth.jpeg";
+
+  // Color Constants
+  static const Color transparent = Colors.transparent;
+  static const Color buttonBackgroundColor = Color(0xffe8f1fc);
+  static const Color iconColor = Colors.green;
+
+  // Style Constants
+  static const TextStyle textStyle = TextStyle(fontSize: 12.0);
+}
+Padding headerMenu(double screenWidth, double screenHeight, BuildContext context) {
   return Padding(
-    padding:  EdgeInsets.only(left: screenWidth * 0.04,right:screenWidth * 0.04),
+    padding: EdgeInsets.only(left: screenWidth * 0.04, right: screenWidth * 0.04),
     child: Row(
       children: [
         Container(
           width: screenWidth * 0.15,
           height: screenHeight * 0.07,
-          color: Colors.transparent,
-          child: Image.asset("images/youth.jpeg"),
+          color: Constants.transparent,
+          child: Image.asset(Constants.youthImage),
         ),
         SizedBox(width: screenWidth * 0.02),
-        Text(menuText,style: const TextStyle(fontSize: 12.0),),
+        const Text(Constants.menuText, style: Constants.textStyle),
         SizedBox(width: screenWidth * 0.10),
         InkWell(
-          onTap: (){
+          onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const Request()),
@@ -24,18 +40,18 @@ Padding headerMenu(double screenWidth, double screenHeight,String menuText ,Stri
           child: Container(
             width: 128.0,
             decoration: BoxDecoration(
-              color: const Color(0xffe8f1fc),
+              color: Constants.buttonBackgroundColor,
               borderRadius: BorderRadius.circular(10.0),
             ),
-            child: Row(
+            child: const Row(
               children: [
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.all(5.0),
-                  child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
+                  child: Icon(Icons.add_card_rounded, color: Constants.iconColor, size: 30.0),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Text(serviceRequestText,style: const TextStyle(fontSize: 12.0),),
+                  padding:  EdgeInsets.all(5.0),
+                  child: Text(Constants.serviceRequestText, style: Constants.textStyle),
                 ),
               ],
             ),
