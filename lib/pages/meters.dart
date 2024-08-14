@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'header.dart';
 class Meter extends StatefulWidget {
+  const Meter({super.key});
+
   @override
   State<Meter> createState() => _MeterState();
 }
@@ -17,45 +20,7 @@ class _MeterState extends State<Meter> {
     return Scaffold(
       body: Column(
         children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
-                child: Container(
-                  width: screenWidth * 0.1,
-                  color: Colors.transparent,
-                  child: Image.asset("images/youth.jpeg"),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 6.0),
-                child: Text("Meter"),
-              ),
-              SizedBox(width: screenWidth * 0.30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
-                child: Container(
-                  width: screenWidth * 0.345,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffe8f1fc),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: const Row(
-                  children: [
-                      Padding(
-                        padding:  EdgeInsets.all(5.0),
-                        child: Icon(Icons.add_card_rounded, color: Colors.green, size: 30.0),
-                      ),
-                      Padding(
-                        padding:  EdgeInsets.all(5.0),
-                        child: Text("Service\nRequest"),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+          headerMenu(screenWidth, screenHeight,"Meter","Service \n Request", context),
           SingleChildScrollView(
            scrollDirection: Axis.horizontal,
             child: Row(

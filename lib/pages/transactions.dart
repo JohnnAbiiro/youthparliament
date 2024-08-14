@@ -1,5 +1,7 @@
+import 'package:ecg/pages/Constants.dart';
 import 'package:flutter/material.dart';
 import 'header.dart';
+import 'constants.dart';
 class Transactions extends StatefulWidget {
   const Transactions({super.key});
 
@@ -21,14 +23,12 @@ class _TransactionsState extends State<Transactions> {
     double screenHeight = MediaQuery.of(context).size.height;
     double baseScreenWidth = 375.0;
     double baseScreenHeight = 812.0;
-    String menuText ="Transactions";
-    String serviceRequest ="Request\n Service";
     double hb =  (screenHeight / baseScreenHeight);
     double wb =  (screenWidth / baseScreenWidth);
     return Scaffold(
         body:  Column(
           children: [
-            headerMenu(screenWidth, screenHeight,menuText,serviceRequest,context),
+            headerMenu(screenWidth, screenHeight,"Transactions","Service \n Request", context),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
