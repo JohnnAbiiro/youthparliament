@@ -34,7 +34,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
-  static  List<Widget> _screenOptions = <Widget>[
+  static  final List<Widget> _screenOptions = [
     HomeWidget(),
     const Meter(),
     const Transactions(),

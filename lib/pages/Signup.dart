@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
 class Signup extends StatelessWidget {
   const Signup({super.key});
 
@@ -15,78 +15,120 @@ class Signup extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xfff7f7f9),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('images/youth.jpeg'),
-            ),
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 800.0,
+            minWidth: 100.0,
           ),
-          const  Text("Login with your Ghana mobile number",style: TextStyle(fontWeight: FontWeight.bold),),
-          SizedBox(height: 10.0,),
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 40.0 * hb),
-            child: Text("Your mobile number may be verified against your Ghana Card details"),
-          ),
-          SizedBox(height: 16*hb,),
-
-          Container(
-            color: Colors.transparent,
-            width: screenWidth * 0.7,
-            child: TextFormField(
-              decoration: const InputDecoration(
-                hintText: "Enter your mobile number",
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ),
-          SizedBox(height: 30.0*hb,),
-          InkWell(
-            onTap: (){},
+          child: Center(
             child: Container(
-              width: screenWidth * 0.7,
-              height: 30.0,
-              decoration:  BoxDecoration(
-                color: const Color(0xff2e388f),
-                borderRadius: BorderRadius.circular(5.0*wb),
-              ),
-              child: const Center(child:  Text("Login",style: TextStyle(color: Colors.white),)),
-            ),
-          ),
-          SizedBox(height: 10.0*hb,),
-
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 60.0*wb),
-            child: RichText(
-              text: const TextSpan(
+              width: 600.0,
+              height: 600,
+              decoration: const BoxDecoration(
+                color:  Color(0xFFDAEEEF),
+               ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  TextSpan(
-                    text: 'By signing up you agree to our ',
-                    style: TextStyle(color: Colors.black),
+                 const  Center(
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(Constants.youthImage),
+                    ),
                   ),
-                  TextSpan(
-                    text: 'Terms of Use',
-                    style: TextStyle(color: Color(0xff2f3695), fontWeight: FontWeight.bold),
+                 // const  Text(Constants.loginText,style: TextStyle(fontWeight: FontWeight.bold),),
+                 //const  SizedBox(height: 8.0,),
+                // const  Text(Constants.mobilenumber),
+                  const SizedBox(height: 20.0,),
+                  Container(
+                    color: Colors.transparent,
+                    width: 400,
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: Constants.enternumber,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
                   ),
-                  TextSpan(
-                    text: ' and ',
-                    style: TextStyle(color: Colors.black), // Default color
+                  const SizedBox(height: 28.0,),
+                  Container(
+                    color: Colors.transparent,
+                    width: 400,
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: Constants.enternumber,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
                   ),
-                  TextSpan(
-                    text: 'Privacy Policy',
-                    style: TextStyle(color: Color(0xff2f3695), fontWeight: FontWeight.bold),
+                 const SizedBox(height: 38.0,),
+                  InkWell(
+                    onTap: (){},
+                    child: Container(
+                      width: 400.0,
+                      height: 50.0,
+                      decoration:  BoxDecoration(
+                        color: const Color(0xff2e388f),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: const Center(child:  Text(Constants.login,style: TextStyle(color: Colors.white),)),
+                    ),
                   ),
-                  TextSpan(
-                    text: '.',
-                    style: TextStyle(color: Colors.black),
+                  const SizedBox(height: 18.0,),
+                  InkWell(
+                    onTap: (){},
+                    child: Container(
+                      width: 400.0,
+                      height: 50.0,
+                      decoration:  BoxDecoration(
+                        color: const Color(0xff2e388f),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: const Center(child:  Text(Constants.googleText,style: TextStyle(color: Colors.white),)),
+                    ),
+                  ),
+                 const SizedBox(height: 8.0,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 100.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        RichText(
+                          text:  const TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'By signing up you agree to our ',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              TextSpan(
+                                text: 'Terms of Use',
+                                style: TextStyle(color: Color(0xff2f3695), fontWeight: FontWeight.bold),
+                              ),
+                              TextSpan(
+                                text: ' and ',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              TextSpan(
+                                text: 'Privacy Policy',
+                                style: TextStyle(color: Color(0xff2f3695), fontWeight: FontWeight.bold),
+                              ),
+                              TextSpan(
+                                text: '.',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

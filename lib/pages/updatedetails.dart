@@ -8,12 +8,14 @@ class Updatedetails extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     double baseScreenWidth = 375.0;
     double baseScreenHeight = 812.0;
-
-    double hb =  (screenHeight / baseScreenHeight);
     double wb =  (screenWidth / baseScreenWidth);
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FB),
-      body: Container(
+      body: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: 800.0,
+          minWidth: 100,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

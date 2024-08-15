@@ -45,6 +45,11 @@ class Constants{
   static const String addMobilemoney ="Add your mobile money wallet or bank card (and associated account) to pay";
   static const String PaySmallSmall ="Pay Small Small";
   static const String paymentMethod = "This payment method is managed \nby Albrim Microfinance as a third \n party bill payment vendor of ECG";
+  static const  String mobilenumber ="Your mobile number may be verified against your Ghana Card details";
+  static const String login ="Login";
+  static const String enternumber ="Enter your mobile number";
+  static const String loginText ="Login with your Ghana mobile number";
+  static const String googleText ="Google";
 
   // Images Paths
   static const String youthImage = "images/youth.jpeg";
