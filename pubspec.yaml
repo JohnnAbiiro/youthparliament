@@ -38,6 +38,8 @@ dependencies:
   http: ^1.2.2
   provider: ^6.1.2
   intl: ^0.17.0
+  font_awesome_flutter: ^10.7.0
+
 
 dev_dependencies:
   flutter_test:

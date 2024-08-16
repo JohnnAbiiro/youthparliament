@@ -47,9 +47,19 @@ class Constants{
   static const String paymentMethod = "This payment method is managed \nby Albrim Microfinance as a third \n party bill payment vendor of ECG";
   static const  String mobilenumber ="Your mobile number may be verified against your Ghana Card details";
   static const String login ="Login";
-  static const String enternumber ="Enter your mobile number";
+  static const String enternumber ="Enter email";
   static const String loginText ="Login with your Ghana mobile number";
-  static const String googleText ="Google";
+  static const String googleText ="Login with Google";
+  static const String haveaccount ="Don't have an account?";
+  static const String signup =" Sign up";
+  static const String forgotpass ="Forgot password?";
+  static const String agreeGoogle ="By signing up you agree to our ";
+  static const String terms ="Terms of Use";
+  static const String password ="Enter password";
+
+
+
+
 
   // Images Paths
   static const String youthImage = "images/youth.jpeg";
@@ -58,6 +68,8 @@ class Constants{
   static const String greenImage = "images/metal.png";
   static const String albrim = "images/albrim.png";
   static const String search = "images/search.png";
+  static const String googlelogo ="images/google.png";
+
 
   // Colors
   static const Color serviceRequestBackgroundColor = Color(0xffe8f1fc);
@@ -71,6 +83,14 @@ class Constants{
   static const Color containerBackgroundColor = Color(0xffe4e6f2);
   static const Color postpaidBillBackgroundColor = Color(0xff2e388f);
   static const Color powerBalanceColor = Color(0xFF0F479E);
+  static const Color loginColor = Color(0xFFFEF7FF);
+
+
+  // text color
+  static const Color logintext = Color(0xFFFFFFFF);
+  static const Color loginTextColor = Color(0xff2f3695);
+  // containers color
+
 
   // Color Constants header
   static const Color transparent1 = Colors.transparent;
