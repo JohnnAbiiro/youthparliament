@@ -1,9 +1,16 @@
-import 'package:ecg/pages/createaccount.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
-class Signup extends StatelessWidget {
+import 'createaccount.dart';
+import 'membership.dart';
+class Signup extends StatefulWidget {
   const Signup({super.key});
+
+  @override
+  _SignupState createState() => _SignupState();
+}
+
+class _SignupState extends State<Signup> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +19,8 @@ class Signup extends StatelessWidget {
     double baseScreenWidth = 375.0;
     double baseScreenHeight = 812.0;
 
-    double hb =  (screenHeight / baseScreenHeight);
-    double wb =  (screenWidth / baseScreenWidth);
+    double hb = (screenHeight / baseScreenHeight);
+    double wb = (screenWidth / baseScreenWidth);
 
     return Scaffold(
       //backgroundColor: Constants.loginColor,
@@ -28,188 +35,247 @@ class Signup extends StatelessWidget {
               width: 600.0,
               height: 600,
               decoration: const BoxDecoration(
-                color:  Color(0xDBF7F8F9),
-               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                 const  Center(
-                    child: CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage(Constants.youthImage),
+                color: Color(0xDBF7F8F9),
+              ),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Center(
+                      child: CircleAvatar(
+                        radius: 50,
+                        backgroundImage: AssetImage(Constants.youthImage),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 20.0,),
-                  Container(
-                    color: Colors.transparent,
-                    width: 400,
-                    child: TextFormField(
-                      style: const TextStyle(
-                        fontSize: 12.0,
+                    const SizedBox(height: 20.0),
+
+                    // Email Field
+                    Container(
+                      color: Colors.transparent,
+                      width: 400,
+                      child: TextFormField(
+                        style: const TextStyle(
+                          fontSize: 12.0,
+                        ),
+                        decoration: const InputDecoration(
+                          labelText: Constants.enternumber,
+                          hintText: Constants.enternumber,
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.email),
+                        ),
+                        keyboardType: TextInputType.emailAddress,
+                        validator: _emailValidator, // Email validation
                       ),
-                      decoration: const InputDecoration(
-                        labelText: Constants.enternumber,
-                        hintText: Constants.enternumber,
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.email),
-                      ),
-                      keyboardType: TextInputType.emailAddress,
                     ),
-                  ),
-                  const SizedBox(height: 28.0,),
-                  Container(
-                    color: Colors.transparent,
-                    width: 400,
-                    child: TextFormField(
-                      style: const TextStyle(
-                        fontSize: 12.0,
+                    const SizedBox(height: 28.0),
+
+                    // Password Field
+                    Container(
+                      color: Colors.transparent,
+                      width: 400,
+                      child: TextFormField(
+                        style: const TextStyle(
+                          fontSize: 12.0,
+                        ),
+                        decoration: const InputDecoration(
+                          hintText: Constants.password,
+                          labelText: Constants.password,
+                          suffixIcon: Icon(Icons.visibility_off),
+                          prefixIcon: Icon(Icons.lock),
+                          border: OutlineInputBorder(),
+                        ),
+                        obscureText: true,
+                        keyboardType: TextInputType.visiblePassword,
+                        validator: _passwordValidator, // Password validation
                       ),
-                      decoration: const InputDecoration(
-                        hintText: Constants.password,
-                        labelText: Constants.password,
-                        suffixIcon: Icon(Icons.visibility_off),
-                        prefixIcon: Icon(Icons.lock),
-                        border: OutlineInputBorder(),
-                      ),
-                      obscureText: true,
-                      keyboardType: TextInputType.visiblePassword
                     ),
-                  ),
-                  const SizedBox(height: 18.0,),
-                   InkWell(
-                     onTap: (){},
+                    const SizedBox(height: 18.0),
+
+                    // Forgot Password InkWell
+                    InkWell(
+                      onTap: () {},
                       child: const Text(
                         Constants.forgotpass,
-                        style: TextStyle(fontSize: 12.0,color: Constants.loginTextColor,),)
-                   ),
-                  const SizedBox(height: 18.0,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                      width: 400.0,
-                      height: 50.0,
-                      decoration:  BoxDecoration(
-                        color: const Color(0xff2e388f),
-                        borderRadius: BorderRadius.circular(5.0),
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: Constants.loginTextColor,
+                        ),
                       ),
-                      child: const Center(child:  Text(Constants.login,style: TextStyle(color:Constants.logintext),)),
                     ),
-                  ),
-                  const SizedBox(height: 18.0,),
-                  Container(
-                     width: 400,
-                     color: Colors.transparent,
-                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.only(right: 8.0),
-                            child: const Divider(
-                              color: Constants.buttonBackgroundColor,
-                              thickness: 1.0,
-                            ),
+                    const SizedBox(height: 18.0),
+
+                    // Submit Button
+                    InkWell(
+                      onTap: () {
+                        if (_formKey.currentState!.validate()) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Leadership()),
+                          );
+                        }
+                      },
+                      child: Container(
+                        width: 400.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: const Color(0xff2e388f),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            Constants.login,
+                            style: TextStyle(color: Constants.logintext),
                           ),
-                        ),
-                       const Text(
-                          'or',
-                          style: TextStyle(fontSize: 12.0),
-                        ),
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.only(left: 8.0),
-                            child: const Divider(
-                              color: Constants.buttonBackgroundColor,
-                              thickness: 1.0,
-                            ),
-                          ),
-                        ),
-                      ],
-                     ),
-                   ),
-                  const SizedBox(height: 18.0,),
-                  InkWell(
-                    onTap: (){},
-                    child: Container(
-                      width: 400.0,
-                      height: 50.0,
-                      decoration:  BoxDecoration(
-                        borderRadius: BorderRadius.circular(5.0),
-                        border: Border.all(
-                          color: Constants.buttonBackgroundColor,
-                          width:1.0,
                         ),
                       ),
-                      child:Row(
+                    ),
+                    const SizedBox(height: 18.0),
+
+                    // Or Divider
+                    Container(
+                      width: 400,
+                      color: Colors.transparent,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 18.0),
+                          Expanded(
                             child: Container(
-                              color: Colors.transparent,
-                              child: Image.asset(
-                                Constants.googlelogo,
-                                height: 24.0,
-                                width: 24.0,
+                              margin: const EdgeInsets.only(right: 8.0),
+                              child: const Divider(
+                                color: Constants.buttonBackgroundColor,
+                                thickness: 1.0,
                               ),
                             ),
                           ),
-                          const SizedBox(width: 80.0,),
-                          const Text(Constants.googleText,style: TextStyle(fontSize: 12.0),),
+                          const Text(
+                            Constants.or,
+                            style: TextStyle(fontSize: 12.0),
+                          ),
+                          Expanded(
+                            child: Container(
+                              margin: const EdgeInsets.only(left: 8.0),
+                              child: const Divider(
+                                color: Constants.buttonBackgroundColor,
+                                thickness: 1.0,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                  ),
-                 const SizedBox(height: 10.0,),
-                  InkWell(
-                    onTap: (){
-                      Navigator.push(context,MaterialPageRoute(builder: (context)=> const CreateAccount() ),
-                      );
-                    },
-                    child: const Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(Constants.haveaccount, style: TextStyle(fontSize: 12.0,),),
-                        Text(Constants.signup,style: TextStyle(fontSize: 12.0,color: Constants.loginTextColor),),
-                      ],
-                    ),
-                  ),
-                 const SizedBox(height: 10.0,),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      RichText(
-                        text:  const TextSpan(
+                    const SizedBox(height: 18.0),
+
+                    // Google Sign-Up Button
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        width: 400.0,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                            color: Constants.buttonBackgroundColor,
+                            width: 1.0,
+                          ),
+                        ),
+                        child: Row(
                           children: [
-                            TextSpan(
-                              text: Constants.agreeGoogle,
-                              style: TextStyle(fontSize: 12.0),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 18.0),
+                              child: Container(
+                                color: Colors.transparent,
+                                child: Image.asset(
+                                  Constants.googlelogo,
+                                  height: 24.0,
+                                  width: 24.0,
+                                ),
+                              ),
                             ),
-                            TextSpan(
-                              text: Constants.terms,
-                              style: TextStyle(color: Constants.loginTextColor, fontWeight: FontWeight.bold, fontSize: 12.0),
-                            ),
-                            TextSpan(
-                              text: ' and ',
-                              style: TextStyle(fontSize: 12.0),
-                            ),
-                            TextSpan(
-                              text: 'Privacy Policy',
-                              style: TextStyle(color: Constants.loginTextColor, fontWeight: FontWeight.bold,fontSize: 12.0),
-                            ),
-                            TextSpan(
-                              text: '.',
+                            const SizedBox(width: 80.0),
+                            const Text(
+                              Constants.googleText,
                               style: TextStyle(fontSize: 12.0),
                             ),
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                ],
+                      ),
+                    ),
+                    const SizedBox(height: 10.0),
+
+                    // Sign-Up Prompt
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CreateAccount()),
+                        );
+                      },
+                      child: const Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            Constants.haveaccount,
+                            style: TextStyle(fontSize: 12.0),
+                          ),
+                          Text(
+                            Constants.signup,
+                            style: TextStyle(
+                                fontSize: 12.0,
+                                color: Constants.loginTextColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 10.0),
+
+                    // Terms and Privacy Policy
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RichText(
+                          text: const TextSpan(
+                            children: [
+                              TextSpan(
+                                text: Constants.agreeGoogle,
+                                style: TextStyle(fontSize: 12.0),
+                              ),
+                              TextSpan(
+                                text: Constants.terms,
+                                style: TextStyle(
+                                  color: Constants.loginTextColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ' and ',
+                                style: TextStyle(fontSize: 12.0),
+                              ),
+                              TextSpan(
+                                text: 'Privacy Policy',
+                                style: TextStyle(
+                                  color: Constants.loginTextColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '.',
+                                style: TextStyle(fontSize: 12.0),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -217,6 +283,27 @@ class Signup extends StatelessWidget {
       ),
     );
   }
+
+  // Validator for email
+  String? _emailValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    }
+    final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+    if (!emailRegex.hasMatch(value)) {
+      return 'Please enter a valid email';
+    }
+    return null;
+  }
+
+  // Validator
+  String? _passwordValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    }
+    if (value.length < 6) {
+      return 'Password must be at least 6 characters';
+    }
+    return null;
+  }
 }
-
-

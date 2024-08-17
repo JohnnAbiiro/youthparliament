@@ -40,33 +40,33 @@ class _CreateAccountState extends State<CreateAccount> {
                     radius: 50,
                     backgroundImage: AssetImage(Constants.youthImage),
                   ),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildTextField('Names', 'Enter your full name', Icons.person, validator: _requiredValidator),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildTextField('Regional Location', 'Enter your regional location', Icons.location_on, validator: _requiredValidator),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildTextField('Academic Background', 'Enter your academic background', Icons.school, validator: _requiredValidator),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildTextField('Current Profession', 'Enter your current profession', Icons.work, validator: _requiredValidator),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildTextField('Previous Leadership Experience', 'Enter your previous leadership experience', Icons.history, validator: _requiredValidator),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildTextField('Phone Number', 'Enter your phone number', Icons.phone, keyboardType: TextInputType.phone, validator: _requiredValidator),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildTextField('Email', 'Enter your email address', Icons.email, keyboardType: TextInputType.emailAddress, validator: _emailValidator),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildSexDropdown(),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildDateDropdowns(),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildSubmitButton(),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildOrDivider(),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildGoogleSignInButton(),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildSignUpPrompt(context),
-                  const SizedBox(height: 5.0),
+                  const SizedBox(height: 8.0),
                   _buildTermsAndPrivacyPolicy(),
                 ],
               ),
@@ -94,7 +94,6 @@ class _CreateAccountState extends State<CreateAccount> {
       ),
     );
   }
-
   Widget _buildSexDropdown() {
     return Container(
       color: Colors.transparent,
@@ -125,7 +124,6 @@ class _CreateAccountState extends State<CreateAccount> {
       ),
     );
   }
-
   Widget _buildDateDropdowns() {
     return Container(
       color: Colors.transparent,
@@ -181,12 +179,11 @@ class _CreateAccountState extends State<CreateAccount> {
       ),
     );
   }
-
   Widget _buildSubmitButton() {
     return InkWell(
       onTap: () {
         if (_formKey.currentState!.validate()) {
-          // Submit form
+
         }
       },
       child: Container(
@@ -198,7 +195,7 @@ class _CreateAccountState extends State<CreateAccount> {
         ),
         child: const Center(
           child: Text(
-            'Submit',
+            Constants.createMAccount,
             style: TextStyle(color: Colors.white, fontSize: 12.0),
           ),
         ),
@@ -269,7 +266,7 @@ class _CreateAccountState extends State<CreateAccount> {
             ),
             const SizedBox(width: 80.0),
             const Text(
-              'Sign up with Google',
+              Constants.signUpGoogle,
               style: TextStyle(fontSize: 12.0),
             ),
           ],
@@ -293,11 +290,11 @@ class _CreateAccountState extends State<CreateAccount> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Already have an account?',
+            Constants.alreadyAccount,
             style: TextStyle(fontSize: 12.0),
           ),
           Text(
-            ' Sign in',
+            Constants.signIn,
             style: TextStyle(
                 fontSize: 12.0, color: Constants.loginTextColor),
           ),
@@ -315,22 +312,22 @@ class _CreateAccountState extends State<CreateAccount> {
           text: const TextSpan(
             children: [
               TextSpan(
-                text: 'By signing up, you agree to our ',
+                text: Constants.agreeGoogle,
                 style: TextStyle(fontSize: 12.0),
               ),
               TextSpan(
-                text: 'Terms',
+                text: Constants.term,
                 style: TextStyle(
                     color: Constants.loginTextColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 12.0),
               ),
               TextSpan(
-                text: ' and ',
+                text: Constants.and,
                 style: TextStyle(fontSize: 12.0),
               ),
               TextSpan(
-                text: 'Privacy Policy',
+                text: Constants.privacyPolicy,
                 style: TextStyle(
                     color: Constants.loginTextColor,
                     fontWeight: FontWeight.bold,
@@ -349,18 +346,18 @@ class _CreateAccountState extends State<CreateAccount> {
 
   String? _requiredValidator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'This field is required';
+      return Constants.requiredText;
     }
     return null;
   }
 
   String? _emailValidator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'This field is required';
+      return Constants.requiredText;
     }
     final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     if (!regex.hasMatch(value)) {
-      return 'Enter a valid email';
+      return Constants.requiredText;
     }
     return null;
   }

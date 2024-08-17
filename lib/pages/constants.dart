@@ -46,6 +46,8 @@ class Constants{
   static const String PaySmallSmall ="Pay Small Small";
   static const String paymentMethod = "This payment method is managed \nby Albrim Microfinance as a third \n party bill payment vendor of ECG";
   static const  String mobilenumber ="Your mobile number may be verified against your Ghana Card details";
+
+  //Account creations
   static const String login ="Login";
   static const String enternumber ="Enter email";
   static const String loginText ="Login with your Ghana mobile number";
@@ -56,6 +58,23 @@ class Constants{
   static const String agreeGoogle ="By signing up you agree to our ";
   static const String terms ="Terms of Use";
   static const String password ="Enter password";
+  static const String createMAccount ="Create account";
+  static const String alreadyAccount ="Already have an account?";
+  static const String signIn ="Sign in";
+  static const String and =" and ";
+  static const String or =" or ";
+  static const String term =" Terms ";
+  static const String privacyPolicy =" Privacy Policy ";
+  static const String signUpGoogle =" Sign up with Google ";
+
+  // Leadership registration
+  static const String registration =" Leadership Parliament Registration";
+  static const String parliamentCategory = "Select Your Parliament Category";
+  //validation text
+  static const String requiredText="This field is required";
+  // text color
+  static const Color logintext = Color(0xFFFFFFFF);
+  static const Color loginTextColor = Color(0xff2f3695);
 
 
 
@@ -86,9 +105,7 @@ class Constants{
   static const Color loginColor = Color(0xFFFEF7FF);
 
 
-  // text color
-  static const Color logintext = Color(0xFFFFFFFF);
-  static const Color loginTextColor = Color(0xff2f3695);
+
   // containers color
 
 
