@@ -20,54 +20,56 @@ class _CreateAccountState extends State<CreateAccount> {
     double baseScreenWidth = 375.0;
     double baseScreenHeight = 812.0;
      return Scaffold(
-      body: Center(
-        child: Container(
-          width: 800.0,
-          height: 900.0,
-          padding: const EdgeInsets.all(20.0),
-          decoration: const BoxDecoration(
-            color: Color(0xDBF7F8F9),
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          ),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const CircleAvatar(
-                  radius: 50,
-                  backgroundImage: AssetImage(Constants.youthImage),
-                ),
-                const SizedBox(height: 10.0),
-                _buildTextField('Names', 'Enter your full name', Icons.person, validator: _requiredValidator),
-                const SizedBox(height: 10.0),
-                _buildTextField('Regional Location', 'Enter your regional location', Icons.location_on, validator: _requiredValidator),
-                const SizedBox(height: 10.0),
-                _buildTextField('Academic Background', 'Enter your academic background', Icons.school, validator: _requiredValidator),
-                const SizedBox(height: 10.0),
-                _buildTextField('Current Profession', 'Enter your current profession', Icons.work, validator: _requiredValidator),
-                const SizedBox(height: 10.0),
-                _buildTextField('Previous Leadership Experience', 'Enter your previous leadership experience', Icons.history, validator: _requiredValidator),
-                const SizedBox(height: 10.0),
-                _buildTextField('Phone Number', 'Enter your phone number', Icons.phone, keyboardType: TextInputType.phone, validator: _requiredValidator),
-                const SizedBox(height: 10.0),
-                _buildTextField('Email', 'Enter your email address', Icons.email, keyboardType: TextInputType.emailAddress, validator: _emailValidator),
-                const SizedBox(height: 10.0),
-                _buildSexDropdown(),
-                const SizedBox(height: 10.0),
-                _buildDateDropdowns(),
-                const SizedBox(height: 10.0),
-                _buildSubmitButton(),
-                const SizedBox(height: 10.0),
-                _buildOrDivider(),
-                const SizedBox(height: 10.0),
-                _buildGoogleSignInButton(),
-                const SizedBox(height: 10.0),
-                _buildSignUpPrompt(context),
-                const SizedBox(height: 10.0),
-                _buildTermsAndPrivacyPolicy(),
-              ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            width: 800.0,
+            height: 1000.0,
+            padding: const EdgeInsets.all(20.0),
+            decoration: const BoxDecoration(
+              color: Color(0xDBF7F8F9),
+              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            ),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage(Constants.youthImage),
+                  ),
+                  const SizedBox(height: 5.0),
+                  _buildTextField('Names', 'Enter your full name', Icons.person, validator: _requiredValidator),
+                  const SizedBox(height: 5.0),
+                  _buildTextField('Regional Location', 'Enter your regional location', Icons.location_on, validator: _requiredValidator),
+                  const SizedBox(height: 5.0),
+                  _buildTextField('Academic Background', 'Enter your academic background', Icons.school, validator: _requiredValidator),
+                  const SizedBox(height: 5.0),
+                  _buildTextField('Current Profession', 'Enter your current profession', Icons.work, validator: _requiredValidator),
+                  const SizedBox(height: 5.0),
+                  _buildTextField('Previous Leadership Experience', 'Enter your previous leadership experience', Icons.history, validator: _requiredValidator),
+                  const SizedBox(height: 5.0),
+                  _buildTextField('Phone Number', 'Enter your phone number', Icons.phone, keyboardType: TextInputType.phone, validator: _requiredValidator),
+                  const SizedBox(height: 5.0),
+                  _buildTextField('Email', 'Enter your email address', Icons.email, keyboardType: TextInputType.emailAddress, validator: _emailValidator),
+                  const SizedBox(height: 5.0),
+                  _buildSexDropdown(),
+                  const SizedBox(height: 5.0),
+                  _buildDateDropdowns(),
+                  const SizedBox(height: 5.0),
+                  _buildSubmitButton(),
+                  const SizedBox(height: 5.0),
+                  _buildOrDivider(),
+                  const SizedBox(height: 5.0),
+                  _buildGoogleSignInButton(),
+                  const SizedBox(height: 5.0),
+                  _buildSignUpPrompt(context),
+                  const SizedBox(height: 5.0),
+                  _buildTermsAndPrivacyPolicy(),
+                ],
+              ),
             ),
           ),
         ),
@@ -75,7 +77,7 @@ class _CreateAccountState extends State<CreateAccount> {
     );
   }
 
-  Widget _buildTextField(String label, String hint, IconData icon, {TextInputType? keyboardType, String? Function(String?)? validator}) {
+   _buildTextField(String label, String hint, IconData icon, {TextInputType? keyboardType, String? Function(String?)? validator}) {
     return Container(
       color: Colors.transparent,
       width: 400,
@@ -85,7 +87,7 @@ class _CreateAccountState extends State<CreateAccount> {
         decoration: InputDecoration(
           labelText: label,
           hintText: hint,
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           prefixIcon: Icon(icon),
         ),
         validator: validator,
