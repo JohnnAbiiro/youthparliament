@@ -18,7 +18,7 @@ class Wallet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            headerMenu(screenWidth, screenHeight,"Wallet","Service \n Request", context),
+            //headerMenu("Wallet","Service \n Request", context),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -136,125 +136,7 @@ class Wallet extends StatelessWidget {
                 style: TextStyle(fontSize: 12.0),),
            ),
             const SizedBox(height: 8.0,),
-            /* SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(
-                        width: 3.0,
-                        color: const Color(0xFFE3E3E3),
-                      ),
-                      color: Constants.paysmallcolor,
-                      image: const DecorationImage(
-                        image: AssetImage("images/search.png"),
-                        alignment: Alignment.centerRight,
-                      ),
-                    ),
-                    child: Stack(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
-                              child: Text(
-                                "My PowerApp Balance",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Color(0xFF303B6B),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 28.0),
-                              child: Text(
-                                "GHs 0.00",
-                                style: TextStyle(
-                                  color: Color(0xFF303B6B),
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: screenHeight * 0.07),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Container(
-                                width: 50.0,
-                                height: 50.0,
-                                alignment: Alignment.bottomLeft,
-                                child: const Image(
-                                  image: AssetImage('images/youth.jpeg'),
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: Constants.powerBalanceColor,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                       const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-                          child: Text(
-                            Constants.PaySmallSmall,  // Using constant
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              color: Constants.paysmallcolor,  // Using constant
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                       const Padding(
-                         padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text(
-                            Constants.paymentMethod,
-                            style: TextStyle(
-                              color: Constants.paysmallcolor,
-                              fontSize: 8.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                       const SizedBox(height:8.0),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Container(
-                            alignment: Alignment.bottomLeft,
-                            child: const Image(
-                              image: AssetImage(Constants.albrim),
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-             ),
-            ),
-           ),*/
+
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Padding(

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'serviceRequest.dart';
 import 'constants.dart';
-Row headerMenu(double screenWidth, double screenHeight,String menuText,String serviceRequestText, BuildContext context) {
+Row headerMenu(String menuText,String serviceRequestText, BuildContext context) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Container(
-        width: screenWidth * 0.15,
-        height: screenHeight * 0.07,
+        width: 60.0,
+        height: 40.0,
         color: Constants.transparent1,
         child: Image.asset(Constants.youthImage),
       ),
-      SizedBox(width: screenWidth * 0.01),
+     const SizedBox(width: 10.0 ),
        Text(menuText, style: Constants.textStyle),
-      SizedBox(width: screenWidth * 0.10),
+     const SizedBox(width: 80.0),
       InkWell(
         onTap: () {
           Navigator.push(

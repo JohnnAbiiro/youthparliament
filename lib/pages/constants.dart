@@ -107,7 +107,8 @@ class Constants{
 
 
   // containers color
-
+  static const Color pollOptionsContainer = Color(0xff2e388f);
+  static const Color pollOptionsContainer2 = Colors.blueAccent;
 
   // Color Constants header
   static const Color transparent1 = Colors.transparent;

@@ -28,7 +28,7 @@ class _TransactionsState extends State<Transactions> {
     return Scaffold(
         body:  Column(
           children: [
-            headerMenu(screenWidth, screenHeight,"Transactions","Service \n Request", context),
+            headerMenu("Transactions","Service \n Request", context),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
