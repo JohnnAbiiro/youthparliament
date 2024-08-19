@@ -9,8 +9,6 @@ class Politicalparty extends StatefulWidget {
 }
 
 class _PoliticalpartyState extends State<Politicalparty> {
-  bool _showDetails = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,14 +32,14 @@ class _PoliticalpartyState extends State<Politicalparty> {
               _buildPartyCard(
                 context,
                 'National Democratic Congress (NDC)',
-                Colors.red,
+                Colors.green,
                 Constants.ndclogo,
               ),
               _buildPartyCard(
                 context,
                 'Convention People\'s Party (CPP)',
                 Colors.yellow,
-                Constants.ndclogo,
+                Constants.cpplogo,
               ),
             ],
           ),
@@ -50,12 +48,21 @@ class _PoliticalpartyState extends State<Politicalparty> {
     );
   }
 
-  Widget _buildPartyCard(BuildContext context, String partyName, Color color, String imagePath) {
+  // Helper method to build each party card
+  Widget _buildPartyCard(
+      BuildContext context,
+      String partyName,
+      Color color,
+      String imagePath,
+      ) {
     return InkWell(
       onTap: () {
+        // Navigate to Party Details Page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PartyDetailsPage(partyName: partyName)),
+          MaterialPageRoute(
+            builder: (context) => PartyDetailsPage(partyName: partyName),
+          ),
         );
       },
       child: Container(
@@ -73,7 +80,7 @@ class _PoliticalpartyState extends State<Politicalparty> {
               partyName,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 12,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -96,6 +103,7 @@ class _PoliticalpartyState extends State<Politicalparty> {
 class PartyDetailsPage extends StatelessWidget {
   final String partyName;
   const PartyDetailsPage({super.key, required this.partyName});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,14 +124,15 @@ class PartyDetailsPage extends StatelessWidget {
                 Text(
                   partyName,
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Information about $partyName .',
-                  style: const TextStyle(fontSize: 18),
+                  'Information about $partyName.',
+                  style: const TextStyle(fontSize: 16),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),

@@ -24,7 +24,6 @@ class _CreateAccountState extends State<CreateAccount> {
         child: Center(
           child: Container(
             width: 800.0,
-            height: 1000.0,
             padding: const EdgeInsets.all(20.0),
             decoration: const BoxDecoration(
               color: Color(0xDBF7F8F9),

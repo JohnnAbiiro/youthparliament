@@ -88,7 +88,25 @@ class Constants{
   static const String albrim = "images/albrim.png";
   static const String search = "images/search.png";
   static const String googlelogo ="images/google.png";
+  static const String npplogo ="images/npp.png";
+  static const String ndclogo ="images/ndc.png";
+  static const String cpplogo ="images/cpp.png";
+  static const String otherslogo ="images/others.png";
+  static const String book1 ="images/book1.jpg";
+  static const String book2 ="images/book2.jpg";
+  static const String book3 ="images/book3.jpg";
+  //people images
+  static const String presidentImage ="images/nana.jpeg";
+  static const String vicePresidentImage ="images/bawumia.jpg";
+  static const String financeMinisterImage ="images/amin.jpg";
+  static const String foreignAffairsMinisterImage ="images/foreign.jpg";
+  static const String educationMinisterImage ="images/adu.jpg";
 
+  //parliament images
+  static const String speakerImage ="images/bagbin.jpg";
+  static const String majorityLeaderImage ="images/alex.jpg";
+  static const String minorityLeaderImage ="images/forson.jpg";
+  static const String committeeImage ="images/committee.jpg";
 
   // Colors
   static const Color serviceRequestBackgroundColor = Color(0xffe8f1fc);
@@ -104,6 +122,9 @@ class Constants{
   static const Color powerBalanceColor = Color(0xFF0F479E);
   static const Color loginColor = Color(0xFFFEF7FF);
 
+ // App bar
+  static const Color appBarColor =Color(0xff0a318e);
+  static const Color appIconColor =Color(0xFFFFFFFF);
 
 
   // containers color

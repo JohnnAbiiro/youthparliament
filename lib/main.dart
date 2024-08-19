@@ -1,3 +1,6 @@
+import 'package:ecg/pages/cso.dart';
+import 'package:ecg/pages/ghanagovernment.dart';
+import 'package:ecg/pages/upcomingevent.dart';
 import 'package:flutter/material.dart';
 import 'pages/meters.dart';
 import 'pages/transactions.dart';
@@ -8,7 +11,10 @@ import 'pages/signup.dart';
 import 'pages/constants.dart';
 import 'pages/home.dart';
 import 'pages/poll.dart';
-
+import 'pages/politicalparties.dart';
+import 'pages/onlinelibray.dart';
+import 'pages/onlinetraining.dart';
+import 'pages/parliament.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -59,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Constants.title,
           style: const TextStyle(color: Colors.white, fontSize: 16.0),
         ),
+        centerTitle: true,
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
@@ -66,7 +73,12 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Logout()),
+              );
+            },
           ),
         ],
       ),
@@ -106,7 +118,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('Political Parties',
                     style: TextStyle(color: Colors.white, fontSize: 12.0)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=> const Politicalparty()
+                  ),
+                  );
                 },
               ),
               ListTile(
@@ -123,7 +137,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text("CSO's and Stakeholders",
                     style: TextStyle(color: Colors.white, fontSize: 12.0)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=> CivicSociety()
+                   ),
+                  );
                 },
               ),
               ListTile(
@@ -131,7 +147,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('Online Library',
                     style: TextStyle(color: Colors.white, fontSize: 12.0)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>OnlineLibrary(),
+                   ),
+                  );
                 },
               ),
               ListTile(
@@ -139,7 +157,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('Online Training Centre',
                     style: TextStyle(color: Colors.white, fontSize: 12.0)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>OnlineTraining()
+                  ),
+                  );
                 },
               ),
               ListTile(
@@ -147,7 +167,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('Upcoming Events',
                     style: TextStyle(color: Colors.white, fontSize: 12.0)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>UpcomingEvent()
+                   ),
+                  );
                 },
               ),
               ListTile(
@@ -155,7 +177,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('Ghana Government',
                     style: TextStyle(color: Colors.white, fontSize: 12.0)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const GovernmentOfGhana()
+                   ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.account_balance, color: Colors.white),
+                title: const Text(
+                  'Parliament of Ghana',
+                  style: TextStyle(color: Colors.white, fontSize: 12.0),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ParliamentOfGhana()),
+                  );
                 },
               ),
               const Divider(height: 1.0, thickness: 1.0),

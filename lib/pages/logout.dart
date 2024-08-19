@@ -183,7 +183,7 @@ class Logout extends StatelessWidget {
                   text: 'Log out',
                   style: const TextStyle(
                     color: Color(0xffc50505),
-                    fontSize: 16,
+                    fontSize: 12,
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
