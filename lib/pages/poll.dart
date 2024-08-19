@@ -177,15 +177,15 @@ class _PollState extends State<Poll> {
         ),
         child: Column(
           children: [
-            SizedBox(height: 20.0),
+           const  SizedBox(height: 20.0),
             Icon(icon, size: 40.0, color: Colors.white),
-            SizedBox(height: 10.0),
+           const  SizedBox(height: 10.0),
             Text(
               title,
-              style: TextStyle(fontSize: 16.0, color: Colors.white),
+              style: const TextStyle(fontSize: 12.0, color: Colors.white),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
           ],
         ),
       ),
@@ -198,7 +198,7 @@ class PollPage extends StatefulWidget {
   final List<String> questions;
   final List<List<String>> options;
 
-  PollPage({required this.category, required this.questions, required this.options});
+  const PollPage({super.key, required this.category, required this.questions, required this.options});
 
   @override
   _PollPageState createState() => _PollPageState();
@@ -209,7 +209,6 @@ class _PollPageState extends State<PollPage> {
 
   void _submitAnswers() {
     bool allQuestionsAnswered = true;
-
     for (int i = 0; i < widget.questions.length; i++) {
       if (selectedAnswers[i] == null) {
         allQuestionsAnswered = false;
@@ -244,38 +243,36 @@ class _PollPageState extends State<PollPage> {
       _showIncompleteFormDialog();
     }
   }
-
   void _showIncompleteFormDialog() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("Incomplete"),
-        content: Text("Please answer all the questions before submitting."),
+        title: const Text("Incomplete",style: TextStyle(fontSize: 12.0),),
+        content: const Text("Please answer all the questions before submitting.",style: TextStyle(fontSize: 12.0),),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text("OK"),
+            child: const Text("OK",style: TextStyle(fontSize: 12.0),),
           ),
         ],
       ),
     );
   }
-
   void _showSubmissionConfirmation() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("Submitted"),
-        content: Text("Your answers have been successfully submitted."),
+        title: const Text("Submitted",style: TextStyle(fontSize: 12.0),),
+        content: const Text("Your answers have been successfully submitted.",style: TextStyle(fontSize: 12.0),),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
               Navigator.of(context).pop();
             },
-            child: Text("OK"),
+            child: const Text("OK",style: TextStyle(fontSize: 12.0),),
           ),
         ],
       ),
@@ -287,6 +284,7 @@ class _PollPageState extends State<PollPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget.category} Poll Questions'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -304,9 +302,9 @@ class _PollPageState extends State<PollPage> {
                         children: [
                           Text(
                             "${index + 1}. ${widget.questions[index]}",
-                            style: TextStyle(fontSize: 16.0),
+                            style: const TextStyle(fontSize: 12.0),
                           ),
-                          SizedBox(height: 8.0),
+                          const SizedBox(height: 8.0),
                           ...widget.options[index].map(
                                 (option) {
                               return RadioListTile<String>(
@@ -330,7 +328,7 @@ class _PollPageState extends State<PollPage> {
             ),
             ElevatedButton(
               onPressed: _submitAnswers,
-              child: Text('Submit'),
+              child: const Text('Submit',style: TextStyle(fontSize: 12.0),),
             ),
           ],
         ),
