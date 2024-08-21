@@ -3,7 +3,9 @@ import 'package:ecg/pages/buttonpoll.dart';
 import 'package:ecg/pages/cso.dart';
 import 'package:ecg/pages/ghanagovernment.dart';
 import 'package:ecg/pages/upcomingevent.dart';
+import 'package:ecg/provider/controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'pages/meters.dart';
 import 'pages/transactions.dart';
 import 'pages/wallet.dart';
@@ -30,7 +32,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: ChangeNotifierProvider(create: (BuildContext context)=>AppProvider(),
+      child: const MyHomePage()),
     );
   }
 }

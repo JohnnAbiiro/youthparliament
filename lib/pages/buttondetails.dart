@@ -5,10 +5,10 @@ class Detailbutton extends StatefulWidget {
   const Detailbutton({super.key});
 
   @override
-  _DetailbuttonState createState() => _State();
+  State<Detailbutton> createState() => _DetailbuttonState();
 }
 
-class _PollState extends State<Detailbutton> {
+class _DetailbuttonState extends State<Detailbutton> {
   // Brief information for each category
   Map<String, String> categoryInfo = {
     "Political Parties": "Information about the structure and accountability of political parties.",
