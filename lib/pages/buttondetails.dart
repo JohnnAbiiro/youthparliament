@@ -5,7 +5,7 @@ class Detailbutton extends StatefulWidget {
   const Detailbutton({super.key});
 
   @override
-  _DetailbuttonState createState() => _State();
+  _PollState createState() => _PollState();
 }
 
 class _PollState extends State<Detailbutton> {
@@ -48,6 +48,8 @@ class _PollState extends State<Detailbutton> {
 
   Widget buildCategoryRow(BuildContext context, String title1, String title2) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Expanded(
           child: Center(
@@ -106,6 +108,7 @@ class _PollState extends State<Detailbutton> {
 
   Widget buildContactUsRow(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: Center(

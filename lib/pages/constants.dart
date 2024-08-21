@@ -95,6 +95,8 @@ class Constants{
   static const String book1 ="images/book1.jpg";
   static const String book2 ="images/book2.jpg";
   static const String book3 ="images/book3.jpg";
+  static const String johnny ="images/johnny.png";
+  static const String earth1 ="images/earth1.jpeg";
   //people images
   static const String presidentImage ="images/nana.jpeg";
   static const String vicePresidentImage ="images/bawumia.jpg";

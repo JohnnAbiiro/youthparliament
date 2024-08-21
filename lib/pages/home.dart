@@ -39,7 +39,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     child: Row(
                       children: [
                         SizedBox(
-                          width: 80,
+                          width: 60,
                           child: Image.asset(Constants.postpaidBillImage),
                         ),
                         const SizedBox(width: 2.0),

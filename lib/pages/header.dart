@@ -3,18 +3,16 @@ import 'serviceRequest.dart';
 import 'constants.dart';
 Row headerMenu(String menuText,String serviceRequestText, BuildContext context) {
   return Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
-      Container(
+       Container(
         width: 60.0,
         height: 40.0,
         color: Constants.transparent1,
         child: Image.asset(Constants.youthImage),
       ),
-     const SizedBox(width: 10.0 ),
        Text(menuText, style: Constants.textStyle),
-     const SizedBox(width: 80.0),
-      InkWell(
+       InkWell(
         onTap: () {
           Navigator.push(
             context,
