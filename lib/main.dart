@@ -1,3 +1,5 @@
+import 'package:ecg/pages/buttondetails.dart';
+import 'package:ecg/pages/buttonpoll.dart';
 import 'package:ecg/pages/cso.dart';
 import 'package:ecg/pages/ghanagovernment.dart';
 import 'package:ecg/pages/upcomingevent.dart';
@@ -120,6 +122,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=> const Politicalparty()
                   ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.bar_chart, color: Colors.white),
+                title: const Text('Organizations',
+                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                onTap: () {
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const Detailbutton()),
                   );
                 },
               ),

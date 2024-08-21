@@ -89,11 +89,13 @@ class _UpcomingEventState extends State<UpcomingEvent> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Upcoming Civic Society Events',
-                  style: TextStyle(
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.bold,
+                const Center(
+                  child:  Text(
+                    'Upcoming Civic Society Events',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20.0),
@@ -101,7 +103,7 @@ class _UpcomingEventState extends State<UpcomingEvent> {
                 // Event List
                 Expanded(
                   child: _filteredEvents.isEmpty
-                      ? const Center(child: Text('No events found.'))
+                      ? const Center(child: Text('No events found.',style: TextStyle(fontSize: 12.0),))
                       : ListView.builder(
                     itemCount: _filteredEvents.length,
                     itemBuilder: (context, index) {
@@ -144,8 +146,8 @@ class _UpcomingEventState extends State<UpcomingEvent> {
             const SizedBox(height: 8.0),
             Text(description),
             const SizedBox(height: 8.0),
-            Text('Date: $date'),
-            Text('Location: $location'),
+            Text('Date: $date',style: const TextStyle(fontSize: 12.0),),
+            Text('Location: $location',style: const TextStyle(fontSize: 12.0),),
           ],
         ),
         trailing: const Icon(Icons.event),
@@ -190,34 +192,41 @@ class EventDetailPage extends StatelessWidget {
           color: Constants.appIconColor
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 12.0,
-                fontWeight: FontWeight.bold,
-              ),
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 800.0,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Text(
+                  description,
+                  style: const TextStyle(fontSize: 12.0),
+                ),
+                const SizedBox(height: 16.0),
+                Text(
+                  'Date: $date',
+                  style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8.0),
+                Text(
+                  'Location: $location',
+                  style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
-            const SizedBox(height: 16.0),
-            Text(
-              description,
-              style: const TextStyle(fontSize: 12.0),
-            ),
-            const SizedBox(height: 16.0),
-            Text(
-              'Date: $date',
-              style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              'Location: $location',
-              style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
-            ),
-          ],
+          ),
         ),
       ),
     );

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
-
 class OnlineLibrary extends StatefulWidget {
+  const OnlineLibrary({super.key});
+
   @override
   _OnlineLibraryState createState() => _OnlineLibraryState();
 }
@@ -28,8 +29,7 @@ class _OnlineLibraryState extends State<OnlineLibrary> {
   String _searchQuery = "";
 
   @override
-  Widget build(BuildContext context) {
-    // Filter the book list based on the search query
+    build(BuildContext context) {
     List<Map<String, String>> _filteredBooks = _books.where((book) {
       final bookTitle = book['title']!.toLowerCase();
       final bookAuthor = book['author']!.toLowerCase();
@@ -41,10 +41,13 @@ class _OnlineLibraryState extends State<OnlineLibrary> {
       appBar: AppBar(
         title: const Text(
           'Online Library',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Constants.appIconColor,fontSize: 12.0),
         ),
         centerTitle: true,
-        backgroundColor: Constants.loginTextColor,
+        backgroundColor: Constants.appBarColor,
+        iconTheme: const IconThemeData(
+          color: Constants.appIconColor
+        ),
       ),
       body: Center(
         child: ConstrainedBox(
@@ -69,6 +72,7 @@ class _OnlineLibraryState extends State<OnlineLibrary> {
                 child: TextFormField(
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
+                    labelText:'Enter book title or author',
                     hintText: 'Enter book title or author',
                     suffixIcon: Icon(Icons.search),
                   ),
@@ -85,14 +89,14 @@ class _OnlineLibraryState extends State<OnlineLibrary> {
                 child: Text(
                   'Featured Books',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
               Expanded(
                 child: _filteredBooks.isEmpty
-                    ? Center(child: Text('No books found.'))
+                    ? Center(child: Text('No books found.',style: TextStyle(fontSize: 12.0),))
                     : ListView.builder(
                   itemCount: _filteredBooks.length,
                   itemBuilder: (context, index) {
@@ -122,11 +126,11 @@ class _OnlineLibraryState extends State<OnlineLibrary> {
           height: 90,
           fit: BoxFit.cover,
         ),
-        title: Text(title),
-        subtitle: Text(author),
+        title: Text(title,style: const TextStyle(fontSize: 12.0,),),
+        subtitle: Text(author,style: const TextStyle(fontSize: 11),),
         trailing: const Icon(Icons.arrow_forward),
         onTap: () {
-          // Add navigation or functionality for the book tap here
+
         },
       ),
     );

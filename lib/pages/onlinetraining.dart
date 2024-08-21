@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class OnlineTraining extends StatefulWidget {
+  const OnlineTraining({super.key});
+
   @override
   _OnlineTrainingState createState() => _OnlineTrainingState();
 }
@@ -26,6 +28,7 @@ class _OnlineTrainingState extends State<OnlineTraining> {
   ];
 
   String _searchQuery = "";
+  bool _isSearching = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,64 +42,87 @@ class _OnlineTrainingState extends State<OnlineTraining> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Civic Society'),
-        backgroundColor: Colors.blue,
+        title: _isSearching
+            ? TextField(
+          autofocus: true,
+          decoration: const InputDecoration(
+            hintText: 'Search Resources...',
+            border: InputBorder.none,
+            hintStyle: TextStyle(color: Colors.white),
+          ),
+          style: const TextStyle(color: Colors.white),
+          onChanged: (query) {
+            setState(() {
+              _searchQuery = query;
+            });
+          },
+        )
+            : const Text('Online Training centre',style: TextStyle(color: Constants.appIconColor,fontSize: 12.0),),
+        centerTitle: true,
+        backgroundColor: Constants.appBarColor,
+        iconTheme: const IconThemeData(
+          color: Constants.appIconColor,
+        ),
+        actions: [
+         IconButton(
+            icon: Icon(_isSearching ? Icons.close : Icons.search),
+            onPressed: () {
+              setState(() {
+                if (_isSearching) {
+                  _searchQuery = '';
+                }
+                _isSearching = !_isSearching;
+              });
+            },
+          ),
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Title Section
-            Text(
-              'Online Training Resources',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 800.0,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+               const  Center(
+                  child:  Text(
+                    'Online Training Resources',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                Expanded(
+                  child: _filteredResources.isEmpty
+                      ? const Center(child: Text('No resources found.', style: TextStyle(color: Colors.white,fontSize: 12.0,)))
+                      : ListView.builder(
+                    itemCount: _filteredResources.length,
+                    itemBuilder: (context, index) {
+                      final resource = _filteredResources[index];
+                      return _buildResourceItem(
+                        title: resource['title']!,
+                        description: resource['description']!,
+                        url: resource['url']!,
+                        context: context,
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 20.0),
-
-            // Search Bar
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Search Resources',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.search),
-              ),
-              onChanged: (query) {
-                setState(() {
-                  _searchQuery = query;
-                });
-              },
-            ),
-            SizedBox(height: 20.0),
-
-            // Resource List
-            Expanded(
-              child: _filteredResources.isEmpty
-                  ? Center(child: Text('No resources found.'))
-                  : ListView.builder(
-                itemCount: _filteredResources.length,
-                itemBuilder: (context, index) {
-                  final resource = _filteredResources[index];
-                  return _buildResourceItem(
-                    title: resource['title']!,
-                    description: resource['description']!,
-                    url: resource['url']!,
-                    context: context,
-                  );
-                },
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
 
-  // Helper method to build each resource item
-  Widget _buildResourceItem({
+
+   _buildResourceItem({
     required String title,
     required String description,
     required String url,
@@ -107,11 +133,10 @@ class _OnlineTrainingState extends State<OnlineTraining> {
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: ListTile(
         contentPadding: const EdgeInsets.all(16.0),
-        title: Text(title, style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600)),
+        title: Text(title, style: const TextStyle(fontSize: 12.0, fontWeight: FontWeight.w600)),
         subtitle: Text(description),
-        trailing: Icon(Icons.launch),
+        trailing: const Icon(Icons.launch),
         onTap: () {
-          // Open the resource URL
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => ResourceDetailPage(url: url),
           ));
@@ -121,22 +146,29 @@ class _OnlineTrainingState extends State<OnlineTraining> {
   }
 }
 
-// A new screen to display the resource details or open the URL
 class ResourceDetailPage extends StatelessWidget {
   final String url;
 
-  ResourceDetailPage({required this.url});
+  const ResourceDetailPage({super.key, required this.url});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Resource Details'),
-        backgroundColor: Colors.blue,
+        title: const Text('Resource Details',style: TextStyle(fontSize: 12.0,color: Constants.appIconColor),),
+        backgroundColor: Constants.appBarColor,
+        centerTitle: true,
+        iconTheme: const IconThemeData(
+          color: Constants.appIconColor,
+        ),
       ),
       body: Center(
-        child: Text('Open the URL: $url'),
-        // You might want to use a WebView to display the URL or launch it in a browser
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 800.0
+          ),
+           child: Text('Open the URL: $url',style: const TextStyle(fontSize: 12.0),),
+        ),
       ),
     );
   }
