@@ -3,10 +3,14 @@ import 'package:ecg/pages/buttonpoll.dart';
 import 'package:ecg/pages/cso.dart';
 import 'package:ecg/pages/ghanagovernment.dart';
 import 'package:ecg/pages/upcomingevent.dart';
+import 'package:ecg/provider/controller.dart';
 import 'package:flutter/material.dart';
-import 'pages/card.dart';
+import 'package:provider/provider.dart';
+import 'pages/meters.dart';
+import 'pages/transactions.dart';
 import 'pages/wallet.dart';
 import 'pages/logout.dart';
+//import 'pages/service.dart';
 import 'pages/signup.dart';
 import 'pages/constants.dart';
 import 'pages/home.dart';
@@ -15,7 +19,6 @@ import 'pages/politicalparties.dart';
 import 'pages/onlinelibray.dart';
 import 'pages/onlinetraining.dart';
 import 'pages/parliament.dart';
-import 'pages/dues.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -23,14 +26,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: Constants.appname,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: ChangeNotifierProvider(create: (BuildContext context)=>AppProvider(),
+      child: const MyHomePage()),
     );
   }
 }
@@ -46,9 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int _selectedIndex = 0;
   static final List<Widget> _screenOptions = [
-          HomeWidget(),
-    const CardDetail(),
-    const Dues(),
+    HomeWidget(),
+    const Meter(),
+    const Transactions(),
     const Wallet(),
     const Poll(),
   ];
@@ -61,13 +64,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double wp800 = 800 / screenWidth;
     return Scaffold(
       appBar: AppBar(
         title: Text(
           Constants.title,
-          style: const TextStyle(color: Colors.white, fontSize: 14.0),
+          style: const TextStyle(color: Colors.white, fontSize: 16.0),
         ),
         centerTitle: true,
         iconTheme: const IconThemeData(
@@ -237,7 +238,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: ConstrainedBox(
-          constraints:  BoxConstraints(maxWidth: screenWidth * wp800),
+          constraints: const BoxConstraints(maxWidth: 800),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -256,12 +257,12 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.card_membership),
-            label: 'Card',
+            icon: Icon(Icons.help), // Consider using a more relevant icon
+            label: 'Meters',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.payments),
-            label: 'Dues',
+            icon: Icon(Icons.settings), // Consider a more suitable icon
+            label: 'Transactions',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_balance_wallet), // Changed to wallet icon

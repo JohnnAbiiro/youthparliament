@@ -5,10 +5,10 @@ class Detailbutton extends StatefulWidget {
   const Detailbutton({super.key});
 
   @override
-  _PollState createState() => _PollState();
+  State<Detailbutton> createState() => _DetailbuttonState();
 }
 
-class _PollState extends State<Detailbutton> {
+class _DetailbuttonState extends State<Detailbutton> {
   // Brief information for each category
   Map<String, String> categoryInfo = {
     "Political Parties": "Information about the structure and accountability of political parties.",
@@ -48,8 +48,6 @@ class _PollState extends State<Detailbutton> {
 
   Widget buildCategoryRow(BuildContext context, String title1, String title2) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Expanded(
           child: Center(
@@ -108,7 +106,6 @@ class _PollState extends State<Detailbutton> {
 
   Widget buildContactUsRow(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: Center(

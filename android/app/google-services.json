@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "885406184922",
+    "project_id": "ghanayouthparliament-a1597",
+    "storage_bucket": "ghanayouthparliament-a1597.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885406184922:android:a6c0e20364c4a881c83ce3",
+        "android_client_info": {
+          "package_name": "com.ghanayouth.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS2IrBpO2jtjfXpwA8s27UBu7ZMJRyLhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

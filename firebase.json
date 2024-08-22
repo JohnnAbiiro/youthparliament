@@ -1,0 +1,56 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "ghanayouthparliament-a1597",
+          "appId": "1:885406184922:android:a6c0e20364c4a881c83ce3",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "ghanayouthparliament-a1597",
+          "appId": "1:885406184922:ios:790e60c7422baf1bc83ce3",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "macos": {
+        "default": {
+          "projectId": "ghanayouthparliament-a1597",
+          "appId": "1:885406184922:ios:a9e87b3f25183a6ec83ce3",
+          "uploadDebugSymbols": false,
+          "fileOutput": "macos/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "ghanayouthparliament-a1597",
+          "configurations": {
+            "android": "1:885406184922:android:a6c0e20364c4a881c83ce3",
+            "ios": "1:885406184922:ios:790e60c7422baf1bc83ce3",
+            "macos": "1:885406184922:ios:a9e87b3f25183a6ec83ce3",
+            "web": "1:885406184922:web:56938530cf79ca09c83ce3",
+            "windows": "1:885406184922:web:e84161f2b5864774c83ce3"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestire.rules",
+    "indexes": "firestore.indexes"
+  },
+  "hosting": {
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
+    }
+  }
+}
