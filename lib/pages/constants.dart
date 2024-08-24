@@ -97,6 +97,7 @@ class Constants{
   static const String book3 ="images/book3.jpg";
   static const String johnny ="images/johnny.png";
   static const String earth1 ="images/earth1.jpeg";
+  static const String ylplogo ="images/ylplogo.png";
   //people images
   static const String presidentImage ="images/nana.jpeg";
   static const String vicePresidentImage ="images/bawumia.jpg";
@@ -130,7 +131,6 @@ class Constants{
 
 
   // containers color
-  static const Color pollOptionsContainer = Color(0xff2e388f);
   static const Color pollOptionsContainer2 = Colors.blueAccent;
 
   // Color Constants header

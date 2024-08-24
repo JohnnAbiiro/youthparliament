@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
 import 'package:ecg/pages/buttondetails.dart';
 import 'package:ecg/pages/buttonpoll.dart';
 import 'package:ecg/pages/cso.dart';
@@ -16,7 +19,19 @@ import 'pages/onlinelibray.dart';
 import 'pages/onlinetraining.dart';
 import 'pages/parliament.dart';
 import 'pages/dues.dart';
-void main() => runApp(const MyApp());
+void main() {
+  String input = "Hello, Flutter!";
+
+  // SHA-1 hash
+  var bytes = utf8.encode(input); // convert the input to bytes
+  var sha1Hash = sha1.convert(bytes);
+  print("SHA-1: $sha1Hash");
+
+  // SHA-256 hash
+  var sha256Hash = sha256.convert(bytes);
+  print("SHA-256: $sha256Hash");
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

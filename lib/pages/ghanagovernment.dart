@@ -16,36 +16,49 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
     {
       'title': 'President of Ghana',
       'subtitle': 'H.E. Nana Addo Dankwa Akufo-Addo',
+      'description':
+      'Nana Addo Dankwa Akufo-Addo is a Ghanaian politician who has served as the president of Ghana since 2017. He previously served as Attorney General from 2001 to 2003 and as Minister for Foreign Affairs from 2003 to 2007 under the Kufuor-led administration.',
       'image': Constants.presidentImage,
     },
     {
       'title': 'Vice President of Ghana',
       'subtitle': 'Dr. Mahamudu Bawumia',
+      'description':
+      'Dr. Mahamudu Bawumia is the Vice President of Ghana, serving since 2017. He is an economist and has worked in various governmental and international organizations prior to his appointment.',
       'image': Constants.vicePresidentImage,
     },
     {
       'title': 'Minister of Finance',
-      'subtitle': 'Amin',
+      'subtitle': 'Ken Ofori-Atta',
+      'description':
+      'Ken Ofori-Atta has served as the Minister of Finance since 2017. He has been responsible for overseeing the financial affairs of the government and driving economic policies.',
       'image': Constants.financeMinisterImage,
     },
     {
       'title': 'Minister of Foreign Affairs',
       'subtitle': 'Shirley Ayorkor Botchwey',
+      'description':
+      'Shirley Ayorkor Botchwey is the Minister of Foreign Affairs. She represents Ghana in international diplomatic relations and is responsible for the country’s foreign policy.',
       'image': Constants.foreignAffairsMinisterImage,
     },
     {
       'title': 'Minister of Education',
       'subtitle': 'Dr. Yaw Osei Adutwum',
+      'description':
+      'Dr. Yaw Osei Adutwum is the Minister of Education, working towards improving educational standards and access in Ghana.',
       'image': Constants.educationMinisterImage,
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    // Filter the list based on the search query
     List<Map<String, String>> filteredOfficials = officials.where((official) {
-      return official['title']!.toLowerCase().contains(searchQuery.toLowerCase()) ||
-          official['subtitle']!.toLowerCase().contains(searchQuery.toLowerCase());
+      return official['title']!
+          .toLowerCase()
+          .contains(searchQuery.toLowerCase()) ||
+          official['subtitle']!
+              .toLowerCase()
+              .contains(searchQuery.toLowerCase());
     }).toList();
 
     return Scaffold(
@@ -67,7 +80,7 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
         )
             : const Text(
           'Government of Ghana',
-          style: TextStyle(color: Colors.white, fontSize: 12.0),
+          style: TextStyle(color: Colors.white, fontSize: 18.0),
         ),
         centerTitle: true,
         backgroundColor: Constants.appBarColor,
@@ -90,159 +103,129 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
       ),
       body: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 800.0,
+          constraints: BoxConstraints(
+            maxWidth: 1000,
           ),
-          child: Column(
-            children: [
-              // List of government officials
-              Expanded(
-                child: ListView.builder(
-                  itemCount: filteredOfficials.length,
-                  itemBuilder: (context, index) {
-                    final official = filteredOfficials[index];
-                    return _buildGovernmentCard(
-                      context,
-                      official['title']!,
-                      official['subtitle']!,
-                      official['image']!,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: filteredOfficials.isEmpty
+                ? const Center(child: Text('No matching records found.'))
+                : LayoutBuilder(
+              builder: (context, constraints) {
+                bool isWideScreen = constraints.maxWidth > 600;
+                return Wrap(
+                  spacing: 20.0,
+                  runSpacing: 20.0,
+                  direction: isWideScreen ? Axis.horizontal : Axis.vertical,
+                  children: filteredOfficials.map((official) {
+                    return SizedBox(
+                      width: isWideScreen ? 300 : double.infinity,
+                      child: _buildGovernmentCard(
+                        context,
+                        official['title']!,
+                        official['subtitle']!,
+                        official['image']!,
+                        official['description']!,
+                      ),
                     );
-                  },
-                ),
-              ),
-            ],
+                  }).toList(),
+                );
+              },
+            ),
           ),
         ),
       ),
     );
   }
 
-  // Government card widget
-  Widget _buildGovernmentCard(
-      BuildContext context, String title, String subtitle, String imagePath) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => GovernmentDetailsPage(
-              title: title,
-              subtitle: subtitle,
-              imagePath: imagePath,
+   _buildGovernmentCard(
+      BuildContext context,
+      String title,
+      String subtitle,
+      String imagePath,
+      String description,
+      ) {
+    return Container(
+      color: Colors.transparent,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Image.asset(
+              imagePath,
+              width: 100,
+              fit: BoxFit.contain,
             ),
           ),
-        );
-      },
-      child: Container(
-        width: double.infinity,
-        height: 200,
-        margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: const Color(0xff2e388f),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              subtitle,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 12,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16.0),
-            Center(
-              child: Image.asset(
-                imagePath,
-                height: 80,
-                fit: BoxFit.contain,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class GovernmentDetailsPage extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final String imagePath;
-
-  const GovernmentDetailsPage({
-    super.key,
-    required this.title,
-    required this.subtitle,
-    required this.imagePath,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          title,
-          style: const TextStyle(color: Colors.white,fontSize: 12.0),
-        ),
-        centerTitle: true,
-        backgroundColor: Constants.appBarColor,
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxWidth: 800.0,
-            ),
+          const SizedBox(width: 12.0),
+          Flexible(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
                   style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 12, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 16.0),
-                Image.asset(
-                  imagePath,
-                  height: 150,
-                  fit: BoxFit.contain,
-                ),
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 4.0),
                 Text(
                   subtitle,
-                  style: const TextStyle(fontSize: 12),
-                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      fontSize: 12, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 24.0),
-                Text(
-                  'Detailed information about $title will be provided here, including roles, responsibilities, and contributions to the Government of Ghana.',
-                  style: const TextStyle(fontSize: 11),
-                  textAlign: TextAlign.center,
+                const SizedBox(height: 4.0),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    _showMoreInfoDialog(context, title, subtitle, description);
+                  },
+                  child: const Text("Learn More"),
                 ),
               ],
             ),
           ),
-        ),
+        ],
       ),
+    );
+  }
+
+  void _showMoreInfoDialog(
+      BuildContext context,
+      String title,
+      String subtitle,
+      String description,
+      ) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(title),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [
+                Text(
+                  subtitle,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 12.0),
+                ),
+                const SizedBox(height: 10),
+                Text(description),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

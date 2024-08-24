@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'header.dart';
 import 'constants.dart';
+import '../constants/containerconstants.dart';
+import '../constants/iconconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
 class Wallet extends StatelessWidget {
-  const Wallet({super.key});
+const Wallet({super.key});
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     double baseScreenWidth = 375.0;
-    //double baseScreenHeight = 812.0;
     double wb = screenWidth / baseScreenWidth;
 
     return Scaffold(
@@ -18,25 +21,17 @@ class Wallet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //headerMenu("Wallet","Service \n Request", context),
+            headerMenu("Wallet","Service \n Request", context),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 decoration:  BoxDecoration(
-                  color: const Color(0xFF21ABB6).withOpacity(0.96),
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF1EB7B5), Color(0xFF2A80B3), Color(0xFF1EB7B5)],
-                    stops: [0.0, 0.5, 1.0],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                  image:   DecorationImage(
-                    image: AssetImage('images/down.png'),
+                  color: ContainerConstants.gradient1,
+                  gradient: ContainerConstants.gradient2,
+                  image:   const DecorationImage(
+                    image: AssetImage(ConstantsImage.down),
                     fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(
-                      Color(0xFF21ABB6).withOpacity(0.9),
-                      BlendMode.srcATop,
-                    ),
+                    colorFilter: ContainerConstants.colorFilter,
                   ),
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -49,7 +44,7 @@ class Wallet extends StatelessWidget {
                       SizedBox(height: 10.0,),
                        Padding(
                        padding: EdgeInsets.symmetric(horizontal: 30.0,),
-                       child: Text(Constants.myPowerAppBalance,style: TextStyle(color: Colors.white),),
+                       child: Text(Constants.myPowerAppBalance,style: TextStyle(color: ),),
                         ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,7 +111,7 @@ class Wallet extends StatelessWidget {
                   height: 40.0,
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: const Color(0xFFEDEDED),
+                      color: ContainerConstants.border,
                       width: 2.0,
                     ),
                   ),
@@ -153,7 +148,7 @@ class Wallet extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(
                         width: 3.0,
-                        color: const Color(0xFFE3E3E3),
+                        color: ContainerConstants.border1,
                       ),
                       color: Constants.paysmallcolor,
                       image: const DecorationImage(

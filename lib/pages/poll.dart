@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'header.dart';
+import 'containerconstants.dart';
 class Poll extends StatefulWidget {
   const Poll({super.key});
 
@@ -62,8 +63,6 @@ class _PollState extends State<Poll> {
       "How would you rate the government's response to public concerns?"
     ],
   };
-
-  // Options for each question in the corresponding category
   Map<String, List<List<String>>> optionsForQuestions = {
     "Political Parties": [
       ["Yes", "No", "Neutral"],
@@ -128,10 +127,10 @@ class _PollState extends State<Poll> {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            //headerMenu("Poll","Service \n Request", context),
-            buildCategoryRow(context, "Political Parties", "Parliament of the Republic of Ghana"),
-            buildCategoryRow(context, "National Commission of Civic Education", "Youth Opinion Polls: Governance & Leadership Accountability"),
-            buildCategoryRow(context, "Electoral Commission of Ghana", "CSOs and Stakeholders Partnerships"),
+            headerMenu("Poll","Service \n Request", context),
+            buildCategoryRow(context, "Political Parties", "Parliament"),
+            buildCategoryRow(context, "NCC", "Youth Opinion Polls"),
+            buildCategoryRow(context, "Electoral Commission ", "CSOs and Stakeholders"),
             buildCategoryRow(context, "Online Library", "Online Training Centre"),
             buildCategoryRow(context, "Upcoming Events", "Ghana Government"),
           ],
@@ -155,7 +154,7 @@ class _PollState extends State<Poll> {
     );
   }
 
-    Widget buildMenuContainer(BuildContext context, String title, IconData icon) {
+     buildMenuContainer(BuildContext context, String title, IconData icon) {
     return InkWell(
       onTap: () {
         Navigator.push(
@@ -173,7 +172,7 @@ class _PollState extends State<Poll> {
         margin: const EdgeInsets.symmetric(vertical: 8.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-        color: Constants.pollOptionsContainer,
+        color: ContainerConstants.pollOptionsContainer,
         ),
         child: Column(
           children: [

@@ -40,11 +40,51 @@ class _DetailbuttonState extends State<Detailbutton> {
             buildCategoryRow(context, "Online Library", "Online Training Centre"),
             buildCategoryRow(context, "Upcoming Events", "Ghana Government"),
             buildContactUsRow(context),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Image Widget
+                Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/sample_image.jpg'), // Add your image path here
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 16), // Spacing between image and text
+
+                // Text Description and Button
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Sample Description",
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 8),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Button action here
+                        },
+                        child: Text("Learn More"),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
+
+
 
   Widget buildCategoryRow(BuildContext context, String title1, String title2) {
     return Row(
