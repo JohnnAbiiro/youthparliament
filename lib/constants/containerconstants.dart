@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 class ContainerConstants{
-  static const Color appBarColor =Color(0xff0a318e);
+  static const Color appBarColor =Color(0xFFAD1457);
   static const Color pollOptionsContainer = Color(0xff2e388f);
   static const Color signupContainer = Color(0xDBF7F8F9);
   static const Color loginContainer =  Color(0xff2e388f);
@@ -15,6 +15,9 @@ class ContainerConstants{
   static  Color cardColor = Colors.blueAccent;
   static  Color blackColor = Colors.black;
   static const Color colorGrey = Color(0xFF757575);
+  static const Color  focusedBorderColor =Color(0xFFAD1457);
+
+
 
 
 

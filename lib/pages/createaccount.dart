@@ -53,7 +53,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     width: screenWidth * wp800,
                     padding: const EdgeInsets.all(10.0),
                     decoration: const BoxDecoration(
-                      color: Color(0xDBF7F8F9),
+                      color: ContainerConstants.signupContainer,
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
                     child: Form(
@@ -62,7 +62,6 @@ class _CreateAccountState extends State<CreateAccount> {
                         children: [
                           Center(
                             child: Image.asset(Constants.ylplogos,height: 40,),
-
                           ),
                           const SizedBox(height: 8.0),
                           _buildTextField(sname,_width,'Names', 'Enter your full name', Icons.person, validator: _requiredValidator),
@@ -86,8 +85,6 @@ class _CreateAccountState extends State<CreateAccount> {
                           InkWell(
                             onTap: ()async{
                               if (_formKey.currentState!.validate()) {
-           
-           
                                 String txt_sname=sname.text.trim();
                                 String txt_fname=fname.text.trim();
                                 String txt_phone=phone.text.trim();
@@ -162,6 +159,11 @@ class _CreateAccountState extends State<CreateAccount> {
           hintStyle: const TextStyle(fontSize: 12.0),
           border: const OutlineInputBorder(),
           prefixIcon: Icon(icon),
+          focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color:ContainerConstants.focusedBorderColor,
+            ),
+          ),
         ),
         validator: validator,
       ),
@@ -173,7 +175,7 @@ class _CreateAccountState extends State<CreateAccount> {
       width: width,
       child: DropdownButtonFormField<String>(
         value: selectedSex,
-        items: ['Male', 'Female', 'Other'].map((String sex) {
+        items: ['Male', 'Female',].map((String sex) {
           return DropdownMenuItem<String>(
             value: sex,
             child: Text(sex,style: const TextStyle(fontSize: 12.0),),
