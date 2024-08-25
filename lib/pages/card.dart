@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'constants.dart';
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class CardDetail extends StatefulWidget {
   const CardDetail({super.key});
 
@@ -170,7 +174,7 @@ class _CardDetailState extends State<CardDetail> {
             child: Container(
               margin: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Constants.appBarColor,
+                color: ContainerConstants.appBarColor,
                 borderRadius: BorderRadius.circular(12.0),
               ),
               height: 50,
@@ -179,7 +183,7 @@ class _CardDetailState extends State<CardDetail> {
                 child: Text(
                   "Request new card",
                   style: TextStyle(
-                    color: Constants.appIconColor,
+                    color: ConstantsIcon.iconWhite,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),
@@ -240,51 +244,16 @@ class CardWidget extends StatelessWidget {
           end: Alignment.bottomRight,
          );
       }
-    /*gradient = const LinearGradient(
-      colors: [
-        Color(0xFF171216),
-        Color(0xFF211C21),
-        Color(0xFF39343B)
-      ],
-      stops: [0.0, 0.33, 0.66, 1.0],
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-    );
-    gradient = const LinearGradient(
-      colors: [
-        Color(0xFF171216),
-        Color(0xFF211C21),
-        Color(0xFF2E292F),
-        Color(0xFF39343B)
-      ],
-      stops: [0.0, 0.33, 0.66, 1.0],
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-    );
-    gradient = const LinearGradient(
-      colors: [
-        Color(0xFF3275F0),
-        Color(0xFF3678F1),
-        Color(0xFF4F8BF2),
-        Color(0xFF689BF4),
-        Color(0xFF82AEF7)
-      ],
-      stops: [0.0, 0.25, 0.50, 0.75, 1.0],
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-    );*/
+
     return Container(
       width: 400,
       height: 215,
       margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: const AssetImage(Constants.earth1),
+          image: const AssetImage(ConstantsImage.earth1),
           fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.2),
-            BlendMode.dstATop,
-          ),
+          colorFilter: ContainerConstants.colorFilter1,
         ),
         borderRadius: BorderRadius.circular(12),
         gradient: gradient,
@@ -306,7 +275,7 @@ class CardWidget extends StatelessWidget {
                  const Padding(
                       padding: EdgeInsets.symmetric(vertical: 0.0,horizontal: 10.0),
                       child: Image(
-                        image: AssetImage(Constants.johnny,),
+                        image: AssetImage(ConstantsImage.johnny,),
                         width: 100.0,
                         height: 50.0,
                       ),
@@ -314,7 +283,7 @@ class CardWidget extends StatelessWidget {
                  const Padding(
                     padding: EdgeInsets.symmetric(vertical: 0.0,horizontal: 50.0),
                     child: Image(
-                      image: AssetImage(Constants.greenImage,),
+                      image: AssetImage(ConstantsImage.greenImage,),
                       width: 70.0,
                       height: 60.0,
                     ),
@@ -329,7 +298,7 @@ class CardWidget extends StatelessWidget {
               Text(
                 cardNumber,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: ConstantsTextColor.logintext,
                   fontSize: 18,
                   letterSpacing: 3.0,
                   fontWeight: FontWeight.bold,
@@ -338,7 +307,7 @@ class CardWidget extends StatelessWidget {
               Text(
                 expiryDate,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: ConstantsTextColor.logintext,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                 ),
@@ -349,7 +318,7 @@ class CardWidget extends StatelessWidget {
                   Text(
                     cardholderName,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: ConstantsTextColor.logintext,
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                     ),
@@ -358,7 +327,7 @@ class CardWidget extends StatelessWidget {
                   Text(
                     cardType,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: ConstantsTextColor.logintext,
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                     ),

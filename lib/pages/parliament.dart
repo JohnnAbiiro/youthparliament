@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 
 class ParliamentOfGhana extends StatefulWidget {
   const ParliamentOfGhana({super.key});
@@ -17,22 +21,22 @@ class _ParliamentOfGhanaState extends State<ParliamentOfGhana> {
     {
       'title': 'Speaker of Parliament',
       'subtitle': 'Rt. Hon. Alban Bagbin',
-      'image': Constants.speakerImage,
+      'image': ConstantsImage.speakerImage,
     },
     {
       'title': 'Majority Leader',
       'subtitle': 'Hon. Osei Kyei-Mensah-Bonsu',
-      'image': Constants.majorityLeaderImage,
+      'image': ConstantsImage.majorityLeaderImage,
     },
     {
       'title': 'Minority Leader',
       'subtitle': 'Hon. Cassiel Ato Forson',
-      'image': Constants.minorityLeaderImage,
+      'image': ConstantsImage.minorityLeaderImage,
     },
     {
       'title': 'Parliamentary Committees',
       'subtitle': 'Explore the various committees responsible for legislative work.',
-      'image': Constants.committeeImage,
+      'image': ConstantsImage.committeeImage,
     },
   ];
 
@@ -49,10 +53,10 @@ class _ParliamentOfGhanaState extends State<ParliamentOfGhana> {
         title: isSearching
             ? TextField(
           autofocus: true,
-          style: const TextStyle(color: Colors.white, fontSize: 12.0),
+          style: const TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0),
           decoration: const InputDecoration(
             hintText: 'Search...',
-            hintStyle: TextStyle(color: Colors.white54),
+            hintStyle: TextStyle(color: ConstantsTextColor.logintext),
             border: InputBorder.none,
           ),
           onChanged: (value) {
@@ -63,12 +67,12 @@ class _ParliamentOfGhanaState extends State<ParliamentOfGhana> {
         )
             : const Text(
           'Parliament of Ghana',
-          style: TextStyle(color: Colors.white, fontSize: 12.0),
+          style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0),
         ),
         centerTitle: true,
-        backgroundColor: Constants.appBarColor,
+        backgroundColor: ContainerConstants.appBarColor,
         iconTheme: const IconThemeData(
-          color: Colors.white,
+          color: ConstantsTextColor.logintext,
         ),
         actions: [
           IconButton(
@@ -130,7 +134,7 @@ class _ParliamentOfGhanaState extends State<ParliamentOfGhana> {
         margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: const Color(0xff2e388f),
+          color: ContainerConstants.loginContainer,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -138,7 +142,7 @@ class _ParliamentOfGhanaState extends State<ParliamentOfGhana> {
             Text(
               title,
               style: const TextStyle(
-                color: Colors.white,
+                color: ConstantsTextColor.logintext,
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
               ),
@@ -148,7 +152,7 @@ class _ParliamentOfGhanaState extends State<ParliamentOfGhana> {
             Text(
               subtitle,
               style: const TextStyle(
-                color: Colors.white,
+                color: ConstantsTextColor.logintext,
                 fontSize: 11,
               ),
               textAlign: TextAlign.center,
@@ -186,12 +190,12 @@ class ParliamentDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           title,
-          style: const TextStyle(color: Colors.white, fontSize: 12.0),
+          style: const TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0),
         ),
         centerTitle: true,
-        backgroundColor: const Color(0xff2e388f),
+        backgroundColor: ContainerConstants.loginContainer,
         iconTheme: const IconThemeData(
-          color: Colors.white,
+          color: ConstantsTextColor.logintext,
         ),
       ),
       body: Padding(

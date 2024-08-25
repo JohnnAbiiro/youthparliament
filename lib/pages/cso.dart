@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
-
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class CivicSociety extends StatelessWidget {
   const CivicSociety({super.key});
 
@@ -44,8 +47,8 @@ class CivicSociety extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontSize: 12.0),
         ),
         centerTitle: true,
-        backgroundColor: Constants.appBarColor,
-        iconTheme: const IconThemeData(color: Constants.appIconColor),
+        backgroundColor: ContainerConstants.appBarColor,
+        iconTheme: const IconThemeData(color: ConstantsIcon.iconWhite),
       ),
       body: Center(
         child: ConstrainedBox(
@@ -119,7 +122,7 @@ class CivicSociety extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        color: Constants.loginTextColor,
+                        color: ConstantsTextColor.loginTextColor,
                       ),
                     ),
                   ),
@@ -136,7 +139,6 @@ class CivicSociety extends StatelessWidget {
 class CSODetailPage extends StatelessWidget {
   final String name;
   final String description;
-
   const CSODetailPage({
     required this.name,
     required this.description,
@@ -147,11 +149,11 @@ class CSODetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(name,style: const TextStyle(fontSize: 12,color: Colors.white),),
-        backgroundColor: Constants.appBarColor,
+        title: Text(name,style: const TextStyle(fontSize: 12,color: ConstantsTextColor.logintext),),
+        backgroundColor: ContainerConstants.appBarColor,
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: Colors.white,
+          color: ConstantsIcon.iconWhite,
         ),
       ),
       body: Padding(
@@ -194,11 +196,11 @@ class ContactUsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contact Us',style: TextStyle(fontSize: 12.0,color: Constants.appIconColor),),
-        backgroundColor: Constants.appBarColor,
+        title: const Text('Contact Us',style: TextStyle(fontSize: 12.0,color: ConstantsTextColor.logintext),),
+        backgroundColor: ContainerConstants.appBarColor,
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: Constants.appIconColor
+          color: ConstantsIcon.iconWhite
         ),
       ),
       body: const Padding(

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'header.dart';
 import 'constants.dart';
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class HomeWidget extends StatefulWidget {
   @override
   State<HomeWidget> createState() => _HomeWidgetState();
@@ -24,12 +28,12 @@ class _HomeWidgetState extends State<HomeWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        //  headerMenu("Home","Service \n Request", context),
+          headerMenu("Home","Service \n Request", context),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Constants.postpaidBillBackgroundColor,
+                color: ContainerConstants.loginContainer,
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Row(
@@ -40,14 +44,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                       children: [
                         SizedBox(
                           width: 60,
-                          child: Image.asset(Constants.postpaidBillImage),
+                          child: Image.asset(ConstantsImage.postpaidBillImage),
                         ),
                         const SizedBox(width: 2.0),
                         const Column(
                           children: [
                             SizedBox(height: 20.0),
-                            Text(Constants.postpaidBillTitle, style: TextStyle(fontSize: 10.0, color: Colors.white)),
-                            Text(Constants.postpaidBillSubtitle, style: TextStyle(color: Colors.white)),
+                            Text(Constants.postpaidBillTitle, style: TextStyle(fontSize: 10.0, color: ConstantsTextColor.loginColor)),
+                            Text(Constants.postpaidBillSubtitle, style: TextStyle(color: ConstantsTextColor.loginColor)),
                           ],
                         ),
                       ],
@@ -65,7 +69,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 return [
                   Container(
                     padding: const EdgeInsets.all(2.0),
-                    color: Colors.transparent,
+                    color: ContainerConstants.transparent1,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -78,7 +82,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           leading: SizedBox(
                             width: 50.0,
                             height: 50.0,
-                            child: Image.asset(Constants.youthImage),
+                            child: Image.asset(ConstantsImage.youthImage),
                           ),
                         ),
                         const Center(child: Text(Constants.happyFoundersDay,style: TextStyle(fontSize: 12.0),)),
@@ -86,9 +90,87 @@ class _HomeWidgetState extends State<HomeWidget> {
                           builder: (context, constraints) {
                             return Container(
                               width: constraints.maxWidth,  // Match width to the ListTile
-                              color: Colors.transparent,
+                              color: ContainerConstants.transparent1,
                               child: Image.asset(
-                                Constants.appsImage,
+                                ConstantsImage.appsImage,
+                                fit: BoxFit.cover, // Optional: Control how the image scales
+                              ),
+                            );
+                          },
+                        ),
+                        const Text(
+                          Constants.readMore,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 5.0,),
+                  Container(
+                    padding: const EdgeInsets.all(2.0),
+                    color: ContainerConstants.transparent1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ListTile(
+                          title: Text(Constants.title),
+                          subtitle: Text(
+                            DateFormat.yMMMMEEEEd().add_jm().format(DateTime.now()),
+                          ),
+                          leading: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: Image.asset(ConstantsImage.youthImage),
+                          ),
+                        ),
+                        const Center(child: Text(Constants.happyFoundersDay,style: TextStyle(fontSize: 12.0),)),
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            return Container(
+                              width: constraints.maxWidth,
+                              color: ContainerConstants.transparent1,
+                              child: Image.asset(
+                                ConstantsImage.appsImage,
+                                fit: BoxFit.cover, // Optional: Control how the image scales
+                              ),
+                            );
+                          },
+                        ),
+                        const Text(
+                          Constants.readMore,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 5.0,),
+                  Container(
+                    padding: const EdgeInsets.all(2.0),
+                    color: ContainerConstants.transparent1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ListTile(
+                          title: Text(Constants.title),
+                          subtitle: Text(
+                            DateFormat.yMMMMEEEEd().add_jm().format(DateTime.now()),
+                          ),
+                          leading: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: Image.asset(ConstantsImage.youthImage),
+                          ),
+                        ),
+                        const Center(child: Text(Constants.happyFoundersDay,style: TextStyle(fontSize: 12.0),)),
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            return Container(
+                              width: constraints.maxWidth,  // Match width to the ListTile
+                              color: ContainerConstants.transparent1,
+                              child: Image.asset(
+                                ConstantsImage.appsImage,
                                 fit: BoxFit.cover, // Optional: Control how the image scales
                               ),
                             );
@@ -117,7 +199,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           leading: SizedBox(
                             width: 50.0,
                             height: 50.0,
-                            child: Image.asset(Constants.youthImage),
+                            child: Image.asset(ConstantsImage.youthImage),
                           ),
                         ),
                         const Center(child: Text(Constants.happyFoundersDay,style: TextStyle(fontSize: 12.0),)),
@@ -125,87 +207,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                           builder: (context, constraints) {
                             return Container(
                               width: constraints.maxWidth,  // Match width to the ListTile
-                              color: Colors.transparent,
+                              color: ContainerConstants.transparent1,
                               child: Image.asset(
-                                Constants.appsImage,
-                                fit: BoxFit.cover, // Optional: Control how the image scales
-                              ),
-                            );
-                          },
-                        ),
-                        const Text(
-                          Constants.readMore,
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 5.0,),
-                  Container(
-                    padding: const EdgeInsets.all(2.0),
-                    color: Colors.transparent,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        ListTile(
-                          title: Text(Constants.title),
-                          subtitle: Text(
-                            DateFormat.yMMMMEEEEd().add_jm().format(DateTime.now()),
-                          ),
-                          leading: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: Image.asset(Constants.youthImage),
-                          ),
-                        ),
-                        const Center(child: Text(Constants.happyFoundersDay,style: TextStyle(fontSize: 12.0),)),
-                        LayoutBuilder(
-                          builder: (context, constraints) {
-                            return Container(
-                              width: constraints.maxWidth,  // Match width to the ListTile
-                              color: Colors.transparent,
-                              child: Image.asset(
-                                Constants.appsImage,
-                                fit: BoxFit.cover, // Optional: Control how the image scales
-                              ),
-                            );
-                          },
-                        ),
-                        const Text(
-                          Constants.readMore,
-                          style: TextStyle(fontSize: 18),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 5.0,),
-                  Container(
-                    padding: const EdgeInsets.all(2.0),
-                    color: Colors.transparent,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        ListTile(
-                          title: Text(Constants.title),
-                          subtitle: Text(
-                            DateFormat.yMMMMEEEEd().add_jm().format(DateTime.now()),
-                          ),
-                          leading: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: Image.asset(Constants.youthImage),
-                          ),
-                        ),
-                        const Center(child: Text(Constants.happyFoundersDay,style: TextStyle(fontSize: 12.0),)),
-                        LayoutBuilder(
-                          builder: (context, constraints) {
-                            return Container(
-                              width: constraints.maxWidth,  // Match width to the ListTile
-                              color: Colors.transparent,
-                              child: Image.asset(
-                                Constants.appsImage,
+                                ConstantsImage.appsImage,
                                 fit: BoxFit.cover, // Optional: Control how the image scales
                               ),
                             );
@@ -230,11 +234,11 @@ class _HomeWidgetState extends State<HomeWidget> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              color: Constants.dropdownColor,
+              color: ContainerConstants.dropdownColor,
               child: const Center(
                 child: Text(
                   Constants.myCustomerAccounts,
-                  style: TextStyle(color: Constants.homeTitleColor),
+                  style: TextStyle(color: ConstantsTextColor.homeTitleColor),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -247,7 +251,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               child: Container(
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  color: Constants.dropdownColor,
+                  color: ContainerConstants.dropdownColor,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(20.0),
                   ),
@@ -257,10 +261,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                     SizedBox(height: 25.0),
                     CircleAvatar(
                       radius: 30.0,
-                      backgroundColor: Constants.addAccountIconBackgroundColor,
+                      backgroundColor: ContainerConstants.addAccountIconBackgroundColor,
                       child: Icon(
                         Icons.add,
-                        color: Colors.white,
+                        color: ConstantsIcon.iconWhite,
                         size: 30.0,
                       ),
                     ),
@@ -279,11 +283,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(3.0),
-                  color: Constants.waterBillButtonColor,
+                  color: ContainerConstants.waterBillButtonColor,
                 ),
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text(Constants.payWaterBill, style: TextStyle(color: Colors.white), textAlign: TextAlign.center),
+                  child: Text(Constants.payWaterBill, style: TextStyle(color: ConstantsIcon.iconWhite), textAlign: TextAlign.center),
                 ),
               ),
             ),
@@ -292,7 +296,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              color: Colors.transparent,
+              color: ContainerConstants.transparent1,
               child: Column(
                 children: [
                   Padding(
@@ -300,7 +304,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Constants.dropdownColor,
+                        color: ContainerConstants.dropdownColor,
                         borderRadius: BorderRadius.circular(4.0),
                       ),
                       child: DropdownButtonHideUnderline(
@@ -325,8 +329,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                               }
                             });
                           },
-                          dropdownColor: Constants.dropdownColor,
-                          iconEnabledColor: Constants.iconColor,
+                          dropdownColor: ContainerConstants.dropdownColor,
+                          iconEnabledColor: ConstantsIcon.iconColor,
                           icon: _showContainers
                               ? const Icon(Icons.arrow_drop_up)
                               : const Icon(Icons.arrow_drop_down),
@@ -346,7 +350,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  color: Constants.containerBackgroundColor,
+                                  color: ContainerConstants.containerBackgroundColor,
                                 ),
                                 child: const Column(
                                   children: [
@@ -375,7 +379,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  color: Constants.containerBackgroundColor,
+                                  color: ContainerConstants.containerBackgroundColor,
                                 ),
                                 child: const Column(
                                   children: [
@@ -412,7 +416,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  color: Constants.containerBackgroundColor,
+                                  color: ContainerConstants.containerBackgroundColor,
                                 ),
                                 child: const Column(
                                   children: [
@@ -442,7 +446,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  color: Constants.containerBackgroundColor,
+                                  color: ContainerConstants.containerBackgroundColor,
                                 ),
                                 child: const Column(
                                   children: [
@@ -482,7 +486,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   Container(
                     width:double.infinity,
                     decoration: BoxDecoration(
-                      color: Constants.dropdownColor,
+                      color: ContainerConstants.dropdownColor,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
                     child: DropdownButtonHideUnderline(
@@ -507,8 +511,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                             }
                           });
                         },
-                        dropdownColor: Constants.dropdownColor,
-                        iconEnabledColor: Constants.iconColor,
+                        dropdownColor: ContainerConstants.dropdownColor,
+                        iconEnabledColor: ConstantsIcon.iconColor,
                         icon: _showContainers2
                             ? const Icon(Icons.arrow_drop_up)
                             : const Icon(Icons.arrow_drop_down),
@@ -527,7 +531,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  color: Constants.containerBackgroundColor,
+                                  color: ContainerConstants.containerBackgroundColor,
                                 ),
                                 child: const Column(
                                   children: [
@@ -555,7 +559,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
-                                  color: Constants.containerBackgroundColor,
+                                  color: ContainerConstants.containerBackgroundColor,
                                 ),
                                 child: const Column(
                                   children: [

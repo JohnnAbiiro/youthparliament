@@ -5,6 +5,8 @@ class ConstantsTextColor{
   static const Color logintext = Color(0xFFFFFFFF);
   static const Color loginTextColor = Color(0xff2f3695);
   static const Color whiteColor = Colors.white;
+  static const Color powerbalanceColor = Color(0xFF303B6B);
+
 
   // Colors
   static const Color serviceRequestBackgroundColor = Color(0xffe8f1fc);
@@ -20,4 +22,12 @@ class ConstantsTextColor{
   static const Color powerBalanceColor = Color(0xFF0F479E);
   static const Color loginColor = Color(0xFFFEF7FF);
   static const TextStyle textStyle = TextStyle(fontSize: 12.0);
+
+  static const Color transparent1 = Colors.transparent;
+
+  static const Color iconColor2 = Colors.green;
+  static const Color paysmallcolor = Color(0xFFFFFFFF);
+  static const Color richTerms =Colors.black;
+
+
 }

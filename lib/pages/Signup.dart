@@ -1,3 +1,4 @@
+import 'package:ecg/constants/containerconstants.dart';
 import 'package:ecg/provider/controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -140,7 +141,7 @@ class _SignupState extends State<Signup> {
                             width: screenWidth * wp400,
                             height: 50.0,
                             decoration: BoxDecoration(
-                              color:  Constants.appBarColor,
+                              color:  ContainerConstants.appBarColor,
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             child: const Center(
@@ -164,7 +165,7 @@ class _SignupState extends State<Signup> {
                                 child: Container(
                                   margin: const EdgeInsets.only(right: 8.0),
                                   child: const Divider(
-                                    color: Constants.buttonBackgroundColor,
+                                    color: ContainerConstants.buttonBackgroundColor,
                                     thickness: 1.0,
                                   ),
                                 ),
@@ -177,7 +178,7 @@ class _SignupState extends State<Signup> {
                                 child: Container(
                                   margin: const EdgeInsets.only(left: 8.0),
                                   child: const Divider(
-                                    color: Constants.buttonBackgroundColor,
+                                    color: ContainerConstants.buttonBackgroundColor,
                                     thickness: 1.0,
                                   ),
                                 ),
@@ -199,7 +200,7 @@ class _SignupState extends State<Signup> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5.0),
                               border: Border.all(
-                                color: Constants.buttonBackgroundColor,
+                                color: ContainerConstants.buttonBackgroundColor,
                                 width: 1.0,
                               ),
                             ),

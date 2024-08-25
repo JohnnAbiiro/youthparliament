@@ -23,6 +23,20 @@ class _DetailbuttonState extends State<Detailbutton> {
     "Ghana Government": "Satisfaction with government performance and transparency."
   };
 
+  // Dynamic icons for each category
+  Map<String, IconData> categoryIcons = {
+    "Political Parties": Icons.business,
+    "Parliament of the Republic of Ghana": Icons.house,
+    "National Commission of Civic Education": Icons.school,
+    "Youth Opinion Polls: Governance & Leadership Accountability": Icons.people,
+    "Electoral Commission of Ghana": Icons.ballot,
+    "CSOs and Stakeholders Partnerships": Icons.group,
+    "Online Library": Icons.library_books,
+    "Online Training Centre": Icons.online_prediction,
+    "Upcoming Events": Icons.event,
+    "Ghana Government": Icons.book,
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,145 +44,69 @@ class _DetailbuttonState extends State<Detailbutton> {
         title: Text(Constants.title),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          children: [
-            buildCategoryRow(context, "Political Parties", "Parliament of the Republic of Ghana"),
-            buildCategoryRow(context, "National Commission of Civic Education", "Youth Opinion Polls: Governance & Leadership Accountability"),
-            buildCategoryRow(context, "Electoral Commission of Ghana", "CSOs and Stakeholders Partnerships"),
-            buildCategoryRow(context, "Online Library", "Online Training Centre"),
-            buildCategoryRow(context, "Upcoming Events", "Ghana Government"),
-            buildContactUsRow(context),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Image Widget
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/sample_image.jpg'), // Add your image path here
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 16), // Spacing between image and text
-
-                // Text Description and Button
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Sample Description",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 8),
-                      ElevatedButton(
-                        onPressed: () {
-                          // Button action here
-                        },
-                        child: Text("Learn More"),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Wrap(
+            spacing: 16.0,
+            runSpacing: 16.0,
+            children: [
+              buildCategoryItem(context, "Political Parties"),
+              buildCategoryItem(context, "Parliament of the Republic of Ghana"),
+              buildCategoryItem(context, "National Commission of Civic Education"),
+              buildCategoryItem(context, "Youth Opinion Polls: Governance & Leadership Accountability"),
+              buildCategoryItem(context, "Electoral Commission of Ghana"),
+              buildCategoryItem(context, "CSOs and Stakeholders Partnerships"),
+              buildCategoryItem(context, "Online Library"),
+              buildCategoryItem(context, "Online Training Centre"),
+              buildCategoryItem(context, "Upcoming Events"),
+              buildCategoryItem(context, "Ghana Government"),
+            ],
+          ),
         ),
       ),
     );
   }
 
+  Widget buildCategoryItem(BuildContext context, String title) {
+    // Determine the icon based on the category
+    IconData icon = categoryIcons[title] ?? Icons.help_outline; // Default icon if not found
 
-
-  Widget buildCategoryRow(BuildContext context, String title1, String title2) {
-    return Row(
-      children: [
-        Expanded(
-          child: Center(
-            child: TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PollPage(
-                      category: title1,
-                      info: categoryInfo[title1]!,
-                    ),
-                  ),
-                );
-              },
-              child: Text(
-                title1,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Constants.loginTextColor,
-                ),
-              ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PollPage(
+              category: title,
+              info: categoryInfo[title]!,
             ),
           ),
+        );
+      },
+      child: Container(
+        width: 150, // Adjust width as needed
+        padding: EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          border: Border.all(color: Colors.grey),
         ),
-        const SizedBox(width: 8.0),
-        Expanded(
-          child: Center(
-            child: TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PollPage(
-                      category: title2,
-                      info: categoryInfo[title2]!,
-                    ),
-                  ),
-                );
-              },
-              child: Text(
-                title2,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Constants.loginTextColor,
-                ),
+        child: Column(
+          children: [
+            Icon(icon, size: 24, color: Colors.blue), // Use the dynamic icon
+            SizedBox(height: 8.0),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Constants.loginTextColor,
               ),
             ),
-          ),
+          ],
         ),
-      ],
-    );
-  }
-
-  Widget buildContactUsRow(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Center(
-            child: TextButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const ContactUsPage(),
-                ));
-              },
-              child: const Text(
-                'Contact Us',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Constants.loginTextColor,
-                ),
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(width: 8.0), // Placeholder to balance the row
-        Expanded(child: Container()), // Empty space for alignment
-      ],
+      ),
     );
   }
 }
@@ -197,23 +135,6 @@ class PollPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ContactUsPage extends StatelessWidget {
-  const ContactUsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contact Us'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text('Contact Us Page Content'),
       ),
     );
   }

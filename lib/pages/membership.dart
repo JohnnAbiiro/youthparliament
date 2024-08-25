@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import '../constants/routes.dart';
 import 'constants.dart';
-
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class Leadership extends StatefulWidget {
   const Leadership({super.key});
 
@@ -16,8 +19,8 @@ class _LeadershipState extends State<Leadership> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  const Text(Constants.registration,style: TextStyle(color: Colors.white,fontSize: 20),),
-        backgroundColor: Constants.appBarColor,
+        title:  const Text(Constants.registration,style: TextStyle(color: ConstantsTextColor.logintext,fontSize: 20),),
+        backgroundColor: ContainerConstants.appBarColor,
       ),
       body: Center(
         child: Container(
@@ -25,16 +28,12 @@ class _LeadershipState extends State<Leadership> {
           height: 700.0,
           padding: const EdgeInsets.all(20.0),
           decoration: const BoxDecoration(
-            color: Color(0xDBF7F8F9),
+            color: ContainerConstants.signupContainer,
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
           ),
           child: Column(
             children: [
               Image.asset(Constants.ylplogos,height: 40,),
-              // const CircleAvatar(
-              //   radius: 50,
-              //   backgroundImage: AssetImage(Constants.ylplogos),
-              // ),
               const SizedBox(height: 16.0),
               const Text(
                Constants.parliamentCategory,
@@ -86,8 +85,8 @@ class _LeadershipState extends State<Leadership> {
           borderRadius: BorderRadius.circular(10.0),
           border: Border.all(
             color: selectedCardIndex == index
-                ? Constants.appBarColor
-                : Colors.grey.withOpacity(0.3),
+                ? ContainerConstants.appBarColor
+                : ContainerConstants.greyColor,
             width: 2.0,
           ),
         ),
@@ -107,8 +106,8 @@ class _LeadershipState extends State<Leadership> {
               icon,
               size: 40.0,
               color: selectedCardIndex == index
-                  ? Colors.blueAccent
-                  : Constants.appBarColor,
+                  ? ContainerConstants.cardColor
+                  : ContainerConstants.appBarColor,
             ),
             const SizedBox(width: 16.0),
             Expanded(
@@ -121,8 +120,8 @@ class _LeadershipState extends State<Leadership> {
                       fontSize: 12.0,
                       fontWeight: FontWeight.bold,
                       color: selectedCardIndex == index
-                          ? Colors.blueAccent
-                          : Colors.black,
+                          ? ContainerConstants.cardColor
+                          : ContainerConstants.blackColor,
                     ),
                   ),
                   const SizedBox(height: 8.0),
@@ -131,8 +130,8 @@ class _LeadershipState extends State<Leadership> {
                     style: TextStyle(
                       fontSize: 10.0,
                       color: selectedCardIndex == index
-                          ? Colors.blueAccent
-                          : Colors.grey[600],
+                          ? ContainerConstants.cardColor
+                          : ContainerConstants.colorGrey,
                     ),
                   ),
                 ],
@@ -149,10 +148,6 @@ class _LeadershipState extends State<Leadership> {
       onTap: () {
         if (selectedCardIndex != null) {
           Navigator.pushReplacementNamed(context, Routes.dashboard);
-          // Navigator.pushReplacement(
-          //   context,
-          //   MaterialPageRoute(builder: (context) =>  MyHomePage()),
-          // );
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
@@ -184,13 +179,13 @@ class _LeadershipState extends State<Leadership> {
         width: 400.0,
         height: 50.0,
         decoration: BoxDecoration(
-          color: Constants.appBarColor,
+          color: ContainerConstants.appBarColor,
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: const Center(
           child: Text(
             'Submit',
-            style: TextStyle(color: Colors.white, fontSize: 12.0),
+            style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0),
           ),
         ),
       ),

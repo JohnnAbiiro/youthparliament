@@ -24,6 +24,10 @@ import 'pages/onlinelibray.dart';
 import 'pages/onlinetraining.dart';
 import 'pages/parliament.dart';
 import 'pages/dues.dart';
+import 'constants/containerconstants.dart';
+import 'constants/imageconstants.dart';
+import 'constants/textconstants.dart';
+import 'constants/iconconstants.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -88,16 +92,16 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(
           Constants.title,
-          style: const TextStyle(color: Colors.white, fontSize: 14.0),
+          style: const TextStyle(color: ConstantsTextColor.logintext, fontSize: 14.0),
         ),
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: Colors.white,
+          color: ConstantsIcon.iconWhite,
         ),
-        backgroundColor: Constants.appBarColor,
+        backgroundColor: ContainerConstants.appBarColor,
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.white),
+            icon: const Icon(Icons.notifications, color: ConstantsIcon.iconWhite),
             onPressed: () {
               Navigator.push(
                 context,
@@ -109,28 +113,28 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: Drawer(
         child: Container(
-          color: Constants.appBarColor,
+          color: ContainerConstants.appBarColor,
           child: ListView(
             children: [
               DrawerHeader(
                 decoration: const BoxDecoration(
-                  color: Constants.appBarColor,
+                  color: ContainerConstants.appBarColor,
                 ),
                 child: Column(
                   children: [
                     Align(
                       alignment: Alignment.topRight,
                       child: IconButton(
-                        icon: const Icon(Icons.close, color: Colors.white),
+                        icon: const Icon(Icons.close, color: ConstantsIcon.iconWhite),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
                     ),
                     ListTile(
-                      leading: const Icon(Icons.home, color: Colors.white),
+                      leading: const Icon(Icons.home, color: ConstantsIcon.iconWhite),
                       title: const Text('Home',
-                          style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                          style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                       onTap: () {
                         Navigator.pop(context);
                       },
@@ -139,9 +143,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ListTile(
-                leading: const Icon(Icons.how_to_vote, color: Colors.white),
+                leading: const Icon(Icons.how_to_vote, color: ConstantsIcon.iconWhite),
                 title: const Text('Political Parties',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=> const Politicalparty()
                   ),
@@ -149,27 +153,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.bar_chart, color: Colors.white),
+                leading: const Icon(Icons.bar_chart, color: ConstantsIcon.iconWhite),
                 title: const Text('Organizations',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=>const Detailbutton()),
                   );
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.bar_chart, color: Colors.white),
+                leading: const Icon(Icons.bar_chart, color: ConstantsIcon.iconWhite),
                 title: const Text('Youth Opinion Polls',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=>Poll()),
                   );
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.groups, color: Colors.white),
+                leading: const Icon(Icons.groups, color: ConstantsIcon.iconWhite),
                 title: const Text("CSO's and Stakeholders",
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=> CivicSociety()
                    ),
@@ -177,9 +181,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.library_books, color: Colors.white),
+                leading: const Icon(Icons.library_books, color: ConstantsIcon.iconWhite),
                 title: const Text('Online Library',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=>OnlineLibrary(),
                    ),
@@ -187,9 +191,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.school, color: Colors.white),
+                leading: const Icon(Icons.school, color: ConstantsIcon.iconWhite),
                 title: const Text('Online Training Centre',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=>OnlineTraining()
                   ),
@@ -197,9 +201,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.event, color: Colors.white),
+                leading: const Icon(Icons.event, color: ConstantsIcon.iconWhite),
                 title: const Text('Upcoming Events',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=>UpcomingEvent()
                    ),
@@ -207,9 +211,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.public, color: Colors.white),
+                leading: const Icon(Icons.public, color: ConstantsIcon.iconWhite),
                 title: const Text('Ghana Government',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(context,MaterialPageRoute(builder: (context)=>const GovernmentOfGhana()
                    ),
@@ -217,10 +221,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.account_balance, color: Colors.white),
+                leading: const Icon(Icons.account_balance, color: ConstantsIcon.iconWhite),
                 title: const Text(
                   'Parliament of Ghana',
-                  style: TextStyle(color: Colors.white, fontSize: 12.0),
+                  style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0),
                 ),
                 onTap: () {
                   Navigator.push(
@@ -231,9 +235,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               const Divider(height: 1.0, thickness: 1.0),
               ListTile(
-                leading: const Icon(Icons.logout, color: Colors.white),
+                leading: const Icon(Icons.logout, color: ConstantsIcon.iconWhite),
                 title: const Text('Logout',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -242,9 +246,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.person_add, color: Colors.white),
+                leading: const Icon(Icons.person_add, color: ConstantsIcon.iconWhite),
                 title: const Text('Sign up',
-                    style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                    style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 12.0)),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -263,7 +267,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.white),
+                  borderRadius: BorderRadius.circular(10), color: ConstantsIcon.iconWhite),
               child: _screenOptions.elementAt(_selectedIndex),
             ),
           ),
@@ -294,7 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: ContainerConstants.bottomNavSelected,
         onTap: _onItemTapped,
       ),
     );

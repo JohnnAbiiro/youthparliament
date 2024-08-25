@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class OnlineLibrary extends StatefulWidget {
   const OnlineLibrary({super.key});
 
@@ -12,17 +16,17 @@ class _OnlineLibraryState extends State<OnlineLibrary> {
     {
       'title': 'Book Title 1',
       'author': 'Author 1',
-      'imagePath': Constants.book1,
+      'imagePath': ConstantsImage.book1,
     },
     {
       'title': 'Book Title 2',
       'author': 'Author 2',
-      'imagePath': Constants.book2,
+      'imagePath': ConstantsImage.book2,
     },
     {
       'title': 'Book Title 3',
       'author': 'Author 3',
-      'imagePath': Constants.book3,
+      'imagePath': ConstantsImage.book3,
     },
   ];
 
@@ -41,12 +45,12 @@ class _OnlineLibraryState extends State<OnlineLibrary> {
       appBar: AppBar(
         title: const Text(
           'Online Library',
-          style: TextStyle(color: Constants.appIconColor,fontSize: 12.0),
+          style: TextStyle(color: ConstantsTextColor.logintext,fontSize: 12.0),
         ),
         centerTitle: true,
-        backgroundColor: Constants.appBarColor,
+        backgroundColor: ContainerConstants.appBarColor,
         iconTheme: const IconThemeData(
-          color: Constants.appIconColor
+          color: ConstantsIcon.iconWhite
         ),
       ),
       body: Center(

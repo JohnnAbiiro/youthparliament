@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'header.dart';
 import 'constants.dart';
 import '../constants/containerconstants.dart';
-import '../constants/iconconstants.dart';
 import '../constants/imageconstants.dart';
 import '../constants/textconstants.dart';
 class Wallet extends StatelessWidget {
@@ -44,7 +43,7 @@ const Wallet({super.key});
                       SizedBox(height: 10.0,),
                        Padding(
                        padding: EdgeInsets.symmetric(horizontal: 30.0,),
-                       child: Text(Constants.myPowerAppBalance,style: TextStyle(color: Colors.red),),
+                       child: Text(Constants.myPowerAppBalance,style: TextStyle(color: ConstantsTextColor.logintext),),
                         ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,14 +56,14 @@ const Wallet({super.key});
                                   TextSpan(
                                     text: Constants.gHs,
                                     style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white,
+                                      fontSize: 12,
+                                      color: ConstantsTextColor.logintext,
                                     ),
                                   ),
                                   TextSpan(
                                     text: Constants.oo,
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 12,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
@@ -75,7 +74,7 @@ const Wallet({super.key});
                           ),
                           SizedBox(width: 60.0,),
                           Image(
-                            image: AssetImage(Constants.greenImage),
+                            image: AssetImage(ConstantsImage.greenImage),
                             width: 80.0,
                             height: 50.0,
                           ),
@@ -89,7 +88,7 @@ const Wallet({super.key});
                             child: Text(
                               Constants.gradientText,
                               style: TextStyle(
-                                color: Colors.white,
+                                color: ConstantsTextColor.loginTextColor,
                                 fontSize: 12.0,
                               ),
                             ),
@@ -115,14 +114,14 @@ const Wallet({super.key});
                       width: 2.0,
                     ),
                   ),
-                  child: const Center(child:  Text(Constants.withdraw)),
+                  child: const Center(child:  Text(Constants.withdraw,style: TextStyle(fontSize: 12.0),)),
                 ),
               ),
             ),
             const SizedBox(height: 8.0,),
             Padding(
               padding:  EdgeInsets.symmetric(horizontal: 8.0 * wb),
-              child: const Text(Constants.wallets,style: TextStyle(fontWeight: FontWeight.bold),),
+              child: const Text(Constants.wallets,style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.0),),
             ),
             const SizedBox(height: 8.0,),
             Padding(
@@ -150,9 +149,9 @@ const Wallet({super.key});
                         width: 3.0,
                         color: ContainerConstants.border1,
                       ),
-                      color: Constants.paysmallcolor,
+                      color: ConstantsTextColor.paysmallcolor,
                       image: const DecorationImage(
-                        image: AssetImage(Constants.search),
+                        image: AssetImage(ConstantsImage.search),
                         alignment: Alignment.centerRight,
                       ),
                     ),
@@ -167,7 +166,7 @@ const Wallet({super.key});
                                 Constants.myPowerAppBalance,
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: Color(0xFF303B6B),
+                                  color: ConstantsTextColor.powerbalanceColor,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -177,7 +176,7 @@ const Wallet({super.key});
                               child: Text(
                                 Constants.oo,
                                 style: TextStyle(
-                                  color: Constants.cediColor,
+                                  color: ConstantsTextColor.powerbalanceColor,
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -191,7 +190,7 @@ const Wallet({super.key});
                                 height: 50.0,
                                 alignment: Alignment.bottomLeft,
                                 child: const Image(
-                                  image: AssetImage(Constants.youthImage),
+                                  image: AssetImage(ConstantsImage.youthImage),
                                   fit: BoxFit.contain,
                                 ),
                               ),
@@ -207,7 +206,7 @@ const Wallet({super.key});
                 child: Container(
                     width: 300.0,
                     decoration: const BoxDecoration(
-                      color: Constants.powerBalanceColor,
+                      color: ConstantsTextColor.powerBalanceColor,
                     ),
                     child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,7 +217,7 @@ const Wallet({super.key});
                             Constants.PaySmallSmall,
                             style: TextStyle(
                               fontSize: 12.0,
-                              color: Constants.paysmallcolor,
+                              color: ConstantsTextColor.paysmallcolor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -229,7 +228,7 @@ const Wallet({super.key});
                             child: Text(
                               Constants.paymentMethod,
                               style: TextStyle(
-                                color: Constants.paysmallcolor,
+                                color: ConstantsTextColor.paysmallcolor,
                                 fontSize: 10.0,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -243,7 +242,7 @@ const Wallet({super.key});
                             height: 100.0,
                             alignment: Alignment.bottomLeft,
                             child: const Image(
-                              image: AssetImage(Constants.albrim),  // Using constant
+                              image: AssetImage(ConstantsImage.albrim),  // Using constant
                               fit: BoxFit.contain,
                             ),
                           ),

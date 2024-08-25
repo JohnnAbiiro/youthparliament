@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
-
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class OnlineTraining extends StatefulWidget {
   const OnlineTraining({super.key});
 
@@ -48,20 +51,20 @@ class _OnlineTrainingState extends State<OnlineTraining> {
           decoration: const InputDecoration(
             hintText: 'Search Resources...',
             border: InputBorder.none,
-            hintStyle: TextStyle(color: Colors.white),
+            hintStyle: TextStyle(color: ConstantsTextColor.logintext),
           ),
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: ConstantsTextColor.logintext),
           onChanged: (query) {
             setState(() {
               _searchQuery = query;
             });
           },
         )
-            : const Text('Online Training centre',style: TextStyle(color: Constants.appIconColor,fontSize: 12.0),),
+            : const Text('Online Training centre',style: TextStyle(color: ConstantsTextColor.logintext,fontSize: 12.0),),
         centerTitle: true,
-        backgroundColor: Constants.appBarColor,
+        backgroundColor: ContainerConstants.appBarColor,
         iconTheme: const IconThemeData(
-          color: Constants.appIconColor,
+          color: ConstantsIcon.iconWhite,
         ),
         actions: [
          IconButton(
@@ -99,7 +102,7 @@ class _OnlineTrainingState extends State<OnlineTraining> {
                 const SizedBox(height: 20.0),
                 Expanded(
                   child: _filteredResources.isEmpty
-                      ? const Center(child: Text('No resources found.', style: TextStyle(color: Colors.white,fontSize: 12.0,)))
+                      ? const Center(child: Text('No resources found.', style: TextStyle(color: ConstantsTextColor.logintext,fontSize: 12.0,)))
                       : ListView.builder(
                     itemCount: _filteredResources.length,
                     itemBuilder: (context, index) {
@@ -155,11 +158,11 @@ class ResourceDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Resource Details',style: TextStyle(fontSize: 12.0,color: Constants.appIconColor),),
-        backgroundColor: Constants.appBarColor,
+        title: const Text('Resource Details',style: TextStyle(fontSize: 12.0,color: ConstantsTextColor.logintext),),
+        backgroundColor: ContainerConstants.appBarColor,
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: Constants.appIconColor,
+          color: ConstantsIcon.iconWhite,
         ),
       ),
       body: Center(

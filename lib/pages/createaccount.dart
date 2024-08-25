@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import '../provider/userModel.dart';
 import 'constants.dart';
-
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
 
@@ -59,10 +62,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         children: [
                           Center(
                             child: Image.asset(Constants.ylplogos,height: 40,),
-                            // child: CircleAvatar(
-                            //   radius: 100,
-                            //   backgroundImage: AssetImage(Constants.ylplogos,),
-                            // ),
+
                           ),
                           const SizedBox(height: 8.0),
                           _buildTextField(sname,_width,'Names', 'Enter your full name', Icons.person, validator: _requiredValidator),
@@ -270,7 +270,7 @@ class _CreateAccountState extends State<CreateAccount> {
       width: width,
       height: 50.0,
       decoration: BoxDecoration(
-        color: Constants.appBarColor,
+        color: ContainerConstants.appBarColor,
         borderRadius: BorderRadius.circular(5.0),
       ),
       child: const Center(

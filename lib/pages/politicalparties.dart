@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
-
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class Politicalparty extends StatefulWidget {
   const Politicalparty({super.key});
 
@@ -13,7 +16,7 @@ class _PoliticalpartyState extends State<Politicalparty> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Political Parties'),
+        title: const Text(Constants.politicalparties),
         centerTitle: true,
       ),
       body: Center(
@@ -27,19 +30,19 @@ class _PoliticalpartyState extends State<Politicalparty> {
                 context,
                 'New Patriotic Party (NPP)',
                 Colors.blue,
-                Constants.npplogo,
+                ConstantsImage.npplogo,
               ),
               _buildPartyCard(
                 context,
                 'National Democratic Congress (NDC)',
                 Colors.green,
-                Constants.ndclogo,
+                ConstantsImage.ndclogo,
               ),
               _buildPartyCard(
                 context,
                 'Convention People\'s Party (CPP)',
                 Colors.yellow,
-                Constants.cpplogo,
+                ConstantsImage.cpplogo,
               ),
             ],
           ),
@@ -79,7 +82,7 @@ class _PoliticalpartyState extends State<Politicalparty> {
             Text(
               partyName,
               style: const TextStyle(
-                color: Colors.white,
+                color: ConstantsTextColor.logintext,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -124,14 +127,14 @@ class PartyDetailsPage extends StatelessWidget {
                 Text(
                   partyName,
                   style: const TextStyle(
-                    fontSize: 24,
+                    fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 20),
                 Text(
                   'Information about $partyName.',
-                  style: const TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 12),
                   textAlign: TextAlign.center,
                 ),
               ],

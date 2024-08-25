@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class UpcomingEvent extends StatefulWidget {
   const UpcomingEvent({super.key});
 
@@ -59,10 +63,10 @@ class _UpcomingEventState extends State<UpcomingEvent> {
             });
           },
         )
-            : const Text('Upcoming Events',style: TextStyle(color: Colors.white,fontSize: 12.0),),
-        backgroundColor: Constants.appBarColor,
+            : const Text('Upcoming Events',style: TextStyle(color: ConstantsTextColor.logintext,fontSize: 12.0),),
+        backgroundColor: ContainerConstants.appBarColor,
         iconTheme: const IconThemeData(
-          color: Constants.appIconColor,
+          color: ConstantsIcon.iconWhite,
         ),
         centerTitle: true,
         actions: [
@@ -126,8 +130,8 @@ class _UpcomingEventState extends State<UpcomingEvent> {
     );
   }
 
-  // Helper method to build each event item
-  Widget _buildEventItem({
+
+   _buildEventItem({
     required String title,
     required String description,
     required String date,
@@ -184,12 +188,12 @@ class EventDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Event Details',style: TextStyle(color: Colors.white,fontSize: 12.0,),
+        title: const Text('Event Details',style: TextStyle(color: ConstantsTextColor.logintext,fontSize: 12.0,),
         ),
-        backgroundColor: Constants.appBarColor,
+        backgroundColor: ContainerConstants.appBarColor,
         centerTitle: true,
         iconTheme: const IconThemeData(
-          color: Constants.appIconColor
+          color: ConstantsIcon.iconWhite
         ),
       ),
       body: Center(

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
-
+import '../constants/containerconstants.dart';
+import '../constants/imageconstants.dart';
+import '../constants/textconstants.dart';
+import '../constants/iconconstants.dart';
 class GovernmentOfGhana extends StatefulWidget {
   const GovernmentOfGhana({super.key});
 
@@ -18,35 +21,35 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
       'subtitle': 'H.E. Nana Addo Dankwa Akufo-Addo',
       'description':
       'Nana Addo Dankwa Akufo-Addo is a Ghanaian politician who has served as the president of Ghana since 2017. He previously served as Attorney General from 2001 to 2003 and as Minister for Foreign Affairs from 2003 to 2007 under the Kufuor-led administration.',
-      'image': Constants.presidentImage,
+      'image': ConstantsImage.presidentImage,
     },
     {
       'title': 'Vice President of Ghana',
       'subtitle': 'Dr. Mahamudu Bawumia',
       'description':
       'Dr. Mahamudu Bawumia is the Vice President of Ghana, serving since 2017. He is an economist and has worked in various governmental and international organizations prior to his appointment.',
-      'image': Constants.vicePresidentImage,
+      'image': ConstantsImage.vicePresidentImage,
     },
     {
       'title': 'Minister of Finance',
       'subtitle': 'Ken Ofori-Atta',
       'description':
       'Ken Ofori-Atta has served as the Minister of Finance since 2017. He has been responsible for overseeing the financial affairs of the government and driving economic policies.',
-      'image': Constants.financeMinisterImage,
+      'image': ConstantsImage.financeMinisterImage,
     },
     {
       'title': 'Minister of Foreign Affairs',
       'subtitle': 'Shirley Ayorkor Botchwey',
       'description':
       'Shirley Ayorkor Botchwey is the Minister of Foreign Affairs. She represents Ghana in international diplomatic relations and is responsible for the country’s foreign policy.',
-      'image': Constants.foreignAffairsMinisterImage,
+      'image': ConstantsImage.foreignAffairsMinisterImage,
     },
     {
       'title': 'Minister of Education',
       'subtitle': 'Dr. Yaw Osei Adutwum',
       'description':
       'Dr. Yaw Osei Adutwum is the Minister of Education, working towards improving educational standards and access in Ghana.',
-      'image': Constants.educationMinisterImage,
+      'image': ConstantsImage.educationMinisterImage,
     },
   ];
 
@@ -69,9 +72,9 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
           decoration: const InputDecoration(
             hintText: 'Search...',
             border: InputBorder.none,
-            hintStyle: TextStyle(color: Colors.white),
+            hintStyle: TextStyle(color: ConstantsTextColor.logintext),
           ),
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: ConstantsTextColor.logintext),
           onChanged: (value) {
             setState(() {
               searchQuery = value;
@@ -80,10 +83,10 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
         )
             : const Text(
           'Government of Ghana',
-          style: TextStyle(color: Colors.white, fontSize: 18.0),
+          style: TextStyle(color: ConstantsTextColor.logintext, fontSize: 18.0),
         ),
         centerTitle: true,
-        backgroundColor: Constants.appBarColor,
+        backgroundColor: ContainerConstants.appBarColor,
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
@@ -103,13 +106,13 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
       ),
       body: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 1000,
           ),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: filteredOfficials.isEmpty
-                ? const Center(child: Text('No matching records found.'))
+                ? const Center(child: Text(Constants.notFound))
                 : LayoutBuilder(
               builder: (context, constraints) {
                 bool isWideScreen = constraints.maxWidth > 600;
@@ -182,7 +185,7 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
                   onPressed: () {
                     _showMoreInfoDialog(context, title, subtitle, description);
                   },
-                  child: const Text("Learn More"),
+                  child: const Text(Constants.learnMore),
                 ),
               ],
             ),
@@ -218,7 +221,7 @@ class _GovernmentOfGhanaState extends State<GovernmentOfGhana> {
           ),
           actions: [
             TextButton(
-              child: const Text('Close'),
+              child: const Text(Constants.alertclose),
               onPressed: () {
                 Navigator.of(context).pop();
               },
