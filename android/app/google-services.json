@@ -1,26 +1,51 @@
 {
   "project_info": {
-    "project_number": "885406184922",
-    "project_id": "ghanayouthparliament-a1597",
-    "storage_bucket": "ghanayouthparliament-a1597.appspot.com"
+    "project_number": "383281681009",
+    "project_id": "ylpapp-66bd6",
+    "storage_bucket": "ylpapp-66bd6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:885406184922:android:a6c0e20364c4a881c83ce3",
+        "mobilesdk_app_id": "1:383281681009:android:a71ecd4b86ceeec6f9c1d0",
         "android_client_info": {
           "package_name": "com.ghanayouth.com"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "383281681009-86h4cktof43hh84g0kj1o9ki7bjuk8gc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ghanayouth.com",
+            "certificate_hash": "8cae8e6c3159bc016b1911ec137966666c87d461"
+          }
+        },
+        {
+          "client_id": "383281681009-v8p6oq0d9rekbkqgir3vgqhtpbkcj37g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBS2IrBpO2jtjfXpwA8s27UBu7ZMJRyLhY"
+          "current_key": "AIzaSyDyaCHxskmo8-6KYTxVEOIir2wxg5RIMoM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383281681009-v8p6oq0d9rekbkqgir3vgqhtpbkcj37g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "383281681009-inncpo7s5a7g57bdiv6h0f0937lv5kkc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ghanayouth.com"
+              }
+            }
+          ]
         }
       }
     }

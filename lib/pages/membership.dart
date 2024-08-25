@@ -1,3 +1,5 @@
+import 'package:ecg/main.dart';
+import 'package:ecg/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -52,13 +54,7 @@ class _LeadershipState extends State<Leadership> {
                   'Speak for vulnerable and women and ensure gender equality in laws.',
                   icon: Icons.female),
               const SizedBox(height: 16.0),
-              _buildLeadershipCard(
-                  index: 2,
-                  title: 'Senior High Schools Parliament Clubs',
-                  description:
-                  'Engage in parliamentary matters as a professional.',
-                  icon: Icons.business_center),
-              const SizedBox(height: 16.0),
+
               _buildSubmitButton(),
             ],
           ),
@@ -73,7 +69,9 @@ class _LeadershipState extends State<Leadership> {
         required String description,
         required IconData icon}) {
       return InkWell(
+
       onTap: () {
+
         setState(() {
           selectedCardIndex = index;
         });
@@ -150,6 +148,10 @@ class _LeadershipState extends State<Leadership> {
     return InkWell(
       onTap: () {
         if (selectedCardIndex != null) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) =>  MyHomePage()),
+          );
           showDialog(
             context: context,
             builder: (context) => AlertDialog(

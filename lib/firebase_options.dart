@@ -39,50 +39,53 @@ class DefaultFirebaseOptions {
         );
     }
   }
-
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCJE3FXZFEwUWxu8PFYs5VHfEmEFOx05yk',
-    appId: '1:885406184922:web:56938530cf79ca09c83ce3',
-    messagingSenderId: '885406184922',
-    projectId: 'ghanayouthparliament-a1597',
-    authDomain: 'ghanayouthparliament-a1597.firebaseapp.com',
-    storageBucket: 'ghanayouthparliament-a1597.appspot.com',
-    measurementId: 'G-V1LM97PE6F',
+    apiKey: 'AIzaSyCdeBLVVDhg5OZ7azG0eLRMirLDnr97uB4',
+    appId: '1:383281681009:web:223c969c86623ac1f9c1d0',
+    messagingSenderId: '383281681009',
+    projectId: 'ylpapp-66bd6',
+    authDomain: 'ylpapp-66bd6.firebaseapp.com',
+    storageBucket: 'ylpapp-66bd6.appspot.com',
+    measurementId: 'G-VCZMFFW97Z',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBS2IrBpO2jtjfXpwA8s27UBu7ZMJRyLhY',
-    appId: '1:885406184922:android:a6c0e20364c4a881c83ce3',
-    messagingSenderId: '885406184922',
-    projectId: 'ghanayouthparliament-a1597',
-    storageBucket: 'ghanayouthparliament-a1597.appspot.com',
+    apiKey: 'AIzaSyDyaCHxskmo8-6KYTxVEOIir2wxg5RIMoM',
+    appId: '1:383281681009:android:a71ecd4b86ceeec6f9c1d0',
+    messagingSenderId: '383281681009',
+    projectId: 'ylpapp-66bd6',
+    storageBucket: 'ylpapp-66bd6.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCmU4UC3oSPeGqubUa3nzTTzeODDIYIR0c',
-    appId: '1:885406184922:ios:790e60c7422baf1bc83ce3',
-    messagingSenderId: '885406184922',
-    projectId: 'ghanayouthparliament-a1597',
-    storageBucket: 'ghanayouthparliament-a1597.appspot.com',
+    apiKey: 'AIzaSyDy_be63IQrEf2Ndp7Hd38zEZSbL-ZpUcw',
+    appId: '1:383281681009:ios:edb8288746a2d838f9c1d0',
+    messagingSenderId: '383281681009',
+    projectId: 'ylpapp-66bd6',
+    storageBucket: 'ylpapp-66bd6.appspot.com',
+    androidClientId: '383281681009-86h4cktof43hh84g0kj1o9ki7bjuk8gc.apps.googleusercontent.com',
+    iosClientId: '383281681009-inncpo7s5a7g57bdiv6h0f0937lv5kkc.apps.googleusercontent.com',
     iosBundleId: 'com.ghanayouth.com',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCmU4UC3oSPeGqubUa3nzTTzeODDIYIR0c',
-    appId: '1:885406184922:ios:a9e87b3f25183a6ec83ce3',
-    messagingSenderId: '885406184922',
-    projectId: 'ghanayouthparliament-a1597',
-    storageBucket: 'ghanayouthparliament-a1597.appspot.com',
+    apiKey: 'AIzaSyDy_be63IQrEf2Ndp7Hd38zEZSbL-ZpUcw',
+    appId: '1:383281681009:ios:68e027b8930d1e0bf9c1d0',
+    messagingSenderId: '383281681009',
+    projectId: 'ylpapp-66bd6',
+    storageBucket: 'ylpapp-66bd6.appspot.com',
+    androidClientId: '383281681009-86h4cktof43hh84g0kj1o9ki7bjuk8gc.apps.googleusercontent.com',
+    iosClientId: '383281681009-qo1c055e45vfv7s4end9o34ttae2o0kk.apps.googleusercontent.com',
     iosBundleId: 'com.example.ecg',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCJE3FXZFEwUWxu8PFYs5VHfEmEFOx05yk',
-    appId: '1:885406184922:web:e84161f2b5864774c83ce3',
-    messagingSenderId: '885406184922',
-    projectId: 'ghanayouthparliament-a1597',
-    authDomain: 'ghanayouthparliament-a1597.firebaseapp.com',
-    storageBucket: 'ghanayouthparliament-a1597.appspot.com',
-    measurementId: 'G-W96BQC4QR0',
+    apiKey: 'AIzaSyCdeBLVVDhg5OZ7azG0eLRMirLDnr97uB4',
+    appId: '1:383281681009:web:922042ac072aa513f9c1d0',
+    messagingSenderId: '383281681009',
+    projectId: 'ylpapp-66bd6',
+    authDomain: 'ylpapp-66bd6.firebaseapp.com',
+    storageBucket: 'ylpapp-66bd6.appspot.com',
+    measurementId: 'G-1FSW5YDMSV',
   );
 }

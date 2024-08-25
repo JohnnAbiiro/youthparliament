@@ -33,8 +33,7 @@ class _CardDetailState extends State<CardDetail> {
       builder: (context) {
         return AlertDialog(
           title: const Text("Duplicate Card"),
-          content: const Text(
-              "A card with this number already exists."),
+          content: const Text("A card with this number already exists."),
             actions: [
                TextButton(
               onPressed: () => Navigator.of(context).pop(),

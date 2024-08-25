@@ -6,7 +6,11 @@ import 'package:ecg/pages/buttonpoll.dart';
 import 'package:ecg/pages/cso.dart';
 import 'package:ecg/pages/ghanagovernment.dart';
 import 'package:ecg/pages/upcomingevent.dart';
+import 'package:ecg/provider/controller.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'firebase_options.dart';
 import 'pages/card.dart';
 import 'pages/wallet.dart';
 import 'pages/logout.dart';
@@ -19,33 +23,34 @@ import 'pages/onlinelibray.dart';
 import 'pages/onlinetraining.dart';
 import 'pages/parliament.dart';
 import 'pages/dues.dart';
-void main() {
-  String input = "Hello, Flutter!";
-
-  // SHA-1 hash
-  var bytes = utf8.encode(input); // convert the input to bytes
-  var sha1Hash = sha1.convert(bytes);
-  print("SHA-1: $sha1Hash");
-
-  // SHA-256 hash
-  var sha256Hash = sha256.convert(bytes);
-  print("SHA-256: $sha256Hash");
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+  // String input = "Hello, Flutter!";
+  //
+  // // SHA-1 hash
+  // var bytes = utf8.encode(input); // convert the input to bytes
+  // var sha1Hash = sha1.convert(bytes);
+  // print("SHA-1: $sha1Hash");
+  //
+  // // SHA-256 hash
+  // var sha256Hash = sha256.convert(bytes);
+  // print("SHA-256: $sha256Hash");
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: Constants.appname,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: ChangeNotifierProvider(create: (BuildContext context)=>AppProvider(),
+      child: Signup()),
     );
   }
 }
@@ -61,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int _selectedIndex = 0;
   static final List<Widget> _screenOptions = [
-          HomeWidget(),
+     HomeWidget(),
     const CardDetail(),
     const Dues(),
     const Wallet(),
