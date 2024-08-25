@@ -2,18 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>383281681009-inncpo7s5a7g57bdiv6h0f0937lv5kkc.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.383281681009-inncpo7s5a7g57bdiv6h0f0937lv5kkc</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>383281681009-86h4cktof43hh84g0kj1o9ki7bjuk8gc.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCmU4UC3oSPeGqubUa3nzTTzeODDIYIR0c</string>
+	<string>AIzaSyDy_be63IQrEf2Ndp7Hd38zEZSbL-ZpUcw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>885406184922</string>
+	<string>383281681009</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.ghanayouth.com</string>
 	<key>PROJECT_ID</key>
-	<string>ghanayouthparliament-a1597</string>
+	<string>ylpapp-66bd6</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ghanayouthparliament-a1597.appspot.com</string>
+	<string>ylpapp-66bd6.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:885406184922:ios:790e60c7422baf1bc83ce3</string>
+	<string>1:383281681009:ios:edb8288746a2d838f9c1d0</string>
 </dict>
 </plist>

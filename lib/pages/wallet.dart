@@ -44,7 +44,7 @@ const Wallet({super.key});
                       SizedBox(height: 10.0,),
                        Padding(
                        padding: EdgeInsets.symmetric(horizontal: 30.0,),
-                       child: Text(Constants.myPowerAppBalance,style: TextStyle(color: ),),
+                       child: Text(Constants.myPowerAppBalance,style: TextStyle(color: Colors.red),),
                         ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
