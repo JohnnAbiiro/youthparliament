@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
+import 'package:ecg/constants/routes.dart';
 import 'package:ecg/pages/buttondetails.dart';
 import 'package:ecg/pages/buttonpoll.dart';
 import 'package:ecg/pages/cso.dart';
@@ -25,9 +26,8 @@ import 'pages/parliament.dart';
 import 'pages/dues.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // String input = "Hello, Flutter!";
-  //
   // // SHA-1 hash
   // var bytes = utf8.encode(input); // convert the input to bytes
   // var sha1Hash = sha1.convert(bytes);
@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: pages,
       debugShowCheckedModeBanner: false,
       title: Constants.appname,
       theme: ThemeData(
@@ -93,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
         iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        backgroundColor: const Color(0xff08328f),
+        backgroundColor: Constants.appBarColor,
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications, color: Colors.white),
@@ -108,12 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: Drawer(
         child: Container(
-          color: const Color(0xff052364),
+          color: Constants.appBarColor,
           child: ListView(
             children: [
               DrawerHeader(
                 decoration: const BoxDecoration(
-                  color: Color(0xff052364),
+                  color: Constants.appBarColor,
                 ),
                 child: Column(
                   children: [

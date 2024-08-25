@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecg/pages/Signup.dart';
 import 'package:flutter/material.dart';
+import '../provider/userModel.dart';
 import 'constants.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -10,6 +12,19 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
+  final sname=TextEditingController();
+  final fname=TextEditingController();
+  final regionlocation=TextEditingController();
+  final academemic=TextEditingController();
+  final profession=TextEditingController();
+  final previous=TextEditingController();
+  final phone=TextEditingController();
+  final location=TextEditingController();
+  final cprofesssion=TextEditingController();
+  final email=TextEditingController();
+  String monthval="";
+  String yearval="";
+  String dayval="";
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String? selectedSex;
 
@@ -42,19 +57,19 @@ class _CreateAccountState extends State<CreateAccount> {
                       backgroundImage: AssetImage(Constants.youthImage),
                     ),
                     const SizedBox(height: 8.0),
-                    _buildTextField(_width,'Names', 'Enter your full name', Icons.person, validator: _requiredValidator),
+                    _buildTextField(sname,_width,'Names', 'Enter your full name', Icons.person, validator: _requiredValidator),
                     const SizedBox(height: 8.0),
-                    _buildTextField(_width,'Regional Location', 'Enter your regional location', Icons.location_on, validator: _requiredValidator),
+                    _buildTextField(location,_width,'Regional Location', 'Enter your regional location', Icons.location_on, validator: _requiredValidator),
                     const SizedBox(height: 8.0),
-                    _buildTextField(_width,'Academic Background', 'Enter your academic background', Icons.school, validator: _requiredValidator),
+                    _buildTextField(academemic,_width,'Academic Background', 'Enter your academic background', Icons.school, validator: _requiredValidator),
                     const SizedBox(height: 8.0),
-                    _buildTextField(_width,'Current Profession', 'Enter your current profession', Icons.work, validator: _requiredValidator),
+                    _buildTextField(cprofesssion,_width,'Current Profession', 'Enter your current profession', Icons.work, validator: _requiredValidator),
                     const SizedBox(height: 8.0),
-                    _buildTextField(_width,'Previous Leadership Experience', 'Enter your previous leadership experience', Icons.history, validator: _requiredValidator),
+                    _buildTextField(previous,_width,'Previous Leadership Experience', 'Enter your previous leadership experience', Icons.history, validator: _requiredValidator),
                     const SizedBox(height: 8.0),
-                    _buildTextField(_width,'Phone Number', 'Enter your phone number', Icons.phone, keyboardType: TextInputType.phone, validator: _requiredValidator),
+                    _buildTextField(phone,_width,'Phone Number', 'Enter your phone number', Icons.phone, keyboardType: TextInputType.phone, validator: _requiredValidator),
                     const SizedBox(height: 8.0),
-                    _buildTextField(_width,'Email', 'Enter your email address', Icons.email, keyboardType: TextInputType.emailAddress, validator: _emailValidator),
+                    _buildTextField(email,_width,'Email', 'Enter your email address', Icons.email, keyboardType: TextInputType.emailAddress, validator: _emailValidator),
                     const SizedBox(height: 8.0),
                     _buildSexDropdown(_width,),
                     const SizedBox(height: 8.0),
@@ -79,11 +94,12 @@ class _CreateAccountState extends State<CreateAccount> {
     );
   }
 
-   _buildTextField(double width,String label, String hint, IconData icon, {TextInputType? keyboardType, String? Function(String?)? validator}) {
+   _buildTextField(final controller,double width,String label, String hint, IconData icon, {TextInputType? keyboardType, String? Function(String?)? validator}) {
     return Container(
       color: Colors.transparent,
       width: width,
       child: TextFormField(
+        controller: controller,
         style: const TextStyle(fontSize: 12.0),
         keyboardType: keyboardType,
         decoration: InputDecoration(
@@ -142,7 +158,9 @@ class _CreateAccountState extends State<CreateAccount> {
                 value: day,
                 child: Text(day,style: const TextStyle(fontSize: 12.0),),
               )).toList(),
-              onChanged: (value) {},
+              onChanged: (value) {
+                dayval=value!;
+              },
               decoration: const InputDecoration(
                 labelText: 'Day',
                 labelStyle: TextStyle(fontSize: 12.0),
@@ -160,7 +178,9 @@ class _CreateAccountState extends State<CreateAccount> {
                 value: month,
                 child: Text(month,style: const TextStyle(fontSize: 12.0),),
               )).toList(),
-              onChanged: (value) {},
+              onChanged: (value) {
+                monthval=value!;
+              },
               decoration: const InputDecoration(
                 labelText: 'Month',
                 labelStyle: TextStyle(fontSize: 12.0),
@@ -177,7 +197,9 @@ class _CreateAccountState extends State<CreateAccount> {
                 value: year,
                 child: Text(year,style: const TextStyle(fontSize: 12.0),),
               )).toList(),
-              onChanged: (value) {},
+              onChanged: (value) {
+                yearval=value!;
+              },
               decoration: const InputDecoration(
                 labelText: 'Year',
                 labelStyle: TextStyle(fontSize: 12.0),
@@ -192,8 +214,36 @@ class _CreateAccountState extends State<CreateAccount> {
   }
    _buildSubmitButton(double width,) {
     return InkWell(
-      onTap: () {
+      onTap: () async{
         if (_formKey.currentState!.validate()) {
+          String txt_sname=sname.text.trim();
+          String txt_fname=fname.text.trim();
+          String txt_phone=phone.text.trim();
+          String txt_email=email.text.trim();
+          String txt_previous=previous.text.trim();
+          String txt_academic=academemic.text.trim();
+          String txt_cprofesssion=cprofesssion.text.trim();
+          String txt_location=location.text.trim();
+          String txt_sex=selectedSex!;
+          String dob="${yearval}-${monthval}-${dayval}";
+          final user = UserModel(
+            dob: dob,
+            sex: txt_sex,
+            fname: txt_fname,
+            sname: txt_sname,
+            email: txt_email,
+            phone: txt_phone,
+            cprofesssion: txt_cprofesssion,
+            previous_leadership: txt_previous,
+            academic_background: txt_academic,
+            regional_location: txt_location,
+          );
+        try{
+          await FirebaseFirestore.instance.collection('users').add(user.toMap());
+
+        }catch(e){
+          print(e);
+        }
 
         }
       },
@@ -201,7 +251,7 @@ class _CreateAccountState extends State<CreateAccount> {
         width: width,
         height: 50.0,
         decoration: BoxDecoration(
-          color: const Color(0xff2e388f),
+          color: Constants.appBarColor,
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: const Center(

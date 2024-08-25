@@ -1,6 +1,5 @@
-import 'package:ecg/main.dart';
-import 'package:ecg/pages/home.dart';
 import 'package:flutter/material.dart';
+import '../constants/routes.dart';
 import 'constants.dart';
 
 class Leadership extends StatefulWidget {
@@ -17,8 +16,8 @@ class _LeadershipState extends State<Leadership> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  const Text(Constants.registration,style: TextStyle(color: Colors.white)),
-        backgroundColor: const Color(0xff2e388f),
+        title:  const Text(Constants.registration,style: TextStyle(color: Colors.white,fontSize: 20),),
+        backgroundColor: Constants.appBarColor,
       ),
       body: Center(
         child: Container(
@@ -31,10 +30,11 @@ class _LeadershipState extends State<Leadership> {
           ),
           child: Column(
             children: [
-              const CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage(Constants.youthImage),
-              ),
+              Image.asset(Constants.ylplogos,height: 40,),
+              // const CircleAvatar(
+              //   radius: 50,
+              //   backgroundImage: AssetImage(Constants.ylplogos),
+              // ),
               const SizedBox(height: 16.0),
               const Text(
                Constants.parliamentCategory,
@@ -86,7 +86,7 @@ class _LeadershipState extends State<Leadership> {
           borderRadius: BorderRadius.circular(10.0),
           border: Border.all(
             color: selectedCardIndex == index
-                ? Colors.blueAccent
+                ? Constants.appBarColor
                 : Colors.grey.withOpacity(0.3),
             width: 2.0,
           ),
@@ -108,7 +108,7 @@ class _LeadershipState extends State<Leadership> {
               size: 40.0,
               color: selectedCardIndex == index
                   ? Colors.blueAccent
-                  : Colors.grey,
+                  : Constants.appBarColor,
             ),
             const SizedBox(width: 16.0),
             Expanded(
@@ -148,10 +148,11 @@ class _LeadershipState extends State<Leadership> {
     return InkWell(
       onTap: () {
         if (selectedCardIndex != null) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) =>  MyHomePage()),
-          );
+          Navigator.pushReplacementNamed(context, Routes.dashboard);
+          // Navigator.pushReplacement(
+          //   context,
+          //   MaterialPageRoute(builder: (context) =>  MyHomePage()),
+          // );
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
@@ -183,7 +184,7 @@ class _LeadershipState extends State<Leadership> {
         width: 400.0,
         height: 50.0,
         decoration: BoxDecoration(
-          color: const Color(0xff2e388f),
+          color: Constants.appBarColor,
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: const Center(

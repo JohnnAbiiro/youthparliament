@@ -1,9 +1,9 @@
 import 'package:ecg/provider/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../constants/routes.dart';
 import 'constants.dart';
 import 'createaccount.dart';
-import 'membership.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -54,11 +54,12 @@ class _SignupState extends State<Signup> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Center(
-                          child: CircleAvatar(
-                            radius: 50,
-                            backgroundImage: AssetImage(Constants.youthImage),
-                          ),
+                        Center(
+                          child: Image.asset(Constants.ylplogos,height: 40,),
+                          // child: CircleAvatar(
+                          //   radius: 100,
+                          //   backgroundImage: AssetImage(Constants.ylplogos,),
+                          // ),
                         ),
                         const SizedBox(height: 20.0),
                         // Email Field
@@ -126,17 +127,18 @@ class _SignupState extends State<Signup> {
                         InkWell(
                           onTap: () {
                             if (_formKey.currentState!.validate()) {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(builder: (context) => const Leadership()),
-                              );
+                              Navigator.pushReplacementNamed(context, Routes.membership);
+                              // Navigator.pushReplacement(
+                              //   context,
+                              //   MaterialPageRoute(builder: (context) => const Leadership()),
+                              // );
                             }
                           },
                           child: Container(
                             width: screenWidth * wp400,
                             height: 50.0,
                             decoration: BoxDecoration(
-                              color: const Color(0xff2e388f),
+                              color:  Constants.appBarColor,
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             child: const Center(

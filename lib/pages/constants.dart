@@ -66,23 +66,18 @@ class Constants{
   static const String term =" Terms ";
   static const String privacyPolicy =" Privacy Policy ";
   static const String signUpGoogle =" Sign up with Google ";
-
   // Leadership registration
-  static const String registration =" Leadership Parliament Registration";
+  static const String registration =" Membership Type";
   static const String parliamentCategory = "Select Your Parliament Category";
   //validation text
   static const String requiredText="This field is required";
   // text color
   static const Color logintext = Color(0xFFFFFFFF);
-  static const Color loginTextColor = Color(0xff2f3695);
-
-
-
-
-
+  static const Color loginTextColor = Color(0xFF72024A);
   // Images Paths
   static const String youthImage = "images/youth.jpeg";
-  static const String appsImage = "images/apps1.jpeg";
+  static const String ylplogo = "images/ylplogo.png";
+  static const String appsImage = "images/apps.jpeg";
   static const String postpaidBillImage = "images/12.png";
   static const String greenImage = "images/metal.png";
   static const String albrim = "images/albrim.png";
@@ -97,7 +92,8 @@ class Constants{
   static const String book3 ="images/book3.jpg";
   static const String johnny ="images/johnny.png";
   static const String earth1 ="images/earth1.jpeg";
-  static const String ylplogo ="images/ylplogo.png";
+  static const String ylplogos ="images/ylplogo.png";
+
   //people images
   static const String presidentImage ="images/nana.jpeg";
   static const String vicePresidentImage ="images/bawumia.jpg";
@@ -116,17 +112,18 @@ class Constants{
   static const Color homeTitleColor = Color(0xff08328b);
   static const Color dropdownColor = Color(0xFFE2ECFF);
   static const Color iconColor = Color(0xffd4996a);
-  static const Color waterBillButtonColor = Color(0xff0a318e);
+  static const Color waterBillButtonColor = Color(0xFF72024A);
   static const Color dropdownTextColor = Color(0xffd4996a);
-  static const Color addAccountIconBackgroundColor = Color(0xff043085);
-  static const Color addAccountTextColor = Color(0xff2e388f);
+  static const Color addAccountIconBackgroundColor = Color(0xFF72024A);
+  static const Color addAccountTextColor = Color(0xFF72024A);
   static const Color containerBackgroundColor = Color(0xffe4e6f2);
-  static const Color postpaidBillBackgroundColor = Color(0xff2e388f);
-  static const Color powerBalanceColor = Color(0xFF0F479E);
+  static const Color postpaidBillBackgroundColor = Color(0xFF72024A);
+  static const Color powerBalanceColor = Color(0xFF72024A);
   static const Color loginColor = Color(0xFFFEF7FF);
+  static const Color appcollor = Color(0xFF72024A);
 
  // App bar
-  static const Color appBarColor =Color(0xff0a318e);
+  static const Color appBarColor =Color(0xFF72024A);
   static const Color appIconColor =Color(0xFFFFFFFF);
 
 

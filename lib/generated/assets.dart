@@ -4,7 +4,7 @@ class Assets {
 
   static const String images12 = 'images/12.png';
   static const String images20240712052321Certificate = 'images/2024-07-12-05-23-21-certificate.jpeg';
-  static const String imagesApps1 = 'images/apps1.jpeg';
+  static const String imagesApps1 = 'images/apps.jpeg';
   static const String imagesApps2 = 'images/apps2.jpeg';
   static const String imagesApps3 = 'images/apps3.jpeg';
   static const String imagesApps4 = 'images/apps4.jpeg';

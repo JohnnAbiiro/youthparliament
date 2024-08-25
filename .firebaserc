@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "ghanayouthparliament-a1597"
-  }
+    "default": "ylpapp-66bd6",
+    "staging": "ylpapp-66bd6"
+  },
+  "targets": {},
+  "etags": {}
 }

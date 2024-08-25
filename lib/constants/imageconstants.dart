@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ConstantsImage{
   // Images Paths
   static const String youthImage = "images/youth.jpeg";
-  static const String appsImage = "images/apps1.jpeg";
+  static const String appsImage = "images/apps.jpeg";
   static const String postpaidBillImage = "images/12.png";
   static const String greenImage = "images/metal.png";
   static const String albrim = "images/albrim.png";
