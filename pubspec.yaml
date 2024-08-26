@@ -45,6 +45,7 @@ dependencies:
   cloud_firestore: ^4.14.0
   image_picker: ^1.1.2
   crypto: ^3.0.5
+  flutter_progress_hud: ^2.0.2
 
 
 dev_dependencies:
