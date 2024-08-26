@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 
 class AppProvider extends ChangeNotifier{
-  final auth=FirebaseAuth.instance;
+  static final auth=FirebaseAuth.instance;
    getdata()async{
      return "Success";
    }

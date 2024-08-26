@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecg/pages/Signup.dart';
+import 'package:ecg/provider/controller.dart';
 import 'package:flutter/material.dart';
 import '../provider/userModel.dart';
 import 'constants.dart';
@@ -52,9 +53,12 @@ class _CreateAccountState extends State<CreateAccount> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    const CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage(Constants.youthImage),
+                    Center(
+                      child: Image.asset(Constants.ylplogos,height: 40,),
+                      // child: CircleAvatar(
+                      //   radius: 100,
+                      //   backgroundImage: AssetImage(Constants.ylplogos,),
+                      // ),
                     ),
                     const SizedBox(height: 8.0),
                     _buildTextField(sname,_width,'Names', 'Enter your full name', Icons.person, validator: _requiredValidator),
@@ -75,7 +79,44 @@ class _CreateAccountState extends State<CreateAccount> {
                     const SizedBox(height: 8.0),
                     _buildDateDropdowns(_width,),
                     const SizedBox(height: 8.0),
-                    _buildSubmitButton(_width,),
+                    InkWell(
+                      onTap: ()async{
+                        if (_formKey.currentState!.validate()) {
+                          String txt_sname=sname.text.trim();
+                          String txt_fname=fname.text.trim();
+                          String txt_phone=phone.text.trim();
+                          String txt_email=email.text.trim();
+                          String txt_previous=previous.text.trim();
+                          String txt_academic=academemic.text.trim();
+                          String txt_cprofesssion=cprofesssion.text.trim();
+                          String txt_location=location.text.trim();
+                          String txt_sex=selectedSex!;
+                          String dob="${yearval}-${monthval}-${dayval}";
+                          final user = UserModel(
+                            dob: dob,
+                            sex: txt_sex,
+                            fname: txt_fname,
+                            sname: txt_sname,
+                            email: txt_email,
+                            phone: txt_phone,
+                            cprofesssion: txt_cprofesssion,
+                            previous_leadership: txt_previous,
+                            academic_background: txt_academic,
+                            regional_location: txt_location,
+                          );
+                          try{
+                          //  await AppProvider.auth.createUserWithEmailAndPassword(email: txt_email, password: "password");
+                            await FirebaseFirestore.instance.collection('users').doc(txt_email).set(user.toMap());//add(user.toMap());
+
+                          }catch(e){
+                            print(e);
+                          }
+
+                        }
+
+                      },
+                        child: _buildSubmitButton(_width,)
+                    ),
                     const SizedBox(height: 8.0),
                     _buildOrDivider(_width,),
                     const SizedBox(height: 8.0),
@@ -212,53 +253,18 @@ class _CreateAccountState extends State<CreateAccount> {
       ),
     );
   }
-   _buildSubmitButton(double width,) {
-    return InkWell(
-      onTap: () async{
-        if (_formKey.currentState!.validate()) {
-          String txt_sname=sname.text.trim();
-          String txt_fname=fname.text.trim();
-          String txt_phone=phone.text.trim();
-          String txt_email=email.text.trim();
-          String txt_previous=previous.text.trim();
-          String txt_academic=academemic.text.trim();
-          String txt_cprofesssion=cprofesssion.text.trim();
-          String txt_location=location.text.trim();
-          String txt_sex=selectedSex!;
-          String dob="${yearval}-${monthval}-${dayval}";
-          final user = UserModel(
-            dob: dob,
-            sex: txt_sex,
-            fname: txt_fname,
-            sname: txt_sname,
-            email: txt_email,
-            phone: txt_phone,
-            cprofesssion: txt_cprofesssion,
-            previous_leadership: txt_previous,
-            academic_background: txt_academic,
-            regional_location: txt_location,
-          );
-        try{
-          await FirebaseFirestore.instance.collection('users').add(user.toMap());
-
-        }catch(e){
-          print(e);
-        }
-
-        }
-      },
-      child: Container(
-        width: width,
-        height: 50.0,
-        decoration: BoxDecoration(
-          color: Constants.appBarColor,
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        child: const Center(
-          child: Text(
-            Constants.createMAccount,
-            style: TextStyle(color: Colors.white, fontSize: 12.0),
-          ),
+   Widget _buildSubmitButton(double width) {
+    return Container(
+      width: width,
+      height: 50.0,
+      decoration: BoxDecoration(
+        color: Constants.appBarColor,
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      child: const Center(
+        child: Text(
+          Constants.createMAccount,
+          style: TextStyle(color: Colors.white, fontSize: 12.0),
         ),
       ),
     );

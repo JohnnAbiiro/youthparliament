@@ -227,11 +227,12 @@ class _SignupState extends State<Signup> {
                         // Sign Prompt
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const CreateAccount()),
-                            );
+                            Navigator.pushNamed(context, Routes.createaccount);
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => const CreateAccount()),
+                            // );
                           },
                           child: const Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
