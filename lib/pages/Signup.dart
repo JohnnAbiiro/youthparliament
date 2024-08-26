@@ -1,5 +1,7 @@
 import 'package:ecg/provider/controller.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import '../constants/routes.dart';
 import 'constants.dart';
@@ -226,7 +228,20 @@ class _SignupState extends State<Signup> {
                         const SizedBox(height: 10.0),
                         // Sign Prompt
                         InkWell(
-                          onTap: () {
+                          onTap: () async{
+                            try{
+                              final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+                              final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+                              final AuthCredential credential = GoogleAuthProvider.credential(
+                                accessToken: googleAuth.accessToken,
+                                idToken: googleAuth.idToken,
+                              );
+                            }catch(e){
+                              print(e);
+                            }
+
+                            //await FirebaseAuth.instance.signInWithCredential(credential);
+
                             Navigator.pushNamed(context, Routes.createaccount);
                             // Navigator.push(
                             //   context,
