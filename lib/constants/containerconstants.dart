@@ -10,7 +10,7 @@ class ContainerConstants{
   static const Color addAccountIconBackgroundColor = Color(0xff043085);
   static const Color waterBillButtonColor = Color(0xff0a318e);
   static const Color containerBackgroundColor = Color(0xffe4e6f2);
-  static const Color bottomNavSelected = Color(0xFFFF8F00);
+  static const Color bottomNavSelected = Color(0xFFAD1457);
   static  Color greyColor = Colors.grey.withOpacity(0.3);
   static  Color cardColor = Colors.blueAccent;
   static const Color cardColor1 = Color(0xFFFDC733);
