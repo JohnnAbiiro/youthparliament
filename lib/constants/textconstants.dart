@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ConstantsTextColor{
   // text color
   static const Color logintext = Color(0xFFFFFFFF);
+  static const Color membershipforcusedColor = Color(0xFFFDC733);
   static const Color loginTextColor = Color(0xFFAD1457);
   static const Color whiteColor = Colors.white;
   static const Color powerbalanceColor = Color(0xFF303B6B);

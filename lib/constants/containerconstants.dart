@@ -13,6 +13,7 @@ class ContainerConstants{
   static const Color bottomNavSelected = Color(0xFFFF8F00);
   static  Color greyColor = Colors.grey.withOpacity(0.3);
   static  Color cardColor = Colors.blueAccent;
+  static const Color cardColor1 = Color(0xFFFDC733);
   static  Color blackColor = Colors.black;
   static const Color colorGrey = Color(0xFF757575);
   static const Color  focusedBorderColor =Color(0xFFAD1457);

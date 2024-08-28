@@ -20,6 +20,7 @@ class _LeadershipState extends State<Leadership> {
     return Scaffold(
       appBar: AppBar(
         title:  const Text(Constants.registration,style: TextStyle(color: ConstantsTextColor.logintext,fontSize: 20),),
+        centerTitle: true,
         backgroundColor: ContainerConstants.appBarColor,
       ),
       body: Center(
@@ -62,7 +63,7 @@ class _LeadershipState extends State<Leadership> {
     );
   }
 
-  Widget _buildLeadershipCard(
+   _buildLeadershipCard(
       {required int index,
         required String title,
         required String description,
