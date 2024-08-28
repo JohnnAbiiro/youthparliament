@@ -3,12 +3,13 @@ class ContainerConstants{
   static const Color appBarColor =Color(0xFFAD1457);
   static const Color pollOptionsContainer = Color(0xff2e388f);
   static const Color signupContainer = Color(0xDBF7F8F9);
-  static const Color loginContainer =  Color(0xff2e388f);
+  static const Color loginContainer =  Color(0xFFAD1457);
   static const Color buttonBackgroundColor = Color(0xffe8f1fc);
   static const Color transparent1 = Colors.transparent;
   static const Color dropdownColor = Color(0xFFE2ECFF);
-  static const Color addAccountIconBackgroundColor = Color(0xff043085);
-  static const Color waterBillButtonColor = Color(0xff0a318e);
+  static const Color dropdownColor1 = Color(0xFFF8BBD0);
+  static const Color addAccountIconBackgroundColor = Color(0xFFAD1457);
+  static const Color waterBillButtonColor = Color(0xFFAD1457);
   static const Color containerBackgroundColor = Color(0xffe4e6f2);
   static const Color bottomNavSelected = Color(0xFFAD1457);
   static  Color greyColor = Colors.grey.withOpacity(0.3);

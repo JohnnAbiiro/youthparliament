@@ -348,9 +348,8 @@ class _CreateAccountState extends State<CreateAccount> {
                                   String txt_sex=selectedSex!;
                                   String dob="${yearval}-${monthval}-${dayval}";
                                   String txt_password =confirmPasswordVal.text.trim();
-                                 print(txt_location);
-                                  final user = UserModel(
 
+                                  final user = UserModel(
                                     dob: dob,
                                     sex: txt_sex,
                                     fname: txt_fname,

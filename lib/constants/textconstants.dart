@@ -11,7 +11,8 @@ class ConstantsTextColor{
 
   // Colors
   static const Color serviceRequestBackgroundColor = Color(0xffe8f1fc);
-  static const Color homeTitleColor = Color(0xff08328b);
+  static const Color homeTitleColor = Color(0xFFAD1457);
+  static const Color homeTitleColor1 = Color(0xff08328b);
   static const Color dropdownColor = Color(0xFFE2ECFF);
   static const Color iconColor = Color(0xffd4996a);
   static const Color waterBillButtonColor = Color(0xff0a318e);
