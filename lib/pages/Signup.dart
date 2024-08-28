@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import '../constants/routes.dart';
 import 'constants.dart';
+import '../constants/textconstants.dart';
 import 'createaccount.dart';
 
 class Signup extends StatefulWidget {
@@ -59,10 +60,6 @@ class _SignupState extends State<Signup> {
                       children: [
                         Center(
                           child: Image.asset(Constants.ylplogos,height: 40,),
-                          // child: CircleAvatar(
-                          //   radius: 100,
-                          //   backgroundImage: AssetImage(Constants.ylplogos,),
-                          // ),
                         ),
                         const SizedBox(height: 20.0),
                         // Email Field
@@ -277,7 +274,7 @@ class _SignupState extends State<Signup> {
                               text:  const TextSpan(
                                 children: [
                                   TextSpan(
-                                    text: 'By signing up you agree to our ',
+                                    text: Constants.agreeGoogle,
                                     style: TextStyle(fontSize: 12.0,
                                       color:Colors.black,
                                     ),
@@ -285,7 +282,7 @@ class _SignupState extends State<Signup> {
                                   TextSpan(
                                     text: Constants.terms,
                                     style: TextStyle(
-                                      color: Color(0xff2f3695),
+                                      color: ConstantsTextColor.loginTextColor,
                                       fontSize: 12.0,
                                     ),
                                   ),
@@ -294,9 +291,9 @@ class _SignupState extends State<Signup> {
                                     style: TextStyle(fontSize: 12.0,color: Colors.black),
                                   ),
                                   TextSpan(
-                                    text: 'Privacy Policy',
+                                    text: Constants.privacyPolicy,
                                     style: TextStyle(
-                                      color: Color(0xff2f3695),
+                                      color: ConstantsTextColor.loginTextColor,
                                       fontSize: 12.0,
                                     ),
                                   ),
